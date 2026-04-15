@@ -1,6 +1,9 @@
 # Vercel
 .vercel
 
+# Claude Code (configuración local)
+.claude/
+
 # Variables de entorno (NUNCA subir al repo)
 .env
 .env.local
