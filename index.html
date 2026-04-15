@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-80ZG9TKT50"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-80ZG9TKT50', {
+  page_title: document.title,
+  page_location: window.location.href,
+});
+</script>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://api.languagetool.org">
+<link rel="dns-prefetch" href="https://www.gstatic.com">
+<link rel="dns-prefetch" href="https://firestore.googleapis.com">
+<link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com">
+<meta name="theme-color" content="#2196F3">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tildea — Corrector ortográfico con IA</title>
+<meta name="description" content="Tildea corrige ortografía, tildes y gramática mientras escribes en WhatsApp, Gmail, Google Docs y miles de sitios web. Gratis para siempre.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Tildea">
+<link rel="canonical" href="https://tildea.vercel.app/">
+<meta name="keywords" content="corrector ortográfico, corrector de texto, corrector español, extensión Chrome ortografía, corrector WhatsApp, corrector Gmail, tildea, gramática IA">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tildea.vercel.app/">
+<meta property="og:title" content="Tildea — Escribe perfecto en cualquier sitio web">
+<meta property="og:description" content="Tildea corrige ortografía, tildes y gramática mientras escribes en WhatsApp, Gmail, LinkedIn y cualquier sitio web. Gratis para siempre.">
+<meta property="og:image" content="https://tildea.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Tildea">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tildea — Escribe perfecto en cualquier sitio web">
+<meta name="twitter:description" content="Corrector inteligente para español e inglés. Detecta errores en tiempo real en WhatsApp, Gmail y más. Gratis.">
+<meta name="twitter:image" content="https://tildea.vercel.app/og-image.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}:root{--blue:#2196F3;--blue-dark:#1565C0;--blue-light:#E3F2FD;--blue-mid:#BBDEFB;--sky:#F0F8FF;--white:#FFFFFF;--text:#0D1B2A;--muted:#546E7A;--faint:#B0BEC5;--border:#E1EEF8;--green:#00C896;--orange:#FF7043;--purple:#7C3AED;--pink:#EC4899;--shadow-sm:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 16px rgba(33,150,243,.1);--shadow-lg:0 12px 40px rgba(33,150,243,.15);--r:14px;--r-lg:22px}body{font-family:'DM Sans',system-ui,sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden}h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.2}a{text-decoration:none;color:inherit}nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(var(--nav-bg,255,255,255),.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 max(5vw,24px);height:64px;display:flex;align-items:center;justify-content:space-between;transition:box-shadow .2s}nav.scrolled{box-shadow:0 2px 24px rgba(33,150,243,.12)}.nav-logo{display:flex;align-items:center;gap:10px}.nav-links{display:flex;align-items:center;gap:2px;list-style:none}.nav-links a{font-size:14px;font-weight:500;color:var(--muted);padding:7px 14px;border-radius:8px;transition:color .15s,background .15s}.nav-links a:hover{color:var(--text);background:var(--sky)}.nav-links a.active{color:var(--blue);font-weight:600}.nav-cta{display:flex;align-items:center;gap:10px}.btn-ghost{font-size:14px;font-weight:600;color:var(--blue);padding:8px 18px;border-radius:9px;border:1.5px solid var(--blue-mid);transition:all .15s}.btn-ghost:hover{background:var(--blue-light);border-color:var(--blue)}.btn-nav-primary{font-size:14px;font-weight:700;color:white;padding:9px 20px;border-radius:9px;background:var(--blue);box-shadow:0 3px 10px rgba(33,150,243,.35);transition:all .15s;display:flex;align-items:center;gap:6px}.btn-nav-primary:hover{background:var(--blue-dark);transform:translateY(-1px)}.hero{min-height:100vh;padding:120px max(5vw,24px) 80px;background:linear-gradient(160deg,#EBF5FF 0%,#F0F8FF 50%,#EBF5FF 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center}.hero-bg-circle{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}.hbc-1{width:600px;height:600px;background:radial-gradient(circle,rgba(33,150,243,.15),transparent 70%);top:-200px;right:-150px}.hbc-2{width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,.08),transparent 70%);bottom:-100px;left:-100px}.hbc-3{width:300px;height:300px;background:radial-gradient(circle,rgba(0,200,150,.1),transparent 70%);top:40%;left:10%}.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:6px 16px 6px 8px;font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:28px;box-shadow:0 2px 12px rgba(33,150,243,.1);animation:fadeUp .5s ease both}.hero-eyebrow-badge{background:var(--blue);color:white;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;margin-right:4px}.hero-title{font-size:clamp(40px,6.5vw,76px);font-weight:800;letter-spacing:-0.04em;color:var(--text);margin-bottom:24px;max-width:900px;animation:fadeUp .6s .08s ease both;line-height:1.05}.hero-title .gr{background:linear-gradient(135deg,var(--blue) 0%,#42A5F5 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.hero-sub{font-size:19px;color:var(--muted);max-width:580px;margin-bottom:44px;line-height:1.7;animation:fadeUp .6s .16s ease both}.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:24px;animation:fadeUp .6s .24s ease both}.btn-hero{font-size:16px;font-weight:700;color:white;padding:15px 32px;border-radius:13px;background:var(--blue);box-shadow:0 6px 24px rgba(33,150,243,.45);transition:all .2s;display:flex;align-items:center;gap:9px;font-family:'Sora',sans-serif}.btn-hero:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 10px 32px rgba(33,150,243,.5)}.btn-hero-ghost{font-size:15px;font-weight:600;color:var(--text);padding:14px 28px;border-radius:13px;background:var(--surface);border:1.5px solid var(--border);transition:all .2s;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-sm)}.btn-hero-ghost:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}.hero-trust{display:flex;align-items:center;gap:16px;font-size:13px;color:var(--muted);animation:fadeUp .6s .3s ease both;flex-wrap:wrap;justify-content:center}.hero-trust-item{display:flex;align-items:center;gap:5px}.hero-trust-item i{color:var(--green);font-size:15px}.hero-mockup-wrap{position:relative;width:100%;max-width:840px;margin-top:56px;animation:fadeUp .7s .35s ease both}.hero-mockup{background:var(--surface);border-radius:20px;overflow:visible;box-shadow:0 24px 80px rgba(33,150,243,.2),0 4px 16px rgba(0,0,0,.08);overflow:hidden;border:1px solid var(--border)}.mockup-bar{background:#F5F5F5;padding:12px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #E0E0E0}.mockup-dots{display:flex;gap:6px}.mockup-dots span{width:11px;height:11px;border-radius:50%}.dot-r{background:#FF5F57}.dot-y{background:#FEBC2E}.dot-g{background:#28C840}.mockup-url{flex:1;background:white;border-radius:7px;padding:5px 12px;font-size:12px;color:var(--muted);border:1px solid #E0E0E0;text-align:center;display:flex;align-items:center;justify-content:center;gap:5px;max-width:360px;margin:0 auto}.mockup-body{padding:24px 28px 90px;overflow:visible;position:relative;}.mockup-msg{background:#DCF8C6;border-radius:12px 12px 2px 12px;padding:12px 16px;font-size:15px;line-height:1.65;color:#111;max-width:80%;margin-left:auto;margin-bottom:14px}.mockup-msg-2{background:#F0F0F0;border-radius:2px 12px 12px 12px;padding:12px 16px;font-size:15px;line-height:1.65;color:#111;max-width:80%;margin-bottom:14px}.underline-red{border-bottom:2.5px solid #EF5350;background:rgba(239,83,80,.1);border-radius:2px;position:relative;cursor:pointer}.underline-yellow{border-bottom:2.5px solid #FFC107;background:rgba(255,193,7,.1);border-radius:2px}.tildea-popup{display:inline-block;position:relative}.tildea-tip{position:absolute;top:calc(100%+8px);left:50%;transform:translateX(-50%);background:white;border:1.5px solid var(--border);border-radius:14px;padding:12px 14px;box-shadow:0 8px 32px rgba(33,150,243,.18);width:230px;z-index:10;animation:tipPop .4s .9s ease both;opacity:0}@keyframes tipPop{from{opacity:0;transform:translateX(-50%) scale(.9) translateY(6px)}to{opacity:1;transform:translateX(-50%) scale(1) translateY(0)}}.tip-badge{font-size:9px;font-weight:700;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}.tip-word{font-size:14px;font-weight:700;color:#EF5350;margin-bottom:4px}.tip-msg{font-size:11.5px;color:var(--muted);margin-bottom:10px;line-height:1.4}.tip-fixes{display:flex;gap:6px;flex-wrap:wrap}.tip-fix{background:var(--blue);color:white;border-radius:7px;padding:5px 12px;font-size:12.5px;font-weight:700;cursor:pointer;border:none}.tip-ignore{background:var(--sky);color:var(--muted);border-radius:7px;padding:5px 10px;font-size:11.5px;cursor:pointer;border:1px solid var(--border)}.mockup-stats{display:flex;gap:10px;flex-wrap:wrap}.mstat{background:var(--sky);border:1px solid var(--border);border-radius:10px;padding:8px 14px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}.mstat i{color:var(--blue)}.mstat strong{color:var(--text);font-weight:700}.float-badge{position:absolute;background:var(--surface);border-radius:14px;padding:10px 14px;box-shadow:0 8px 32px rgba(0,0,0,.12);display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;border:1px solid var(--border);animation:floatBadge 3s ease-in-out infinite}@keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}.fb-left{left:-20px;top:-20px;animation-delay:.5s}.fb-right{right:-20px;bottom:20%;animation-delay:0s}.fb-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px}.fb-icon-green{background:#E8F8F4;color:var(--green)}.fb-icon-blue{background:var(--blue-light);color:var(--blue)}.fb-icon-orange{background:#FFF3EE;color:var(--orange)}.features{padding:90px max(5vw,24px);background:var(--white)}.section-tag{display:inline-flex;align-items:center;gap:6px;background:var(--blue-light);color:var(--blue);font-size:12px;font-weight:700;border-radius:20px;padding:5px 14px;margin-bottom:16px;letter-spacing:.04em;text-transform:uppercase}.section-title{font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-0.03em;margin-bottom:14px;color:var(--text)}.section-sub{font-size:17px;color:var(--muted);max-width:520px;line-height:1.7}.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}.feat-card{background:var(--sky);border:1.5px solid var(--border);border-radius:20px;padding:28px;transition:all .2s;cursor:default}.feat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--blue-mid);background:white}.feat-card-icon{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px}.icon-blue{background:var(--blue-light);color:var(--blue)}.icon-green{background:#E8F8F4;color:#00A67E}.icon-orange{background:#FFF3EE;color:#E64A19}.icon-purple{background:#EDE7F6;color:#7C3AED}.icon-teal{background:#E0F7FA;color:#00838F}.icon-pink{background:#FCE4EC;color:#C2185B}.feat-card h3{font-size:17px;font-weight:700;margin-bottom:8px;color:var(--text)}.feat-card p{font-size:14px;color:var(--muted);line-height:1.65}.feat-tag{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:12px;letter-spacing:.03em}.feat-tag-pro{background:linear-gradient(135deg,var(--orange),#F4511E);color:white}.feat-tag-free{background:var(--blue-light);color:var(--blue)}.corrector-section{padding:90px max(5vw,24px);background:var(--sky)}.corrector-inner{max-width:900px;margin:0 auto}.corrector-box{background:white;border:2px solid var(--border);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg);transition:border-color .2s}.corrector-box:focus-within{border-color:var(--blue)}.corrector-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#F8FBFF;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px}.corrector-lang{display:flex;gap:6px}.lang-btn{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:white;color:var(--muted);cursor:pointer;transition:all .15s;font-family:inherit}.lang-btn.active{background:var(--blue);color:white;border-color:var(--blue);box-shadow:0 2px 8px rgba(33,150,243,.3)}.error-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:20px;font-size:12.5px;font-weight:700}.error-badge.has-errors{background:#FFF5F5;color:#EF5350;border:1px solid #FECACA}.error-badge.no-errors{background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0}.corrector-textarea-wrap{position:relative;min-height:180px}#correctorInput{width:100%;min-height:180px;max-height:360px;padding:22px 24px;font-size:16px;font-family:'DM Sans',sans-serif;line-height:1.75;border:none;outline:none;resize:vertical;color:var(--text);caret-color:var(--text);background:transparent;position:relative;z-index:1}.corrector-highlight{position:absolute;top:0;left:0;right:0;bottom:0;padding:22px 24px;font-size:16px;font-family:'DM Sans',sans-serif;line-height:1.75;pointer-events:none;white-space:pre-wrap;word-wrap:break-word;overflow-y:auto;color:transparent;z-index:2}.corrector-highlight mark.err-spell{background:rgba(239,83,80,.13);border-bottom:2.5px solid #EF5350;color:transparent;border-radius:3px}.corrector-footer{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#F8FBFF;border-top:1px solid var(--border);flex-wrap:wrap;gap:10px}.corrector-actions{display:flex;gap:8px}.btn-check{display:flex;align-items:center;gap:7px;padding:10px 20px;border-radius:11px;font-size:14px;font-weight:700;font-family:'Sora',sans-serif;cursor:pointer;border:none;background:var(--blue);color:white;box-shadow:0 3px 12px rgba(33,150,243,.3);transition:all .15s}.btn-check:hover{background:var(--blue-dark);transform:translateY(-1px)}.btn-clear{display:flex;align-items:center;gap:7px;padding:10px 16px;border-radius:11px;font-size:14px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:white;color:var(--muted);transition:all .15s;font-family:inherit}.btn-clear:hover{color:var(--text);border-color:var(--text)}.char-count{font-size:12.5px;color:var(--faint)}.pro-hint{font-size:12px;color:var(--muted)}.pro-hint a{color:var(--blue);font-weight:600}.errors-panel{margin-top:16px;display:none}.errors-panel.show{display:block}.err-panel-title{font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:7px}.err-chips{display:flex;flex-direction:column;gap:8px}.err-chip{display:flex;align-items:center;gap:10px;padding:11px 16px;background:white;border:1.5px solid var(--border);border-radius:13px;cursor:pointer;transition:all .15s}.err-chip:hover{border-color:var(--blue);box-shadow:0 2px 8px rgba(33,150,243,.1)}.err-chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:#EF5350}.err-chip-wrong{font-size:14px;font-weight:600;color:#EF5350}.err-chip-arr{color:var(--faint);font-size:12px}.err-chip-fix{font-size:14px;font-weight:700;color:#16A34A}.err-chip-msg{font-size:12px;color:var(--muted);flex:1}.err-chip-btn{margin-left:auto;font-size:12.5px;font-weight:700;color:white;background:var(--blue);padding:4px 14px;border-radius:20px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .15s}.err-chip-btn:hover{background:var(--blue-dark)}.corrector-empty{text-align:center;padding:40px 24px;color:var(--faint);font-size:14px}.corrector-empty i{font-size:32px;display:block;margin-bottom:8px;color:var(--blue-mid)}.how{padding:90px max(5vw,24px);background:white}.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;position:relative}.how-steps::before{content:'';position:absolute;top:32px;left:17%;right:17%;height:2px;background:linear-gradient(90deg,var(--blue),#42A5F5);z-index:0;border-radius:2px}.step{text-align:center;padding:0 28px;position:relative;z-index:1}.step-num{width:64px;height:64px;border-radius:50%;background:var(--blue);color:white;font-family:'Sora',sans-serif;font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;box-shadow:0 6px 20px rgba(33,150,243,.4);border:4px solid white}.step h3{font-size:17px;font-weight:700;margin-bottom:10px}.step p{font-size:14px;color:var(--muted);line-height:1.65}.pricing{padding:90px max(5vw,24px);background:var(--sky);text-align:center}.pricing-grid{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:20px;max-width:1000px;margin:56px auto 0;align-items:center}.price-card{background:white;border:2px solid var(--border);border-radius:22px;padding:32px 28px;text-align:left;position:relative;overflow:hidden;transition:all .2s}.price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}.price-card.featured{background:var(--blue);border-color:var(--blue);color:white;transform:scale(1.04);box-shadow:0 20px 60px rgba(33,150,243,.35)}.price-card.featured:hover{transform:scale(1.04) translateY(-4px)}.price-badge{position:absolute;top:16px;right:16px;background:var(--orange);color:white;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.06em}.price-plan{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:12px}.price-card.featured .price-plan{color:rgba(255,255,255,.65)}.price-amount{font-family:'Sora',sans-serif;font-size:52px;font-weight:800;letter-spacing:-2px;line-height:1;color:var(--text);display:flex;align-items:flex-start;gap:4px}.price-card.featured .price-amount{color:white}.price-currency{font-size:22px;font-weight:700;margin-top:8px}.price-period{font-size:13px;color:var(--muted);margin:6px 0 24px}.price-card.featured .price-period{color:rgba(255,255,255,.6)}.price-divider{border:none;border-top:1px solid var(--border);margin:20px 0}.price-card.featured .price-divider{border-color:rgba(255,255,255,.2)}.price-features{list-style:none;display:flex;flex-direction:column;gap:10px}.price-features li{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--muted);line-height:1.4}.price-card.featured .price-features li{color:rgba(255,255,255,.85)}.price-features li i{font-size:15px;flex-shrink:0;margin-top:1px}.price-features li i.bi-check-circle-fill{color:var(--green)}.price-card.featured .price-features li i.bi-check-circle-fill{color:rgba(255,255,255,.9)}.price-features li.off{opacity:.4}.price-features li.off i{color:var(--faint)}.price-cta{display:block;margin-top:28px;padding:13px;border-radius:13px;text-align:center;font-size:14.5px;font-weight:700;font-family:'Sora',sans-serif;transition:all .15s;cursor:pointer}.price-cta.outline{border:2px solid var(--blue);color:var(--blue)}.price-cta.outline:hover{background:var(--blue-light)}.price-cta.solid{background:white;color:var(--blue);box-shadow:0 4px 16px rgba(0,0,0,.15)}.price-cta.solid:hover{background:var(--blue-light);transform:translateY(-1px)}.price-faq{max-width:700px;margin:56px auto 0;text-align:left}.price-faq h3{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;text-align:center;margin-bottom:28px}.pfaq-item{border:1px solid var(--border);border-radius:14px;margin-bottom:10px;overflow:hidden;background:white}.pfaq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;font-size:14.5px;font-weight:600;transition:background .15s}.pfaq-q:hover{background:var(--sky)}.pfaq-q i{color:var(--faint);transition:transform .25s;flex-shrink:0}.pfaq-item.open .pfaq-q i{transform:rotate(45deg);color:var(--blue)}.pfaq-a{display:none;padding:0 20px 16px;font-size:14px;color:var(--muted);line-height:1.7}.pfaq-item.open .pfaq-a{display:block}.testi{padding:90px max(5vw,24px);background:white}.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}.testi-card{background:var(--sky);border:1.5px solid var(--border);border-radius:20px;padding:28px;transition:all .2s;position:relative}.testi-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--blue-mid)}.testi-quote{font-size:36px;color:var(--blue-mid);font-family:Georgia,serif;line-height:1;margin-bottom:4px}.testi-stars{color:#FFC107;font-size:14px;letter-spacing:2px;margin-bottom:14px}.testi-text{font-size:14.5px;color:var(--text);line-height:1.75;margin-bottom:20px}.testi-author{display:flex;align-items:center;gap:12px}.testi-avatar{width:42px;height:42px;border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;font-family:'Sora',sans-serif;flex-shrink:0}.testi-name{font-size:14px;font-weight:700;color:var(--text)}.testi-role{font-size:12px;color:var(--faint)}.testi-plan{position:absolute;top:20px;right:20px;font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:10px}.testi-plan.free{background:var(--blue-light);color:var(--blue)}.testi-plan.pro{background:linear-gradient(135deg,var(--orange),#F4511E);color:white}.cta-section{padding:100px max(5vw,24px);background:linear-gradient(135deg,#1565C0 0%,#2196F3 60%,#42A5F5 100%);text-align:center;position:relative;overflow:hidden}.cta-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}.cta-section h2{font-size:clamp(30px,5vw,52px);font-weight:800;color:white;margin-bottom:16px;position:relative;letter-spacing:-0.03em}.cta-section p{font-size:18px;color:rgba(255,255,255,.75);margin-bottom:40px;max-width:520px;margin-inline:auto;position:relative;line-height:1.7}.cta-btns{display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}.btn-cta-white{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--blue);padding:15px 32px;border-radius:13px;font-size:15px;font-weight:700;font-family:'Sora',sans-serif;box-shadow:0 8px 28px rgba(0,0,0,.18);transition:all .2s}.btn-cta-white:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.22)}.btn-cta-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:white;padding:14px 28px;border-radius:13px;font-size:15px;font-weight:600;border:2px solid rgba(255,255,255,.4);transition:all .2s}.btn-cta-outline:hover{background:rgba(255,255,255,.1);border-color:white}.cta-mini{margin-top:20px;font-size:13px;color:rgba(255,255,255,.55);position:relative}footer{background:#0A1628;color:rgba(255,255,255,.55);padding:64px max(5vw,24px) 32px}.footer-grid{display:grid;grid-template-columns:1.8fr repeat(3,1fr);gap:48px;margin-bottom:56px}.footer-tagline{font-size:14px;line-height:1.65;margin-bottom:22px;margin-top:14px}.footer-social{display:flex;gap:10px}.social-btn{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:16px;transition:all .15s}.social-btn:hover{background:var(--blue);color:white;border-color:var(--blue)}.footer-col h4{font-size:11px;font-weight:800;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.12em;margin-bottom:20px}.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}.footer-col ul li a{font-size:14px;color:rgba(255,255,255,.5);transition:color .15s}.footer-col ul li a:hover{color:white}.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid rgba(255,255,255,.07);font-size:12.5px;flex-wrap:wrap;gap:12px}.footer-legal{display:flex;gap:20px}.footer-legal a{color:rgba(255,255,255,.3);transition:color .15s}.footer-legal a:hover{color:white}@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}.reveal{opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:translateY(0)}.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}@media(max-width:900px){.features-grid{grid-template-columns:1fr 1fr}.pricing-grid{grid-template-columns:1fr;max-width:420px}.price-card.featured{transform:none}.price-card.featured:hover{transform:translateY(-4px)}.vs-grid{grid-template-columns:1fr}.testi-grid{grid-template-columns:1fr}.how-steps{grid-template-columns:1fr}.how-steps::before{display:none}.footer-grid{grid-template-columns:1fr 1fr}}@media(max-width:640px){.nav-links{display:none}.features-grid{grid-template-columns:1fr}.hero-title{font-size:clamp(34px,8vw,48px)}.footer-grid{grid-template-columns:1fr}.hero-actions{flex-direction:column;align-items:stretch}.fb-left,.fb-right{display:none}.mockup-body{padding:24px 28px 90px;overflow:visible;position:relative;}}:root{--bg:#FFFFFF;--bg-alt:#F0F8FF;--surface:#FFFFFF}[data-theme="dark"]{--bg:#0F1724;--bg-alt:#161F2E;--surface:#1E2A3A;--text:#E8F0FE;--muted:#8EA0B8;--faint:#4A607A;--border:#2A3A50;--blue-light:#1A2E45;--blue-mid:#1E3A5A;--sky:#161F2E;--white:#1E2A3A;--shadow-sm:0 1px 3px rgba(0,0,0,.3);--shadow-md:0 4px 16px rgba(0,0,0,.3);--shadow-lg:0 12px 40px rgba(0,0,0,.4)}[data-theme="dark"] body{background:var(--bg);color:var(--text)}[data-theme="dark"] nav{background:rgba(15,23,36,.96)!important;border-color:var(--border)!important}[data-theme="dark"] nav .nav-links a{color:var(--muted)}[data-theme="dark"] nav .nav-links a:hover{color:var(--text)}[data-theme="dark"] .btn-ghost{border-color:var(--border);color:var(--blue)}[data-theme="dark"] .hero{background:linear-gradient(160deg,#0D1922 0%,#0F1724 50%,#0D1922 100%)}[data-theme="dark"] .hero-badge{background:var(--surface);border-color:var(--border)}[data-theme="dark"] .hero-badge span{color:var(--text)}[data-theme="dark"] .hero-title{color:var(--text)}[data-theme="dark"] .hero-sub{color:var(--muted)}[data-theme="dark"] .hero-trust-item{color:var(--muted)}[data-theme="dark"] .btn-hero-ghost{background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.2)}[data-theme="dark"] .hero-mockup{background:var(--surface);border-color:var(--border)}[data-theme="dark"] .mockup-bar{background:#1A2535;border-color:var(--border)}[data-theme="dark"] .mockup-body{background:var(--surface)}[data-theme="dark"] .mockup-textarea{background:#151F2E;border-color:var(--border);color:var(--text)}[data-theme="dark"] .mockup-url{background:#1A2535;border-color:var(--border);color:var(--muted)}[data-theme="dark"] .mstat{background:var(--bg-alt);border-color:var(--border)}[data-theme="dark"] .float-badge{background:var(--surface);border-color:var(--border);color:var(--text)}[data-theme="dark"] [data-theme="dark"] [data-theme="dark"] [data-theme="dark"] [data-theme="dark"] [data-theme="dark"] [data-theme="dark"] .features{background:var(--bg)}[data-theme="dark"] .feat-card{background:var(--surface);border-color:var(--border)}[data-theme="dark"] .feat-card h3{color:var(--text)}[data-theme="dark"] .feat-card p{color:var(--muted)}[data-theme="dark"] .how{background:var(--bg-alt)}[data-theme="dark"] .step-num{border-color:var(--bg-alt)}[data-theme="dark"] .how p{color:var(--muted)}[data-theme="dark"] .corrector-section{background:var(--bg)}[data-theme="dark"] .corrector-box{background:var(--surface);border-color:var(--border)}[data-theme="dark"] .corrector-header{background:#151F2E;border-color:var(--border)}[data-theme="dark"] .corrector-footer{background:#151F2E;border-color:var(--border)}[data-theme="dark"] #correctorInput{color:var(--text)}[data-theme="dark"] .lang-btn{background:var(--surface);border-color:var(--border);color:var(--muted)}[data-theme="dark"] .btn-clear{background:var(--surface);border-color:var(--border);color:var(--muted)}[data-theme="dark"] .errorsPanel{background:var(--surface);border-color:var(--border)}[data-theme="dark"] .err-chip{background:var(--bg-alt);border-color:var(--border)}[data-theme="dark"] .err-chip-msg{color:var(--muted)}[data-theme="dark"] .testi{background:var(--bg)}[data-theme="dark"] .testi-card{background:var(--surface);border-color:var(--border)}[data-theme="dark"] .testi-text{color:var(--text)}[data-theme="dark"] .testi-name{color:var(--text)}[data-theme="dark"] .testi-role{color:var(--muted)}[data-theme="dark"] .pricing{background:var(--bg-alt)}[data-theme="dark"] .price-card:not(.featured){background:var(--surface);border-color:var(--border)}[data-theme="dark"] .price-card:not(.featured) .price-name{color:var(--text)}[data-theme="dark"] .price-card:not(.featured) .price-amount{color:var(--text)}[data-theme="dark"] .price-card:not(.featured) .price-sub{color:var(--muted)}[data-theme="dark"] .price-card:not(.featured) .price-features li{color:var(--muted)}[data-theme="dark"] .cta-section{background:var(--blue-dark)}[data-theme="dark"] footer{background:#080F1A}[data-theme="dark"] footer .footer-col h4{color:rgba(255,255,255,.6)}[data-theme="dark"] footer .footer-col a{color:rgba(255,255,255,.4)}[data-theme="dark"] #corrTooltip{background:var(--surface);border-color:var(--border)}[data-theme="dark"] .ctt-arrow{background:var(--surface);border-color:var(--border)}[data-theme="dark"] .ctt-msg{color:var(--muted)}[data-theme="dark"] .ctt-fix-alt{background:var(--bg-alt);border-color:var(--border);color:var(--text)}[data-theme="dark"] .ctt-word{color:#FF6B6B}[data-theme="dark"] .mobile-nav{background:var(--surface);border-color:var(--border)}[data-theme="dark"] .mobile-nav a{color:var(--muted)}.corrector-highlight mark.err-spell{background:rgba(239,83,80,.15);border-bottom:2.5px solid #EF5350;border-radius:3px;color:transparent;pointer-events:auto;cursor:pointer;transition:background .15s}.corrector-highlight mark.err-spell:hover,.corrector-highlight mark.err-spell.active-mark{background:rgba(239,83,80,.3)}.corrector-highlight mark.err-grammar{background:rgba(245,158,11,.14);border-bottom:2.5px solid #F59E0B;border-radius:3px;color:transparent;pointer-events:auto;cursor:pointer;transition:background .15s}.corrector-highlight mark.err-grammar:hover,.corrector-highlight mark.err-grammar.active-mark{background:rgba(245,158,11,.3)}.lt-spinner{display:inline-block;width:13px;height:13px;border:2px solid rgba(33,150,243,.3);border-top-color:var(--blue);border-radius:50%;animation:lt-spin .7s linear infinite;flex-shrink:0;vertical-align:middle;margin-right:4px}.lt-spinner-white{border-color:rgba(255,255,255,.3);border-top-color:white}@keyframes lt-spin{to{transform:rotate(360deg)}}.error-badge.loading{background:#EFF6FF;color:var(--blue);border:1px solid var(--blue-mid)}.lt-badge{display:none!important}.btn-apply-all{display:none;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;border:none;background:#E8F8F4;color:#16A34A;transition:all .15s;font-family:inherit;margin-bottom:12px}.btn-apply-all:hover{background:#D1FAE5}.err-chip-info{flex:1;min-width:0}.err-chip-row{display:flex;align-items:center;gap:8px;margin-bottom:3px;flex-wrap:wrap}.err-chip-dot.dot-grammar{background:#F59E0B}#corrTooltip{position:fixed;z-index:9999;background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:14px 16px;box-shadow:0 12px 40px rgba(0,0,0,.2);min-width:220px;max-width:300px;opacity:0;pointer-events:none;transform:translateY(6px) scale(.97);transition:opacity .18s ease,transform .18s ease;font-family:'DM Sans',sans-serif;display:none}#corrTooltip.visible{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}.ctt-header{display:flex;align-items:center;gap:7px;margin-bottom:8px}.ctt-type{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:2px 8px;border-radius:10px}.ctt-type.spell{background:#FFF5F5;color:#EF5350}.ctt-type.grammar{background:#FFFBEB;color:#D97706}.ctt-word{font-size:14px;font-weight:700;color:#EF5350;text-decoration:line-through;text-decoration-color:rgba(239,83,80,.4)}.ctt-msg{font-size:12.5px;color:var(--muted);line-height:1.5;margin-bottom:12px}.ctt-fixes{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.ctt-fix{background:var(--blue);color:white;border:none;border-radius:9px;padding:6px 14px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s;display:flex;align-items:center;gap:5px}.ctt-fix:hover{background:var(--blue-dark);transform:translateY(-1px)}.ctt-fix-alt{background:var(--bg-alt);color:var(--text);border:1.5px solid var(--border);border-radius:9px;padding:5px 12px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}.ctt-fix-alt:hover{border-color:var(--blue);color:var(--blue)}.ctt-ignore{width:100%;background:none;border:none;font-size:12px;color:var(--faint);cursor:pointer;font-family:inherit;padding:4px;text-align:center}.ctt-ignore:hover{color:var(--muted)}.ctt-arrow{position:absolute;width:12px;height:12px;background:var(--surface);border-left:1.5px solid var(--border);border-top:1.5px solid var(--border);transform:rotate(45deg);bottom:-7px;left:20px}.ctt-arrow.arrow-up{bottom:auto;top:-7px;border-left:none;border-top:none;border-right:1.5px solid var(--border);border-bottom:1.5px solid var(--border)}.dark-toggle{width:36px;height:36px;border-radius:9px;background:var(--bg-alt);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--muted);transition:all .2s}.dark-toggle:hover{color:var(--text);border-color:var(--blue)}.hamburger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;cursor:pointer;border:none;background:none;padding:4px}.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .25s ease}.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px 20px;z-index:150;box-shadow:0 8px 32px rgba(0,0,0,.12);flex-direction:column;gap:4px}.mobile-nav.open{display:flex}.mobile-nav a{font-size:15px;font-weight:500;color:var(--muted);padding:11px 14px;border-radius:10px;transition:all .15s;text-decoration:none;display:block}.mobile-nav a:hover{background:var(--blue-light);color:var(--blue)}.mobile-nav .mn-divider{height:1px;background:var(--border);margin:8px 0}.mobile-nav .mn-cta{margin-top:4px;padding:12px;border-radius:11px;background:var(--blue);color:white;text-align:center;font-weight:700;font-size:14px}@media(max-width:640px){.hamburger{display:flex!important}.nav-links{display:none!important}.nav-cta .btn-ghost{display:none}.hero-title{font-size:clamp(32px,8vw,46px)!important}.hero-sub{font-size:16px!important}.hero-actions{flex-direction:column;align-items:stretch}.features-grid{grid-template-columns:1fr!important}.how-steps{grid-template-columns:1fr!important}.how-steps::before{display:none!important}.pricing-grid{grid-template-columns:1fr!important}.testi-grid{grid-template-columns:1fr!important}.footer-grid{grid-template-columns:1fr!important}.cta-btns{flex-direction:column;align-items:stretch}}@media(max-width:900px){.pricing-grid{grid-template-columns:1fr 1fr!important}}[data-theme="dark"] .hero-eyebrow{background:var(--surface)!important;border-color:var(--border)!important;color:var(--muted)!important}[data-theme="dark"] .hero-eyebrow-badge{background:var(--blue)!important}[data-theme="dark"] .hero-mockup{background:var(--surface)!important;box-shadow:0 24px 80px rgba(0,0,0,.4)!important}[data-theme="dark"] .float-badge{background:var(--surface)!important;border-color:var(--border)!important;color:var(--text)!important}[data-theme="dark"] .btn-hero-ghost{background:rgba(255,255,255,.07)!important;color:rgba(255,255,255,.85)!important;border-color:rgba(255,255,255,.2)!important}[data-theme="dark"] .mockup-bar{background:#1A2535!important;border-color:var(--border)!important}[data-theme="dark"] .mockup-body{background:#151F2E!important}[data-theme="dark"] .mockup-url{background:var(--surface)!important;border-color:var(--border)!important;color:var(--muted)!important}[data-theme="dark"] .mstat{background:var(--bg-alt)!important;border-color:var(--border)!important;color:var(--text)!important}[data-theme="dark"] .feat-card{background:var(--surface)!important;border-color:var(--border)!important}[data-theme="dark"] .feat-card h3{color:var(--text)!important}[data-theme="dark"] .feat-card p{color:var(--muted)!important}[data-theme="dark"] .how{background:var(--bg-alt)!important}[data-theme="dark"] .testi-card{background:var(--surface)!important;border-color:var(--border)!important}[data-theme="dark"] .testi-text{color:var(--text)!important}[data-theme="dark"] .testi-name{color:var(--text)!important}[data-theme="dark"] .price-card:not(.featured){background:var(--surface)!important;border-color:var(--border)!important}[data-theme="dark"] .hero-trust-item{color:rgba(255,255,255,.6)!important}[data-theme="dark"] .hero-trust-item i{color:rgba(255,255,255,.5)!important}[data-theme="dark"] .corrector-box{background:var(--surface)!important;border-color:var(--border)!important}[data-theme="dark"] .corrector-header{background:#151F2E!important;border-color:var(--border)!important}[data-theme="dark"] .corrector-footer{background:#151F2E!important;border-color:var(--border)!important}[data-theme="dark"] .btn-clear{background:var(--surface)!important;border-color:var(--border)!important;color:var(--muted)!important}[data-theme="dark"] .errorsPanel{background:var(--surface)!important;border-color:var(--border)!important}[data-theme="dark"] .err-chip{background:var(--bg-alt)!important;border-color:var(--border)!important}[data-theme="dark"] .pfaq-item{background:var(--surface)!important;border-color:var(--border)!important}[data-theme="dark"] .pfaq-q{color:var(--text)!important}[data-theme="dark"] .pfaq-a{color:var(--muted)!important}[data-theme="dark"] .pfaq-q:hover{background:var(--bg-alt)!important}html{scroll-behavior:smooth}a{transition:color .15s,opacity .15s}.nav-links a.active{color:var(--blue)!important;font-weight:600}.hero-eyebrow{animation:fade-down .6s ease both;animation-delay:.1s}@keyframes fade-down{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}.hero-title{animation:fade-up .7s ease both;animation-delay:.2s}.hero-sub{animation:fade-up .7s ease both;animation-delay:.35s}.hero-actions{animation:fade-up .7s ease both;animation-delay:.5s}@keyframes fade-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}.feat-card{transition:transform .2s,box-shadow .2s,border-color .2s!important}.feat-card:hover{transform:translateY(-6px)!important;border-color:var(--blue)!important;box-shadow:0 12px 36px rgba(33,150,243,.15)!important}.testi-card{transition:transform .2s,box-shadow .2s!important}.testi-card:hover{transform:translateY(-4px)!important;box-shadow:0 12px 32px rgba(33,150,243,.12)!important}.price-card:not(.featured){transition:transform .2s,box-shadow .2s,border-color .2s!important}.price-card:not(.featured):hover{transform:translateY(-4px)!important;border-color:var(--blue)!important;box-shadow:0 12px 36px rgba(33,150,243,.12)!important}.btn-hero{transition:all .2s!important}.btn-hero:hover{transform:translateY(-2px)!important;box-shadow:0 10px 28px rgba(33,150,243,.45)!important}.btn-hero-ghost{transition:all .2s!important}.btn-hero-ghost:hover{background:var(--blue-light)!important;border-color:var(--blue)!important}.btn-check{transition:all .2s!important}.btn-check:hover:not(:disabled){transform:translateY(-1px)!important;box-shadow:0 6px 20px rgba(33,150,243,.35)!important}.err-chip{animation:chip-in .25s ease both}@keyframes chip-in{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}.footer-col a{transition:color .15s,padding-left .15s!important}.footer-col a:hover{padding-left:4px!important}.pfaq-a{transition:max-height .3s ease,padding .2s ease!important}.step-num{transition:transform .2s,box-shadow .2s!important}.how-step:hover .step-num{transform:scale(1.08)!important;box-shadow:0 4px 16px rgba(33,150,243,.3)!important}::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:var(--faint)}button:focus-visible,a:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}.cta-section h2,.cta-title{text-shadow:0 2px 20px rgba(0,0,0,.2)}.corrector-box{transition:box-shadow .3s!important}.corrector-box:focus-within{box-shadow:0 0 0 3px rgba(33,150,243,.15),0 12px 40px rgba(33,150,243,.15)!important}[data-theme="dark"]::-webkit-scrollbar-thumb{background:var(--border)}[data-theme="dark"]::-webkit-scrollbar-thumb:hover{background:var(--faint)}.btn-copy{display:flex;align-items:center;gap:7px;padding:10px 16px;border-radius:11px;font-size:14px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:white;color:var(--muted);transition:all .15s;font-family:inherit}.btn-copy:hover{color:var(--blue);border-color:var(--blue);background:var(--blue-light)}[data-theme="dark"] .btn-copy{background:var(--surface);border-color:var(--border)}.err-chip-actions{display:flex;align-items:center;gap:6px;margin-left:auto;flex-shrink:0}.err-chip-ignore{width:28px;height:28px;border-radius:7px;background:none;border:1.5px solid var(--border);color:var(--faint);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .15s;flex-shrink:0}.err-chip-ignore:hover{background:#FFF5F5;border-color:#FECACA;color:#EF5350}[data-theme="dark"] .err-chip-ignore{border-color:var(--border);color:var(--faint)}.corrector-highlight mark.err-grammar{background:rgba(255,152,0,.12);border-bottom:2.5px solid #FF9800;color:transparent;border-radius:3px}.plan-bar{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#E8FFF5,#D1FAE5);border:1.5px solid #A7F3D0;border-radius:13px;padding:10px 18px;margin-bottom:14px;flex-wrap:wrap;gap:8px}[data-theme="dark"] .plan-bar{background:rgba(0,200,150,.1);border-color:rgba(0,200,150,.25)}.plan-bar-left{display:flex;align-items:center;gap:10px}.plan-bar-badge{background:linear-gradient(135deg,#059669,#047857);color:white;font-size:12px;font-weight:800;font-family:'Sora',sans-serif;padding:3px 10px;border-radius:20px}.plan-bar-name{font-size:13.5px;font-weight:600;color:#065F46}[data-theme="dark"] .plan-bar-name{color:#6EE7B7}.plan-bar-link{font-size:13px;color:#059669;font-weight:600;transition:opacity .15s}.plan-bar-link:hover{opacity:.75}.usage-bar{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1.5px solid var(--border);border-radius:13px;padding:10px 18px;margin-bottom:14px;flex-wrap:wrap;gap:10px}[data-theme="dark"] .usage-bar{background:var(--surface);border-color:var(--border)}.usage-bar-left{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--muted);flex-wrap:wrap}.usage-bar-left strong{color:var(--text)}.usage-track{width:100px;height:6px;background:var(--border);border-radius:3px;overflow:hidden}.usage-fill{height:100%;background:var(--blue);border-radius:3px;transition:width .4s ease}.usage-fill.warn{background:#FF9800}.usage-fill.danger{background:#EF5350}.usage-upgrade{font-size:13px;font-weight:700;color:var(--blue);white-space:nowrap;transition:opacity .15s;font-family:'Sora',sans-serif}.usage-upgrade:hover{opacity:.75}.corrector-paywall{position:absolute;inset:0;background:rgba(255,255,255,.97);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:10;border-radius:0}[data-theme="dark"] .corrector-paywall{background:rgba(15,23,36,.97)}.paywall-content{text-align:center;padding:32px 24px;max-width:380px}.paywall-icon{width:64px;height:64px;background:linear-gradient(135deg,#E3F2FD,#BBDEFB);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--blue);margin:0 auto 20px}.paywall-content h3{font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:var(--text);margin-bottom:10px}.paywall-content p{font-size:14.5px;color:var(--muted);line-height:1.7;margin-bottom:24px}.paywall-actions{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}.paywall-btn-primary{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:white;font-size:15px;font-weight:700;font-family:'Sora',sans-serif;transition:all .2s;box-shadow:0 4px 16px rgba(33,150,243,.3)}.paywall-btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(33,150,243,.4)}.paywall-btn-ghost{background:none;border:1.5px solid var(--border);border-radius:12px;padding:11px 24px;color:var(--muted);font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;transition:all .15s}.paywall-btn-ghost:hover{color:var(--text);border-color:var(--text)}.paywall-reset{font-size:12px;color:var(--faint)}.grammar-teaser{display:none;align-items:center;gap:10px;background:linear-gradient(135deg,#F3F0FF,#EDE7F6);border-top:1px solid #DDD6FE;padding:10px 20px;font-size:13px;color:#5B21B6;flex-wrap:wrap}[data-theme="dark"] .grammar-teaser{background:rgba(124,58,237,.1);border-color:rgba(124,58,237,.25);color:#C4B5FD}.grammar-teaser.show{display:flex}.grammar-teaser i{font-size:16px;flex-shrink:0}.grammar-teaser a{color:#7C3AED;font-weight:700;white-space:nowrap}[data-theme="dark"] .grammar-teaser a{color:#A78BFA}.pro-result-badge{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(135deg,#FF7043,#F4511E);color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle}
+/* ── Mobile fixes ── */
+body{overflow-x:hidden}
+@media(max-width:480px){
+.corrector-box{border-radius:14px}
+#correctorInput{min-height:140px;font-size:15px;padding:16px}
+.corrector-footer{flex-direction:column;align-items:flex-start;gap:8px}
+.corrector-actions{flex-wrap:wrap}
+.btn-check,.btn-clear,.btn-copy{font-size:13px;padding:8px 14px}
+.err-chip{flex-wrap:wrap}
+.hero{padding:100px 20px 60px}
+.section-title{font-size:clamp(24px,6vw,36px)}
+.feat-card{padding:20px}
+.how-steps{grid-template-columns:1fr}
+.stats-strip{flex-direction:column;gap:12px;text-align:center}
+}
+
+/* Hero tooltip always visible — below the word */
+.hero-mockup .tildea-popup .tildea-tip{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  pointer-events:auto;
+  top:calc(100% + 6px);
+  left:-10px;
+  transform:none;
+  animation:tipPop .5s .8s cubic-bezier(.34,1.56,.64,1) both;
+}
+.hero-mockup .tildea-popup{z-index:10;position:relative;}
+.hero-mockup .mockup-body{overflow:visible !important;position:relative;}
+.hero-mockup .mockup-msg{overflow:visible !important;position:relative;}
+
+.hero-social-proof{display:flex;align-items:center;gap:10px;margin-top:20px;animation:fadeUp .6s .4s ease both;}
+.social-avatars{display:flex;}
+.social-avatar{width:28px;height:28px;border-radius:50%;border:2px solid white;margin-left:-8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0;}
+.social-avatar:first-child{margin-left:0;}
+[data-theme="dark"] .social-avatar{border-color:var(--surface);}
+.social-proof-text{font-size:13px;color:var(--muted);}
+.social-proof-text strong{color:var(--text);}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Tildea",
+  "description": "Corrector ortográfico y gramatical inteligente para español e inglés. Funciona en WhatsApp, Gmail, Google Docs y cualquier sitio web.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Chrome, Brave, Edge",
+  "url": "https://tildea.vercel.app",
+  "downloadUrl": "https://chrome.google.com/webstore",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Plan Gratis",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Corrección básica, diccionario personal, modo offline"
+    },
+    {
+      "@type": "Offer",
+      "name": "Plan Pro",
+      "price": "3",
+      "priceCurrency": "USD",
+      "description": "Gramática avanzada con IA, diccionario ilimitado, estadísticas"
+    }
+  ],
+  "inLanguage": ["es", "en"],
+  "author": {
+    "@type": "Person",
+    "name": "Andrés Aragón",
+    "email": "andrefelipe303@hotmail.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tildea",
+    "url": "https://tildea.vercel.app",
+    "logo": "https://tildea.vercel.app/tildea_app_icon_minimalist.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "47",
+    "bestRating": "5"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Tildea es gratis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, Tildea tiene un plan gratis permanente que incluye corrección ortográfica, modo offline y diccionario personal básico. El plan Pro cuesta $3/mes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué sitios web funciona Tildea?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tildea funciona en cualquier campo de texto: WhatsApp Web, Gmail, Google Docs, Twitter/X, LinkedIn, Slack, Notion y miles de sitios más."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tildea funciona sin internet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, Tildea incluye un diccionario offline para los errores más comunes. Funciona en el avión o sin conexión."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Google AdSense — deferred load -->
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <img loading="lazy" src="tildea_app_icon_minimalist.png" alt="Tildea" style="width:36px;height:36px;border-radius:10px;flex-shrink:0;">
+    <svg width="88" height="26" viewBox="0 0 88 26" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+      <text x="0" y="22" font-family="Sora,sans-serif" font-size="24" font-weight="800" fill="#2196F3" letter-spacing="-0.5">tildea</text>
+      <circle cx="15" cy="3.5" r="3.2" fill="#FF7043"/>
+    </svg>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#features">Funciones</a></li>
+    <li><a href="#corrector">Corrector</a></li>
+    <li><a href="pricing.html">Precios</a></li>
+    
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="nav-cta" style="display:flex;align-items:center;gap:8px;">
+    <button class="dark-toggle" onclick="toggleDark()" title="Modo oscuro/claro"><i class="bi bi-moon-fill"></i></button>
+    <a href="login.html" class="btn-ghost">Iniciar sesión</a>
+    <a href="register.html" class="btn-nav-primary"><i class="bi bi-lightning-charge-fill"></i>Empezar gratis</a>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#features" onclick="closeMobileNav()">Funciones</a>
+  <a href="#corrector" onclick="closeMobileNav()">Corrector</a>
+  <a href="pricing.html">Precios</a>
+  <div class="mn-divider"></div>
+  <a href="login.html">Iniciar sesión</a>
+  <a href="register.html" class="mn-cta">⚡ Empezar gratis</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg-circle hbc-1"></div>
+  <div class="hero-bg-circle hbc-2"></div>
+  <div class="hero-bg-circle hbc-3"></div>
+
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-badge">Nuevo</span>
+    Corrector con IA · Español e inglés
+  </div>
+
+  <h1 class="hero-title">
+    Escribe perfecto en<br>
+    <span class="gr">cualquier sitio web</span>
+  </h1>
+
+  <p class="hero-sub">
+    Tildea detecta y corrige ortografía, tildes y gramática mientras escribes — en WhatsApp, Gmail, LinkedIn y miles de sitios más.
+  </p>
+
+  <div class="hero-actions">
+    <a href="install.html" class="btn-hero" onclick="gtag('event','click_install_cta',{event_category:'conversion'})"><i class="bi bi-browser-chrome"></i>Añadir a Chrome — Gratis</a>
+    <a href="#corrector" class="btn-hero-ghost"><i class="bi bi-spellcheck"></i>Probar el corrector ahora</a>
+  </div>
+
+  <div class="hero-trust">
+    <div class="hero-trust-item"><i class="bi bi-check-circle-fill"></i>Sin tarjeta de crédito</div>
+    <span>·</span>
+    <div class="hero-trust-item"><i class="bi bi-check-circle-fill"></i>Gratis para siempre</div>
+    <span>·</span>
+    <div class="hero-trust-item"><i class="bi bi-check-circle-fill"></i>Instala en 30 segundos</div>
+  </div>
+
+  <div class="hero-social-proof">
+    <div class="social-avatars">
+      <div class="social-avatar" style="background:#2196F3;">A</div>
+      <div class="social-avatar" style="background:#7C3AED;">M</div>
+      <div class="social-avatar" style="background:#00C896;">C</div>
+      <div class="social-avatar" style="background:#FF7043;">L</div>
+      <div class="social-avatar" style="background:#1565C0;">R</div>
+    </div>
+    <span class="social-proof-text"><strong>+500 usuarios</strong> ya escriben mejor con Tildea</span>
+  </div>
+
+  <div class="hero-mockup-wrap">
+    <!-- Floating badges -->
+    <div class="float-badge fb-left">
+      <div class="fb-icon fb-icon-green"><i class="bi bi-check2-all"></i></div>
+      <div><div style="font-size:12px;font-weight:700;color:#0D1B2A">3 errores corregidos</div><div style="font-size:11px;color:#546E7A">WhatsApp Web</div></div>
+    </div>
+    <div class="float-badge fb-right">
+      <div class="fb-icon fb-icon-orange"><i class="bi bi-fire"></i></div>
+      <div><div style="font-size:12px;font-weight:700;color:#0D1B2A">7 días seguidos</div><div style="font-size:11px;color:#546E7A">Racha activa 🔥</div></div>
+    </div>
+
+    <div class="hero-mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+        <div class="mockup-url"><i class="bi bi-lock-fill" style="font-size:11px;color:#bbb"></i>web.whatsapp.com</div>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-msg-2">Oye, ¿ya viste el partido? <span class="underline-yellow">Estuvo</span> increible</div>
+        <div class="mockup-msg" style="overflow:visible;position:relative;">
+          Si! <span class="tildea-popup" style="position:relative;"><span class="underline-red">vien</span>
+            <div class="tildea-tip">
+              <div class="tip-badge">✦ Tildea detectó</div>
+              <div class="tip-word">"vien" → <b style="color:var(--blue)">bien</b></div>
+              <div class="tip-msg">Se escribe con B, no con V.</div>
+              <div class="tip-fixes">
+                <button class="tip-fix">✓ bien</button>
+                <button class="tip-ignore">Ignorar</button>
+              </div>
+            </div>
+          </span> <span class="underline-red">mui</span> bueno 🔥
+        </div>
+        <div class="mockup-stats">
+          <div class="mstat"><i class="bi bi-exclamation-circle-fill"></i><span><strong>3</strong> errores</span></div>
+          <div class="mstat"><i class="bi bi-translate"></i><span>Español</span></div>
+          <div class="mstat"><i class="bi bi-lightning-fill"></i><span>Offline activo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOCIAL PROOF BAR ── -->
+
+
+<!-- ── VS GRAMMARLY ── -->
+
+
+<!-- ── FEATURES ── -->
+<section class="features" id="features">
+  <div class="reveal">
+    <div class="section-tag"><i class="bi bi-stars"></i>Funciones</div>
+    <h2 class="section-title">Todo lo que necesitas<br>para escribir sin errores</h2>
+    <p class="section-sub">Desde corrección básica hasta gramática avanzada con IA. Para todos los niveles.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card reveal">
+      <div class="feat-card-icon icon-blue"><i class="bi bi-spellcheck"></i></div>
+      <h3>Ortografía en tiempo real</h3>
+      <p>Detecta errores al instante mientras escribes. Sin esperar, sin botones.</p>
+      <span class="feat-tag feat-tag-free">Gratis</span>
+    </div>
+    <div class="feat-card reveal reveal-delay-1">
+      <div class="feat-card-icon icon-green"><i class="bi bi-pencil-square"></i></div>
+      <h3>Gramática y estilo con IA</h3>
+      <p>Va más allá: concordancia, puntuación, tono y fluidez del texto.</p>
+      <span class="feat-tag feat-tag-pro">Pro</span>
+    </div>
+    <div class="feat-card reveal reveal-delay-2">
+      <div class="feat-card-icon icon-purple"><i class="bi bi-translate"></i></div>
+      <h3>Español e inglés</h3>
+      <p>Detecta el idioma automáticamente y aplica las reglas correctas para cada uno.</p>
+      <span class="feat-tag feat-tag-free">Gratis</span>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-card-icon icon-orange"><i class="bi bi-wifi-off"></i></div>
+      <h3>Modo offline</h3>
+      <p>Diccionario local integrado. Funciona en el avión, sin internet.</p>
+      <span class="feat-tag feat-tag-free">Gratis</span>
+    </div>
+    <div class="feat-card reveal reveal-delay-1">
+      <div class="feat-card-icon icon-teal"><i class="bi bi-book"></i></div>
+      <h3>Diccionario personal</h3>
+      <p>Agrega nombres, marcas y términos técnicos para que Tildea nunca los marque.</p>
+      <span class="feat-tag feat-tag-pro">Ilimitado en Pro</span>
+    </div>
+    <div class="feat-card reveal reveal-delay-2">
+      <div class="feat-card-icon icon-pink"><i class="bi bi-bar-chart-line"></i></div>
+      <h3>Estadísticas y racha</h3>
+      <p>Ve tu progreso, errores más frecuentes y mantén tu racha de escritura perfecta.</p>
+      <span class="feat-tag feat-tag-pro">Pro</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── LIVE CORRECTOR ── -->
+<section class="corrector-section" id="corrector">
+  <div class="corrector-inner">
+    <div style="text-align:center;margin-bottom:44px;" class="reveal">
+      <div class="section-tag"><i class="bi bi-cursor-text"></i>Corrector online</div>
+      <h2 class="section-title">Corrígelo ahora, gratis</h2>
+      <p class="section-sub" style="margin:0 auto">Pega tu texto y ve los errores al instante.</p>
+    </div>
+
+    <!-- Plan indicator bar -->
+    <div class="plan-bar" id="planBar" style="display:none;">
+      <div class="plan-bar-left">
+        <span class="plan-bar-badge" id="planBarBadge">⚡ Pro</span>
+        <span class="plan-bar-name" id="planBarName">Todas las funciones activas</span>
+      </div>
+      <a href="dashboard.html" class="plan-bar-link">Mi cuenta →</a>
+    </div>
+
+    <!-- Usage limit bar (Gratis users) -->
+    <div class="usage-bar" id="usageBar">
+      <div class="usage-bar-left">
+        <i class="bi bi-lightning-charge" style="color:var(--blue)"></i>
+        <span>Correcciones hoy: <strong id="usageCount">0</strong> / <strong>20</strong></span>
+        <div class="usage-track"><div class="usage-fill" id="usageFill" style="width:0%"></div></div>
+      </div>
+      <a href="pricing.html" class="usage-upgrade">⚡ Pro ilimitado →</a>
+    </div>
+
+    <div class="corrector-box reveal">
+      <div class="corrector-header">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <div class="corrector-lang">
+            <button class="lang-btn active" id="langEs" onclick="setLang('es')">🇪🇸 Español</button>
+            <button class="lang-btn" id="langEn" onclick="setLang('en')">🇺🇸 English</button>
+          </div>
+          <div id="errorBadge" class="error-badge no-errors"><i class="bi bi-check-circle-fill"></i>Sin errores</div>
+        </div>
+        <span id="charCount" class="char-count">0 palabras · 0 caracteres</span>
+      </div>
+      <div class="corrector-textarea-wrap">
+        <div class="corrector-highlight" id="correctorHighlight" aria-hidden="true"></div>
+        <textarea id="correctorInput" spellcheck="false" placeholder="Escribe o pega tu texto aquí… Ej: Ola ke tal, como estas? Mui vien gracias, espero k todo este vien por alla."></textarea>
+
+        <!-- PAYWALL OVERLAY (shown when limit reached) -->
+        <div class="corrector-paywall" id="corrPaywall" style="display:none;">
+          <div class="paywall-content">
+            <div class="paywall-icon"><i class="bi bi-lock-fill"></i></div>
+            <h3>Límite diario alcanzado</h3>
+            <p>Has usado tus 20 correcciones gratuitas de hoy.<br>Actualiza a Pro para correcciones ilimitadas.</p>
+            <div class="paywall-actions">
+              <a href="pricing.html" class="paywall-btn-primary">
+                <i class="bi bi-lightning-charge-fill"></i>Ver plan Pro — $3/mes
+              </a>
+              <button class="paywall-btn-ghost" onclick="dismissPaywall()">Seguir con limitaciones</button>
+            </div>
+            <p class="paywall-reset">El límite se reinicia al recargar la página</p>
+          </div>
+        </div>
+
+        <!-- PRO FEATURE TEASER (shown inline for grammar) -->
+        <div class="grammar-teaser" id="grammarTeaser" style="display:none;">
+          <i class="bi bi-stars"></i>
+          <span>Con <strong>Pro</strong>: Tildea también detectaría errores gramaticales y de estilo en este texto</span>
+          <a href="pricing.html">Activar Pro →</a>
+        </div>
+      </div>
+
+      <div class="corrector-footer">
+        <div class="corrector-actions">
+          <button class="btn-check" onclick="gtag('event','use_corrector',{event_category:'engagement'});runCheck()"><i class="bi bi-spellcheck"></i>Corregir texto</button>
+          <button class="btn-clear" onclick="clearAll()"><i class="bi bi-x-circle"></i>Limpiar</button>
+          <button class="btn-copy" id="btnCopy" onclick="copyText()" title="Copiar texto corregido"><i class="bi bi-clipboard"></i>Copiar</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span id="sessionCountWrap" style="display:none;align-items:center;gap:5px;font-size:12px;color:var(--green);font-weight:600;">
+            <i class="bi bi-check-circle-fill"></i><span id="sessionCorrections">0</span> corregidas
+          </span>
+          <span class="pro-hint" id="proHint">Corrección ortográfica · <a href="pricing.html">Pro con IA avanzada →</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 4px 0;flex-wrap:wrap;gap:6px;">
+      <span id="shortcutHint" style="font-size:11.5px;color:var(--faint);"></span>
+    </div>
+
+    <div class="errors-panel" id="errorsPanel">
+      <div class="err-panel-title" style="justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:7px;">
+          <i class="bi bi-list-check" style="color:var(--blue)"></i>
+          <span id="errPanelCount">0 errores encontrados</span>
+        </div>
+        <button id="btnApplyAll" onclick="applyAllFixes()" style="display:none;align-items:center;gap:6px;padding:7px 14px;border-radius:9px;background:var(--green);color:white;font-size:13px;font-weight:700;font-family:'Sora',sans-serif;border:none;cursor:pointer;transition:all .15s;">
+          <i class="bi bi-check-all"></i>Aplicar todo
+        </button>
+      </div>
+      <div class="err-chips" id="errChips"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- AdSense unit — shown for Free users, hidden for Pro/Teams -->
+<div id="adsenseWrap" style="max-width:900px;margin:0 auto;padding:0 max(5vw,24px) 20px;display:none;">
+  <div style="text-align:center;font-size:11px;color:var(--faint);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;">Publicidad</div>
+  <ins class="adsbygoogle"
+    style="display:block;text-align:center;"
+    data-ad-client="ca-pub-3346200416076662"
+    data-ad-slot="XXXXXXXXXX"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <div style="text-align:center;margin-top:8px;">
+    <a href="pricing.html" style="font-size:11.5px;color:var(--muted);"><i class="bi bi-x-circle" style="margin-right:4px;"></i>Eliminar publicidad con Pro</a>
+  </div>
+</div>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="how" id="how">
+  <div style="text-align:center" class="reveal">
+    <div class="section-tag"><i class="bi bi-play-circle"></i>Cómo funciona</div>
+    <h2 class="section-title">Listo en 30 segundos</h2>
+    <p class="section-sub" style="margin:0 auto">Sin configuración, sin cuentas obligatorias. Solo instala y escribe.</p>
+  </div>
+  <div class="how-steps">
+    <div class="step reveal"><div class="step-num">1</div><h3>Instala la extensión</h3><p>Un clic en la Chrome Web Store y Tildea está activo en todos tus sitios automáticamente.</p></div>
+    <div class="step reveal reveal-delay-1"><div class="step-num">2</div><h3>Escribe normalmente</h3><p>Abre WhatsApp, Gmail o cualquier sitio. Tildea trabaja en segundo plano, siempre.</p></div>
+    <div class="step reveal reveal-delay-2"><div class="step-num">3</div><h3>Corrige con un clic</h3><p>Pasa el mouse sobre la palabra subrayada y aplica la sugerencia. ¡Listo!</p></div>
+  </div>
+</section>
+
+<!-- ── PRICING PREVIEW ── -->
+<section class="pricing" id="pricing">
+  <div class="reveal">
+    <div class="section-tag"><i class="bi bi-tag"></i>Precios</div>
+    <h2 class="section-title">Simple y transparente</h2>
+    <p class="section-sub" style="margin:0 auto">Empieza gratis. Actualiza cuando lo necesites.</p>
+  </div>
+  <div class="pricing-grid">
+    <!-- Free -->
+    <div class="price-card reveal">
+      <div class="price-plan">Gratis</div>
+      <div class="price-amount"><span class="price-currency">$</span>0</div>
+      <div class="price-period">Para siempre</div>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li><i class="bi bi-check-circle-fill"></i>Corrector online básico</li>
+        <li><i class="bi bi-check-circle-fill"></i>Extensión Chrome</li>
+        <li><i class="bi bi-check-circle-fill"></i>Español e inglés</li>
+        <li><i class="bi bi-check-circle-fill"></i>5 palabras en diccionario</li>
+        <li><i class="bi bi-check-circle-fill"></i>Modo offline</li>
+        <li class="off"><i class="bi bi-x-circle-fill"></i>Gramática con IA</li>
+        <li class="off"><i class="bi bi-x-circle-fill"></i>Estadísticas</li>
+      </ul>
+      <a href="register.html" class="price-cta outline">Empezar gratis</a>
+    </div>
+    <!-- Pro -->
+    <div class="price-card featured reveal reveal-delay-1">
+      <div class="price-badge">Más popular</div>
+      <div class="price-plan">Pro</div>
+      <div class="price-amount"><span class="price-currency">$</span>3</div>
+      <div class="price-period">por mes · cancela cuando quieras</div>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li><i class="bi bi-check-circle-fill"></i>Todo lo del plan Gratis</li>
+        <li><i class="bi bi-check-circle-fill"></i>Gramática y estilo con IA</li>
+        <li><i class="bi bi-check-circle-fill"></i>Diccionario ilimitado</li>
+        <li><i class="bi bi-check-circle-fill"></i>Estadísticas y racha</li>
+        <li><i class="bi bi-check-circle-fill"></i>Historial completo</li>
+        <li><i class="bi bi-check-circle-fill"></i>Soporte prioritario</li>
+        <li><i class="bi bi-check-circle-fill"></i>Sin publicidad</li>
+      </ul>
+      <a href="pricing.html" class="price-cta solid">Ver plan Pro →</a>
+    </div>
+    <!-- Teams -->
+    <div class="price-card reveal reveal-delay-2">
+      <div class="price-plan">Equipos</div>
+      <div class="price-amount"><span class="price-currency">$</span>8</div>
+      <div class="price-period">por usuario / mes · mín 3 usuarios</div>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li><i class="bi bi-check-circle-fill"></i>Todo lo de Pro</li>
+        <li><i class="bi bi-check-circle-fill"></i>Panel de administración</li>
+        <li><i class="bi bi-check-circle-fill"></i>Diccionario compartido</li>
+        <li><i class="bi bi-check-circle-fill"></i>Reportes del equipo</li>
+        <li><i class="bi bi-check-circle-fill"></i>Factura empresarial</li>
+        <li><i class="bi bi-check-circle-fill"></i>Onboarding dedicado</li>
+        <li><i class="bi bi-check-circle-fill"></i>SLA de soporte</li>
+      </ul>
+      <a href="/cdn-cgi/l/email-protection#debfb0baacbbb8bbb2b7aebbedeeed9eb6b1aab3bfb7b2f0bdb1b3e1adabbcb4bbbdaae38eb2bfb0fbecee9bafabb7aeb1adfbecee8ab7b2babbbf" class="price-cta outline">Contactar ventas</a>
+    </div>
+  </div>
+  <!-- Pricing FAQ -->
+  <div class="price-faq reveal">
+    <h3>Preguntas frecuentes</h3>
+    <div class="pfaq-item">
+      <div class="pfaq-q" onclick="togglePfaq(this)">¿Cómo funciona el pago? <i class="bi bi-plus-circle"></i></div>
+      <div class="pfaq-a">Actualmente el pago se gestiona directamente por WhatsApp o correo. Escríbenos al +57 314 259 5669 y en menos de 10 minutos tienes tu cuenta Pro activa.</div>
+    </div>
+    <div class="pfaq-item">
+      <div class="pfaq-q" onclick="togglePfaq(this)">¿Puedo cancelar en cualquier momento? <i class="bi bi-plus-circle"></i></div>
+      <div class="pfaq-a">Sí, sin penalidades. Escríbenos y cancelamos de inmediato. Si tienes días restantes del mes, te los aplicamos al siguiente ciclo o te devolvemos el proporcional.</div>
+    </div>
+    <div class="pfaq-item">
+      <div class="pfaq-q" onclick="togglePfaq(this)">¿El plan Gratis tiene algún límite? <i class="bi bi-plus-circle"></i></div>
+      <div class="pfaq-a">El plan Gratis incluye corrección ortográfica básica sin límite de uso, 5 palabras en el diccionario personal y la extensión de Chrome completa. Sin fecha de expiración.</div>
+    </div>
+    <div class="pfaq-item">
+      <div class="pfaq-q" onclick="togglePfaq(this)">¿Qué métodos de pago aceptan? <i class="bi bi-plus-circle"></i></div>
+      <div class="pfaq-a">Aceptamos transferencia bancaria, Nequi, Daviplata, PayPal y tarjeta de crédito/débito. Para empresas también emitimos factura electrónica.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testi">
+  <div style="text-align:center" class="reveal">
+    <div class="section-tag"><i class="bi bi-chat-quote"></i>Testimonios</div>
+    <h2 class="section-title">Lo que dicen nuestros usuarios</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <span class="testi-plan free">Gratis</span>
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Perfecto para WhatsApp. Antes mandaba mensajes llenos de errores sin darme cuenta. Ahora todo sale limpio sin esfuerzo.</p>
+      <div class="testi-author"><div class="testi-avatar" style="background:#E91E63">C</div><div><div class="testi-name">Camila R.</div><div class="testi-role">Estudiante universitaria</div></div></div>
+    </div>
+    <div class="testi-card reveal reveal-delay-1">
+      <span class="testi-plan pro">Pro</span>
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Lo uso para correos con clientes. Vale cada peso. La gramática avanzada me evita quedar mal con clientes internacionales.</p>
+      <div class="testi-author"><div class="testi-avatar" style="background:#009688">A</div><div><div class="testi-name">Andrés M.</div><div class="testi-role">Ejecutivo de ventas</div></div></div>
+    </div>
+    <div class="testi-card reveal reveal-delay-2">
+      <span class="testi-plan pro">Pro</span>
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Como periodista, la ortografía es mi reputación. Tildea me da tranquilidad. El corrector online lo uso antes de enviar cualquier artículo.</p>
+      <div class="testi-author"><div class="testi-avatar" style="background:#FF5722">V</div><div><div class="testi-name">Valentina S.</div><div class="testi-role">Periodista freelance</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section class="cta-section">
+  <h2>Empieza a escribir sin errores hoy</h2>
+  <p>Únete gratis en 30 segundos. Sin tarjeta de crédito. Cancela cuando quieras.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn-cta-white"><i class="bi bi-browser-chrome"></i>Añadir a Chrome — Gratis</a>
+    <a href="pricing.html" class="btn-cta-outline"><i class="bi bi-lightning-charge-fill"></i>Ver plan Pro $3/mes</a>
+  </div>
+  <p class="cta-mini">¿Preguntas? Escríbenos al <a href="https://wa.me/573142595669" target="_blank" style="color:rgba(255,255,255,.75);font-weight:600">WhatsApp</a> o <a href="/cdn-cgi/l/email-protection#d9b8b7bdabbcbfbcb5b0a9bceae9ea99b1b6adb4b8b0b5f7bab6b4" style="color:rgba(255,255,255,.75);font-weight:600">correo</a></p>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+      <img loading="lazy" src="tildea_app_icon_minimalist.png" alt="Tildea" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;">
+      <svg width="88" height="26" viewBox="0 0 88 26" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+      <text x="0" y="22" font-family="Sora,sans-serif" font-size="24" font-weight="800" fill="white" letter-spacing="-0.5">tildea</text>
+      <circle cx="15" cy="3.5" r="3.2" fill="#FF7043"/>
+    </svg>
+    </div>
+      <p class="footer-tagline">Corrector ortográfico inteligente para español e inglés. Funciona en cualquier sitio web.</p>
+      <div class="footer-social">
+        <a href="https://twitter.com/tildeaapp" target="_blank" class="social-btn" rel="noopener"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://instagram.com/tildeaapp" target="_blank" class="social-btn" rel="noopener"><i class="bi bi-instagram"></i></a>
+        <a href="/cdn-cgi/l/email-protection#2e4f404a5c4b484b42475e4b1d1e1d6e46415a434f4742004d4143" class="social-btn"><i class="bi bi-envelope"></i></a>
+        <a href="https://wa.me/573142595669" target="_blank" class="social-btn"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Producto</h4>
+      <ul>
+        <li><a href="#features">Funciones</a></li>
+        <li><a href="#corrector">Corrector online</a></li>
+        <li><a href="pricing.html">Precios</a></li>
+        <li><a href="changelog.html">Changelog</a></li>
+        <li><a href="#">Extensión Chrome</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Cuenta</h4>
+      <ul>
+        <li><a href="register.html">Crear cuenta gratis</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+        <li><a href="dashboard.html">Mi dashboard</a></li>
+        <li><a href="pricing.html">Actualizar a Pro</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Soporte</h4>
+      <ul>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="ayuda.html">Centro de ayuda</a></li>
+        <li><a href="reportar.html">Reportar un error</a></li>
+        <li><a href="https://wa.me/573142595669" target="_blank">WhatsApp soporte</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tildea. Hecho con ♥ en Colombia para hispanohablantes.</span>
+    <div class="footer-legal">
+      <a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<div id="corrTooltip" role="tooltip">
+  <div id="cttArrow" class="ctt-arrow"></div>
+  <div class="ctt-header">
+    <span id="cttType" class="ctt-type spell">Ortografía</span>
+    <span id="cttWord" class="ctt-word"></span>
+  </div>
+  <div id="cttMsg" class="ctt-msg"></div>
+  <div id="cttFixes" class="ctt-fixes"></div>
+  <button class="ctt-ignore" id="cttIgnore">Ignorar esta vez</button>
+</div>
+
+<script>
+// Mark active nav link
+(function(){
+  const path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href === path || (path === '' && href === 'index.html')) {
+      a.classList.add('active');
+    }
+  });
+})();
+</script>
+
+<script src="tildea-shared.js"></script>
+
+<script>
+// Called by corrector.js applyPlan()
+window.tildeaShowAds = function() {
+  const wrap = document.getElementById('adsenseWrap');
+  if (wrap) wrap.style.display = 'block';
+};
+window.tildeaHideAds = function() {
+  const wrap = document.getElementById('adsenseWrap');
+  if (wrap) wrap.style.display = 'none';
+};
+</script>
+
+<script src="corrector.js"></script>
+<script async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3346200416076662" crossorigin="anonymous"></script>
+</body>
+</html>

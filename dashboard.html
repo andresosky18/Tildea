@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-80ZG9TKT50"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-80ZG9TKT50', {
+  page_title: document.title,
+  page_location: window.location.href,
+});
+</script>
+<meta charset="UTF-8">
+<link rel="dns-prefetch" href="https://www.gstatic.com">
+<link rel="dns-prefetch" href="https://firestore.googleapis.com">
+<link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tu panel de estadísticas, diccionario personal y configuración de Tildea.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="Tildea">
+<link rel="canonical" href="https://tildea.vercel.app/dashboard.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tildea.vercel.app/dashboard.html">
+<meta property="og:title" content="Dashboard de Tildea">
+<meta property="og:description" content="Panel personal de estadísticas y configuración.">
+<meta property="og:image" content="https://tildea.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Tildea">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dashboard de Tildea">
+<meta name="twitter:description" content="Panel personal de estadísticas y configuración.">
+<meta name="twitter:image" content="https://tildea.vercel.app/og-image.png">
+<title>Mi Dashboard — Tildea</title>
+<link rel="stylesheet" href="tildea.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232196F3'/><path d='M7 19 Q10.5 13 14 19 Q17.5 25 21 17 L27 10' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<style>*{margin:0;padding:0;box-sizing:border-box}:root{--blue:#2196F3;--blue-dark:#1565C0;--blue-light:#E3F2FD;--sky:#F0F8FF;--white:#fff;--text:#0D1B2A;--muted:#546E7A;--faint:#B0BEC5;--border:#E1EEF8;--green:#00C896;--orange:#FF7043;--sidebar:240px}[data-theme="dark"]{--bg:#0F1724;--bg-alt:#161F2E;--surface:#1E2A3A;--text:#E8F0FE;--muted:#8EA0B8;--faint:#4A607A;--border:#2A3A50;--blue-light:#1A2E45;--blue-mid:#1E3A5A;--sky:#161F2E;--white:#1E2A3A}body{font-family:'DM Sans',system-ui,sans-serif;color:var(--text);background:var(--sky);display:flex;min-height:100vh}a{text-decoration:none;color:inherit}#loadingScreen{position:fixed;inset:0;background:var(--white);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;z-index:999}#loadingScreen .spinner-big{width:44px;height:44px;border:4px solid var(--blue-light);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}#loadingScreen p{font-size:14px;color:var(--muted)}.sidebar{width:var(--sidebar);flex-shrink:0;background:var(--white);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;height:100vh;z-index:50}.sb-logo{padding:18px 16px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px}.sb-nav{flex:1;padding:14px 10px;display:flex;flex-direction:column;gap:2px;overflow-y:auto}.sb-section{font-size:9.5px;font-weight:700;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;padding:12px 10px 5px}.sb-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;font-size:13.5px;font-weight:500;color:var(--muted);transition:background .15s,color .15s;cursor:pointer;text-decoration:none}.sb-item i{font-size:17px;width:20px;text-align:center}.sb-item:hover{background:var(--sky);color:var(--text)}.sb-item.active{background:var(--blue-light);color:var(--blue);font-weight:600}.sb-user{padding:14px 16px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px}.sb-avatar{width:36px;height:36px;border-radius:50%;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;font-family:'Sora',sans-serif;flex-shrink:0;overflow:hidden}.sb-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}.sb-user-name{font-size:13px;font-weight:600;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sb-plan{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;color:var(--blue);background:var(--blue-light);padding:1px 7px;border-radius:20px;font-weight:600;margin-top:2px}.sb-logout{background:none;border:none;color:var(--faint);cursor:pointer;font-size:17px;padding:4px;border-radius:6px;transition:color .15s;margin-left:auto}.sb-logout:hover{color:var(--text)}.main{margin-left:var(--sidebar);flex:1;padding:28px 32px;max-width:calc(100vw - var(--sidebar))}.topbar{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:14px}.page-title{font-family:'Sora',sans-serif;font-size:23px;font-weight:800;color:var(--text);letter-spacing:-0.02em}.page-sub{font-size:14px;color:var(--muted);margin-top:3px}.btn-upgrade{display:flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--orange),#F4511E);color:white;padding:9px 18px;border-radius:10px;font-size:13px;font-weight:700;font-family:'Sora',sans-serif;box-shadow:0 3px 12px rgba(255,112,67,.35);transition:transform .12s,box-shadow .15s;text-decoration:none}.btn-upgrade:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(255,112,67,.4)}.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}.scard{background:var(--white);border:1px solid var(--border);border-radius:15px;padding:18px;transition:box-shadow .2s,transform .2s}.scard:hover{box-shadow:0 4px 20px rgba(33,150,243,.1);transform:translateY(-2px)}.scard-icon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:12px}.ic-b{background:var(--blue-light);color:var(--blue)}.ic-g{background:#E8F8F4;color:#00A67E}.ic-o{background:#FFF3EE;color:#E64A19}.ic-p{background:#EDE7F6;color:#6D28D9}.scard-num{font-family:'Sora',sans-serif;font-size:30px;font-weight:800;color:var(--text);line-height:1;margin-bottom:4px;letter-spacing:-1px}.scard-lbl{font-size:12.5px;color:var(--muted)}.grid2{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-bottom:18px}.card{background:var(--white);border:1px solid var(--border);border-radius:15px;padding:20px}.card-title{font-family:'Sora',sans-serif;font-size:15.5px;font-weight:700;color:var(--text);margin-bottom:3px}.card-sub{font-size:12.5px;color:var(--muted);margin-bottom:18px}.dict-tags{display:flex;flex-wrap:wrap;gap:6px}.dtag{display:flex;align-items:center;gap:5px;background:var(--sky);border:1px solid var(--border);border-radius:20px;padding:4px 11px 4px 13px;font-size:12px;color:var(--blue);font-weight:500}.dtag-rm{background:none;border:none;color:var(--faint);cursor:pointer;font-size:11px;padding:0;display:flex;align-items:center}.dtag-rm:hover{color:var(--orange)}.dict-add-row{display:flex;gap:8px;margin-bottom:12px}.dict-in{flex:1;border:1.5px solid var(--border);border-radius:9px;padding:8px 11px;font-size:13px;font-family:inherit;color:var(--text);background:var(--white);outline:none;transition:border-color .15s}.dict-in:focus{border-color:var(--blue)}.dict-btn{background:var(--blue);color:white;border:none;border-radius:9px;padding:8px 13px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px}.err-list{display:flex;flex-direction:column;gap:9px}.err-item{display:flex;align-items:center;gap:10px;padding:9px 13px;background:var(--sky);border:1px solid var(--border);border-radius:10px}.edot{width:7px;height:7px;border-radius:50%;flex-shrink:0}.ds{background:#EF5350}.dg{background:#FF9800}.ewrong{font-size:13px;font-weight:600;color:var(--text)}.earrow{color:var(--faint);font-size:12px}.eright{font-size:13px;font-weight:600;color:var(--green)}.esite{margin-left:auto;font-size:11px;color:var(--faint)}.eempty{font-size:13px;color:var(--faint);font-style:italic;text-align:center;padding:16px 0}.plan-banner{background:linear-gradient(135deg,#1565C0,#2196F3,#42A5F5);border-radius:15px;padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}.plan-banner h3{font-family:'Sora',sans-serif;font-size:17px;font-weight:800;color:white;margin-bottom:4px}.plan-banner p{font-size:13px;color:rgba(255,255,255,.75)}.btn-pro{display:flex;align-items:center;gap:7px;background:white;color:var(--blue);padding:10px 18px;border-radius:10px;font-size:13px;font-weight:700;font-family:'Sora',sans-serif;white-space:nowrap;box-shadow:0 3px 12px rgba(0,0,0,.14);transition:transform .12s;text-decoration:none}.btn-pro:hover{transform:translateY(-1px)}.profile-section{margin-bottom:22px}.profile-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}.pfield label{font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:6px;display:block}.pinput{width:100%;border:1.5px solid var(--border);border-radius:9px;padding:9px 12px;font-size:13.5px;font-family:inherit;color:var(--text);background:var(--white);outline:none;transition:border-color .15s}.pinput:focus{border-color:var(--blue)}.btn-save{background:var(--blue);color:white;border:none;border-radius:9px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s;display:flex;align-items:center;gap:6px}.btn-save:hover{background:var(--blue-dark)}.save-ok{color:var(--green);font-size:13px;display:none;align-items:center;gap:5px}.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:14px;background:var(--sky);border:1px solid var(--border);border-radius:10px;margin-bottom:10px}.toggle-label div:first-child{font-size:13.5px;font-weight:600;color:var(--text)}.toggle-label div:last-child{font-size:12px;color:var(--muted);margin-top:2px}.toggle{position:relative;display:inline-block;width:44px;height:24px;flex-shrink:0}.toggle input{opacity:0;width:0;height:0}.toggle-track{position:absolute;inset:0;background:#ccc;border-radius:24px;transition:.25s;cursor:pointer}.toggle input:checked+.toggle-track{background:var(--blue)}.toggle-thumb{position:absolute;height:18px;width:18px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.25s;pointer-events:none}.toggle input:checked~.toggle-thumb{transform:translateX(20px)}@media(max-width:900px){.stats-row{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}}@media(max-width:768px){.main{margin-left:0;padding:20px}.sidebar-toggle{display:flex!important}}.streak-card{background:linear-gradient(135deg,#FF6B35,#FF4500);border:none!important;color:white}.streak-card .scard-num,.streak-card .scard-lbl{color:white!important}.streak-card .scard-icon{background:rgba(255,255,255,.2)!important;color:white!important}.ring-wrap{position:relative;display:inline-flex;align-items:center;justify-content:center}.ring-label{position:absolute;text-align:center}@keyframes bar-grow{from{height:4px!important}to{height:var(--target-h)}}.scard:hover{box-shadow:0 6px 24px rgba(33,150,243,.18)!important}.streak-card:hover{box-shadow:0 6px 24px rgba(255,107,53,.35)!important}@media(max-width:768px){.sidebar{transform:translateX(-100%);transition:transform .3s ease}.sidebar.mobile-open{transform:translateX(0);box-shadow:4px 0 20px rgba(0,0,0,.2)}.main{margin-left:0!important;padding:16px!important}.stats-row{grid-template-columns:1fr 1fr!important}.grid2{grid-template-columns:1fr!important}.profile-form{grid-template-columns:1fr!important}.topbar{flex-direction:column;gap:10px}}@media(max-width:480px){.stats-row{grid-template-columns:1fr!important}}[data-theme="dark"] body{background:var(--bg)!important;color:var(--text)!important}[data-theme="dark"] .sidebar{background:#111C2D!important;border-color:var(--border)!important}[data-theme="dark"] .main{background:var(--bg)!important}[data-theme="dark"] .scard,.card{background:var(--surface)!important;border-color:var(--border)!important}[data-theme="dark"] .scard-num,.scard-lbl,.card-title,.card-sub{color:var(--text)!important}[data-theme="dark"] .scard-lbl,.card-sub,.page-sub{color:var(--muted)!important}[data-theme="dark"] .scard-icon{background:rgba(255,255,255,.08)!important}[data-theme="dark"] .page-title{color:var(--text)!important}[data-theme="dark"] .sb-nav-section{color:var(--faint)!important}[data-theme="dark"] .sb-item{color:var(--muted)!important}[data-theme="dark"] .sb-item:hover{background:#1A2535!important;color:var(--text)!important}[data-theme="dark"] .sb-item.active{background:var(--blue-light)!important;color:var(--blue)!important}[data-theme="dark"] .sb-user-name{color:var(--text)!important}[data-theme="dark"] .sb-user-plan{color:var(--muted)!important}[data-theme="dark"] .topbar{border-color:var(--border)!important}[data-theme="dark"] .chart-bar-wrap{background:var(--border)!important}[data-theme="dark"] .chart-day{color:var(--faint)!important}[data-theme="dark"] input,[data-theme="dark"] textarea,[data-theme="dark"] .dict-in,[data-theme="dark"] .pinput{background:var(--surface)!important;border-color:var(--border)!important;color:var(--text)!important}[data-theme="dark"]::placeholder{color:var(--faint)!important}[data-theme="dark"] label{color:var(--muted)!important}[data-theme="dark"] .dict-tag{background:var(--bg-alt)!important;border-color:var(--border)!important;color:var(--text)!important}[data-theme="dark"] .err-item{background:var(--bg-alt)!important;border-color:var(--border)!important}[data-theme="dark"] .err-item-word,.err-item-fix{color:var(--text)!important}[data-theme="dark"] .err-item-fix{color:var(--blue)!important}[data-theme="dark"] .err-item-site{color:var(--muted)!important}[data-theme="dark"] .toggle-row{background:var(--surface)!important;border-color:var(--border)!important}[data-theme="dark"] .toggle-label{color:var(--text)!important}[data-theme="dark"] .toggle-sub{color:var(--muted)!important}[data-theme="dark"] .empty-state,[data-theme="dark"] .chart-empty{color:var(--muted)!important}[data-theme="dark"] #loadingScreen{background:var(--bg)!important}[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text)!important}[data-theme="dark"] p{color:var(--muted)!important}[data-theme="dark"] .plan-banner{background:linear-gradient(135deg,#1A2E45,#1E3A5A)!important}.streak-card{background:linear-gradient(135deg,#FF6B35,#FF4500)!important;border:none!important}.streak-card .scard-num,.streak-card .scard-lbl,.streak-card .scard-icon{color:white!important}.streak-card .scard-icon{background:rgba(255,255,255,.2)!important}.dark-toggle{width:36px;height:36px;border-radius:9px;background:var(--bg-alt);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--muted);transition:all .2s}.dark-toggle:hover{color:var(--text);border-color:var(--blue)}html{scroll-behavior:smooth}.sb-item{transition:background .15s,color .15s,padding-left .15s!important}.sb-item:hover{padding-left:22px!important}.scard{transition:transform .2s,box-shadow .2s!important}.scard:hover{transform:translateY(-3px)!important;box-shadow:0 8px 24px rgba(33,150,243,.18)!important}.streak-card:hover{transform:translateY(-3px)!important;box-shadow:0 8px 28px rgba(255,107,53,.4)!important}.dict-tag{transition:all .15s!important}.dict-tag:hover{border-color:var(--blue)!important}.toggle-sw{transition:background .2s!important}.err-item{transition:border-color .15s,box-shadow .15s!important}.err-item:hover{border-color:var(--blue-mid)!important}::-webkit-scrollbar{width:5px}.:-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}input:focus,textarea:focus{border-color:var(--blue)!important;box-shadow:0 0 0 3px rgba(33,150,243,.12)!important;outline:none!important}button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}.scard-num{transition:color .3s}@keyframes count-pop{0%{transform:scale(.9);opacity:.5}100%{transform:scale(1);opacity:1}}.scard-num.updated{animation:count-pop .35s ease}.chart{display:flex;align-items:flex-end;gap:0;height:160px;position:relative;border-bottom:1px solid var(--border)}.chart-wrap{position:relative;padding:8px 0 0}.chart-legend{display:flex;align-items:center;gap:14px;margin-bottom:16px}.chart-legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.chart-canvas{display:flex;align-items:flex-end;gap:0;height:160px;position:relative;border-bottom:1px solid var(--border)}.grid-line{position:absolute;left:0;right:0;border-top:1px dashed var(--border)}.grid-label{font-size:10px;color:var(--faint);position:absolute;left:-28px;transform:translateY(50%)}.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 4px;position:relative;cursor:pointer}.bar-inner{width:100%;max-width:36px;border-radius:6px 6px 0 0;position:relative;transition:filter .15s}.bar-inner.today-bar{box-shadow:0 -2px 12px rgba(33,150,243,.35)}.bar-col:hover .bar-inner{filter:brightness(1.1)}.bar-value{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;color:var(--blue);white-space:nowrap;opacity:0;transition:opacity .15s}.bar-col:hover .bar-value,.today-col .bar-value{opacity:1}.bar-day{font-size:11.5px;font-weight:600;color:var(--faint);margin-top:8px;transition:color .15s}.today-col .bar-day{color:var(--blue);font-weight:700}.bar-col:hover .bar-day{color:var(--text)}.chart-tooltip{position:absolute;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:7px 12px;font-size:12.5px;font-weight:600;color:var(--text);pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.12);white-space:nowrap;z-index:10;opacity:0;transition:opacity .15s;transform:translateX(-50%);bottom:110%}.chart-tooltip.show{opacity:1}@keyframes bar-rise{from{height:0!important;opacity:0}to{opacity:1}}.bar-inner{animation:bar-rise .5s cubic-bezier(.34,1.56,.64,1) both}.chart-summary{display:flex;margin-top:16px;border:1.5px solid var(--border);border-radius:12px;overflow:hidden}.chart-sum-item{flex:1;padding:12px 10px;text-align:center;border-right:1px solid var(--border)}.chart-sum-item:last-child{border-right:none}.chart-sum-num{font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:var(--text)}.chart-sum-lbl{font-size:11px;color:var(--muted);margin-top:2px}[data-theme="dark"] .chart-canvas{border-color:var(--border)}[data-theme="dark"] .chart-tooltip{background:var(--surface);border-color:var(--border)}[data-theme="dark"] .chart-summary{border-color:var(--border)}[data-theme="dark"] .chart-sum-item{border-color:var(--border)}[data-theme="dark"] .bar-day{color:var(--faint)}[data-theme="dark"] .today-col .bar-day{color:var(--blue)}.upgrade-banner{background:linear-gradient(135deg,#EBF5FF,#E3F2FD);border:1.5px solid var(--blue-mid);border-radius:14px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:20px}[data-theme="dark"] .upgrade-banner{background:var(--blue-light);border-color:var(--border)}.upgrade-banner-left{display:flex;align-items:center;gap:12px}.upgrade-banner-icon{width:40px;height:40px;border-radius:11px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:18px;flex-shrink:0}.upgrade-banner-title{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px}.upgrade-banner-sub{font-size:12.5px;color:var(--muted)}.upgrade-banner-btn{display:flex;align-items:center;gap:6px;background:var(--blue);color:white;padding:9px 18px;border-radius:10px;font-size:13.5px;font-weight:700;font-family:'Sora',sans-serif;white-space:nowrap;transition:all .15s;text-decoration:none;flex-shrink:0}.upgrade-banner-btn:hover{background:var(--blue-dark);transform:translateY(-1px)}.card-lock{position:relative;overflow:hidden}.card-lock::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.85);backdrop-filter:blur(3px);z-index:5;border-radius:inherit}[data-theme="dark"] .card-lock::after{background:rgba(15,23,36,.85)}.card-lock-msg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:6;text-align:center;padding:20px}.card-lock-msg i{font-size:28px;color:var(--blue);margin-bottom:10px;display:block}.card-lock-msg p{font-size:13.5px;font-weight:600;color:var(--text);margin-bottom:12px}.card-lock-msg a{display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:white;padding:8px 16px;border-radius:9px;font-size:13px;font-weight:700;font-family:'Sora',sans-serif;text-decoration:none;transition:all .15s}.card-lock-msg a:hover{background:var(--blue-dark)}.dict-limit-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding:8px 12px;background:var(--blue-light);border-radius:10px;border:1px solid var(--blue-mid)}[data-theme="dark"] .dict-limit-bar{background:var(--blue-light);border-color:var(--border)}.dict-limit-text{font-size:12.5px;color:var(--muted)}.dict-limit-text strong{color:var(--text)}.dict-limit-upgrade{font-size:12px;font-weight:700;color:var(--blue)}.sb-plan.plan-pro{background:linear-gradient(135deg,#FF7043,#F4511E);color:white;padding:2px 8px;border-radius:8px}.sb-plan.plan-teams{background:linear-gradient(135deg,#7C3AED,#5B21B6);color:white;padding:2px 8px;border-radius:8px}.scard-pro{position:relative}.scard-pro-lock{position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:6px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:12px}
+/* ── Mobile fixes ── */
+body{overflow-x:hidden}
+@media(max-width:600px){#sidebarToggle{display:flex!important}
+.stats-row{grid-template-columns:1fr 1fr}
+.grid2{grid-template-columns:1fr}
+.card{padding:16px 18px}
+.scard{padding:14px}
+.scard-num{font-size:24px}
+.err-item{flex-wrap:wrap}
+.topbar{flex-direction:column;align-items:flex-start;gap:10px}
+.page-title{font-size:20px}
+}
+@media(max-width:400px){
+.stats-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="loadingScreen">
+  <div class="spinner-big"></div>
+  <p>Cargando tu perfil…</p>
+</div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <svg width="33" height="33" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" style="border-radius:9px;flex-shrink:0;">
+      <rect width="36" height="36" rx="9" fill="#2196F3"/>
+      <path d="M7 20 Q10.5 14 14 20 Q17.5 26 21 18 L27 11" stroke="white" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg width="76" height="24" viewBox="0 0 90 28" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="24" font-family="Sora,sans-serif" font-size="26" font-weight="800" fill="#2196F3" letter-spacing="-0.5">tildea</text>
+      <circle cx="16" cy="4" r="3.5" fill="#FF7043"/>
+    </svg>
+  </div>
+  <nav class="sb-nav">
+    <div class="sb-section">Principal</div>
+    <a class="sb-item active" href="dashboard.html"><i class="bi bi-grid-1x2"></i>Dashboard</a>
+    <a class="sb-item" href="#stats-section" onclick="document.getElementById('stats-section').scrollIntoView({behavior:'smooth'});return false;"><i class="bi bi-bar-chart-line"></i>Estadísticas</a>
+    <a class="sb-item" href="#dict-section" onclick="document.getElementById('dict-section').scrollIntoView({behavior:'smooth'});return false;"><i class="bi bi-book"></i>Mi diccionario</a>
+    <div class="sb-section">Cuenta</div>
+    <a class="sb-item" href="#profile-section" onclick="document.getElementById('profile-section').scrollIntoView({behavior:'smooth'});return false;"><i class="bi bi-person"></i>Mi perfil</a>
+    <a class="sb-item" href="#privacy-section" onclick="document.getElementById('privacy-section').scrollIntoView({behavior:'smooth'});return false;"><i class="bi bi-shield-check"></i>Privacidad</a>
+    <div class="sb-section">Soporte</div>
+    <a class="sb-item" href="novedades.html"><i class="bi bi-stars"></i>Novedades Pro</a>
+    <a class="sb-item" href="equipo.html"><i class="bi bi-people-fill"></i>Panel de Equipos</a>
+    <a class="sb-item" href="ayuda.html"><i class="bi bi-question-circle"></i>Ayuda</a>
+    <a class="sb-item" href="contacto.html"><i class="bi bi-chat-dots"></i>Contacto</a>
+  </nav>
+  <div class="sb-user">
+    <div class="sb-avatar" id="sbAvatar">A</div>
+    <div style="flex:1;min-width:0;">
+      <div class="sb-user-name" id="sbName">…</div>
+      <div class="sb-plan" id="sbPlan"><i class="bi bi-star-fill"></i>Gratis</div>
+    </div>
+    <button class="sb-logout" id="btnLogout" title="Cerrar sesión"><i class="bi bi-box-arrow-right"></i></button>
+  </div>
+</aside>
+
+<main class="main" id="mainContent" style="display:none">
+
+  <div class="topbar">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button onclick="document.getElementById('sidebar').classList.toggle('mobile-open')" 
+        style="display:none;background:none;border:1.5px solid var(--border);border-radius:9px;width:36px;height:36px;align-items:center;justify-content:center;cursor:pointer;color:var(--text);font-size:18px;"
+        id="sidebarToggle" class="sidebar-toggle" style="display:none"><i class="bi bi-list"></i></button>
+      <div>
+        <div class="page-title" id="greeting">Hola 👋</div>
+        <div class="page-sub">Aquí está tu resumen de correcciones</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="dark-toggle" onclick="toggleDark()" title="Modo oscuro"><i class="bi bi-moon-fill"></i></button>
+      <a href="https://wa.me/573142595669?text=Hola%2C%20quiero%20el%20plan%20Pro%20de%20Tildea%20por%20%243%2Fmes" target="_blank" class="btn-upgrade" id="topbarUpgradeBtn"><i class="bi bi-lightning-charge-fill"></i>Actualizar a Pro</a>
+    </div>
+  </div>
+
+  <!-- Upgrade banner (shown for free users) -->
+  <div class="upgrade-banner" id="upgradeBanner" style="display:none;">
+    <div class="upgrade-banner-left">
+      <div class="upgrade-banner-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+      <div>
+        <div class="upgrade-banner-title">Actualiza a Tildea Pro</div>
+        <div class="upgrade-banner-sub">Desbloquea estadísticas detalladas, racha, historial completo y diccionario ilimitado</div>
+      </div>
+    </div>
+    <a href="pricing.html" class="upgrade-banner-btn" onclick="gtag('event','click_upgrade_banner',{event_category:'conversion'})"><i class="bi bi-lightning-charge-fill"></i>Ver Pro — $3/mes</a>
+  </div>
+
+  <div class="stats-row" id="stats-section">
+    <div class="scard"><div class="scard-icon ic-b"><i class="bi bi-check2-all"></i></div><div class="scard-num" id="stTotal">0</div><div class="scard-lbl">Total corregidos</div></div>
+    <div class="scard"><div class="scard-icon ic-g"><i class="bi bi-calendar-check"></i></div><div class="scard-num" id="stToday">0</div><div class="scard-lbl">Corregidos hoy</div></div>
+    <div class="scard streak-card scard-pro" id="streakCard"><span class="scard-pro-lock" id="streakLock" style="display:none"><i class="bi bi-lock-fill"></i></span><div class="scard-icon ic-o"><i class="bi bi-fire"></i><span class="streak-flame" id="streakFlame" style="display:none">🔥</span></div><div class="scard-num" id="stStreak">0</div><div class="scard-lbl">Días seguidos 🔥</div></div>
+    <div class="scard"><div class="scard-icon ic-p"><i class="bi bi-book"></i></div><div class="scard-num" id="stDict">0</div><div class="scard-lbl">Palabras en dict.</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">Actividad semanal</div>
+      <div class="card-sub">Correcciones por día</div>
+      <div class="chart-wrap">
+        <div class="chart-legend">
+          <div class="chart-legend-item"><div class="legend-dot" style="background:var(--blue-light)"></div>Días pasados</div>
+          <div class="chart-legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Hoy</div>
+        </div>
+        <div class="chart-canvas" id="weekChart">
+          <div class="chart-tooltip" id="chartTooltip"></div>
+        </div>
+        <div class="chart-summary" id="chartSummary">
+          <div class="chart-sum-item"><div class="chart-sum-num" id="sumWeek">0</div><div class="chart-sum-lbl">Esta semana</div></div>
+          <div class="chart-sum-item"><div class="chart-sum-num" id="sumBest">0</div><div class="chart-sum-lbl">Mejor día</div></div>
+          <div class="chart-sum-item"><div class="chart-sum-num" id="sumAvg">0</div><div class="chart-sum-lbl">Promedio/día</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="dict-section">
+      <div class="card-title">Diccionario personal</div>
+      <div class="card-sub">Palabras que no se marcarán</div>
+      <div class="dict-limit-bar" id="dictLimitBar" style="display:none;">
+        <span class="dict-limit-text">Palabras: <strong id="dictUsedCount">0</strong> / <strong>5</strong> <span style="color:var(--faint)">(plan Gratis)</span></span>
+        <a href="pricing.html" class="dict-limit-upgrade">⚡ Pro ilimitado →</a>
+      </div>
+      <div class="dict-add-row">
+        <input class="dict-in" id="dictInput" placeholder="Agregar palabra…" maxlength="40">
+        <button class="dict-btn" id="dictAddBtn"><i class="bi bi-plus-lg"></i>Agregar</button>
+      </div>
+      <div class="dict-tags" id="dictTags"><span style="font-size:12px;color:var(--faint);font-style:italic">Sin palabras aún</span></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:18px">
+    <div class="card-title">Correcciones recientes</div>
+    <div class="card-sub">Últimas correcciones registradas</div>
+    <div class="err-list" id="recentList"><div class="eempty">Aún no hay correcciones registradas</div></div>
+  </div>
+
+  <div class="card profile-section" id="profile-section">
+    <div class="card-title">Mi perfil</div>
+    <div class="card-sub">Actualiza tu información personal</div>
+    <div class="profile-form">
+      <div class="pfield"><label>Nombre</label><input class="pinput" id="pfName" placeholder="Tu nombre"></div>
+      <div class="pfield"><label>Correo</label><input class="pinput" id="pfEmail" placeholder="tu@correo.com" disabled style="opacity:.6;cursor:not-allowed"></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <button class="btn-save" id="btnSave"><i class="bi bi-cloud-check"></i>Guardar cambios</button>
+      <div class="save-ok" id="saveOk"><i class="bi bi-check-circle-fill"></i>¡Guardado!</div>
+    </div>
+  </div>
+
+  <!-- Plan & Invoice -->
+  <div class="card" id="plan-section" style="margin-bottom:18px;">
+    <div class="card-title">Plan y facturación</div>
+    <div class="card-sub">Tu suscripción actual y comprobantes de pago</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px;background:var(--bg-alt);border-radius:12px;margin-top:14px;flex-wrap:wrap;gap:10px;">
+      <div>
+        <div style="font-size:12px;color:var(--faint);margin-bottom:3px;text-transform:uppercase;letter-spacing:.05em;">Plan actual</div>
+        <div id="planInfoText" style="font-size:15px;font-weight:700;color:var(--text);">Cargando…</div>
+      </div>
+      <a href="pricing.html" id="upgradePlanBtn" style="display:none;align-items:center;gap:6px;background:var(--blue);color:white;padding:8px 16px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;">
+        <i class="bi bi-lightning-charge-fill"></i>Actualizar
+      </a>
+    </div>
+    <!-- Expiry info -->
+    <div id="planExpiryInfo" style="display:none;margin-top:10px;padding:10px 14px;background:var(--bg-alt);border-radius:10px;font-size:13px;color:var(--muted);display:none;align-items:center;gap:8px;">
+      <i class="bi bi-calendar-check" style="color:var(--blue)"></i>
+      <span id="planExpiryText">Renovación automática activa</span>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+      <button id="btnInvoice" onclick="openInvoice()" style="display:none;align-items:center;gap:7px;padding:10px 16px;border-radius:10px;background:var(--bg-alt);border:1.5px solid var(--border);font-size:13.5px;font-weight:600;color:var(--muted);cursor:pointer;font-family:inherit;">
+        <i class="bi bi-receipt"></i>Descargar comprobante
+      </button>
+      <button id="btnCancelPlan" onclick="cancelPlan()" style="display:none;align-items:center;gap:7px;padding:10px 16px;border-radius:10px;background:none;border:1.5px solid #FECACA;font-size:13.5px;font-weight:600;color:#EF5350;cursor:pointer;font-family:inherit;">
+        <i class="bi bi-x-circle"></i>Cancelar suscripción
+      </button>
+    </div>
+  </div>
+
+  <!-- Privacy -->
+  <div class="card" id="privacy-section" style="margin-bottom:18px;">
+    <div class="card-title">Privacidad</div>
+    <div class="card-sub">Gestiona tus datos y preferencias</div>
+    <div class="toggle-row">
+      <div class="toggle-label">
+        <div>Historial de correcciones</div>
+        <div>Guardar un registro de las correcciones realizadas</div>
+      </div>
+      <label class="toggle"><input type="checkbox" checked><span class="toggle-track"></span><span class="toggle-thumb"></span></label>
+    </div>
+    <div class="toggle-row">
+      <div class="toggle-label">
+        <div>Estadísticas anónimas</div>
+        <div>Ayudarnos a mejorar enviando datos de uso anónimos</div>
+      </div>
+      <label class="toggle"><input type="checkbox" checked><span class="toggle-track"></span><span class="toggle-thumb"></span></label>
+    </div>
+    <div style="padding:14px;background:#FFF5F5;border:1px solid #FECACA;border-radius:10px;margin-top:4px;">
+      <div style="font-size:13.5px;font-weight:600;color:#991B1B;margin-bottom:6px;">Zona de peligro</div>
+      <div style="font-size:12px;color:#7F1D1D;margin-bottom:12px;">Esta acción no se puede deshacer.</div>
+      <button onclick="if(confirm('¿Seguro que quieres eliminar tu cuenta? Esta acción es irreversible.'))signOut(auth).then(()=>window.location.href='index.html')" style="background:none;border:1.5px solid #EF5350;color:#EF5350;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">Eliminar mi cuenta</button>
+    </div>
+  </div>
+
+
+  
+  <!-- Plan banner -->
+  <div class="plan-banner" id="planBanner">
+    <div>
+      <h3>Desbloquea el plan Pro 🚀</h3>
+      <p>Gramática avanzada, historial completo, diccionario ilimitado — solo $3/mes.</p>
+    </div>
+    <a href="https://wa.me/573142595669?text=Hola%2C%20quiero%20el%20plan%20Pro%20de%20Tildea%20por%20%243%2Fmes" target="_blank" class="btn-pro"><i class="bi bi-lightning-charge-fill"></i>Ver plan Pro →</a>
+  </div>
+
+</main>
+
+<script src="tildea-shared.js"></script>
+<script type="module">
+import { initializeApp }        from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut, updateProfile }
+                                from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove, serverTimestamp }
+                                from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAuYd7g-d9j-xDdy7--bj4j5g550b36a14",
+  authDomain: "tildea-47a04.firebaseapp.com",
+  projectId: "tildea-47a04",
+  storageBucket: "tildea-47a04.firebasestorage.app",
+  messagingSenderId: "653195240806",
+  appId: "1:653195240806:web:94f09a861cbdbd782394a7",
+  measurementId: "G-B66S83S212"
+};
+
+const app  = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+window.auth = auth;
+window.tildeaAuth = auth;
+const db   = getFirestore(app);
+// expose auth globally for delete button
+window.auth = auth;
+
+let currentUser = null;
+let userData    = {};
+
+onAuthStateChanged(auth, async (user) => {
+  if (!user) { window.location.href = "login.html"; return; }
+  currentUser = user;
+  await loadUserData(user);
+  renderAll();
+  document.getElementById("loadingScreen").style.display = "none";
+  document.getElementById("mainContent").style.display   = "block";
+  // Show onboarding for new users
+  if (userData.isNew) { setTimeout(() => { if(window.showOnboarding) showOnboarding(); }, 800); }
+});
+
+async function loadUserData(user) {
+  const ref  = doc(db, "users", user.uid);
+  const snap = await getDoc(ref);
+  if (snap.exists()) {
+    userData = snap.data();
+  } else {
+    userData = {
+      uid: user.uid, email: user.email,
+      displayName: user.displayName || "",
+      plan: "free",
+      stats: { total:0, today:0, streak:0, weekly:[0,0,0,0,0,0,0] },
+      personalDict: [],
+      recentCorrections: []
+    };
+    await setDoc(ref, { ...userData, createdAt: serverTimestamp() });
+  }
+}
+
+function animateNumber(id, target) {
+  const el = document.getElementById(id); if (!el) return;
+  let start = 0; const dur = 600; const startTime = performance.now();
+  function step(now) {
+    const p = Math.min((now - startTime) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(start + (target - start) * ease);
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function renderBarChart(weekly) {
+  const days    = ["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"];
+  const daysShort = ["L","M","X","J","V","S","D"];
+  const today   = (new Date().getDay()+6)%7;
+  const maxVal  = Math.max(...weekly, 1);
+  const weekSum = weekly.reduce((a,b)=>a+b,0);
+  const bestDay = Math.max(...weekly);
+  const avgDay  = Math.round(weekSum / 7);
+
+  // Update summary
+  const sumW = document.getElementById("sumWeek");
+  const sumB = document.getElementById("sumBest");
+  const sumA = document.getElementById("sumAvg");
+  if(sumW) animateNumber("sumWeek", weekSum);
+  if(sumB) animateNumber("sumBest", bestDay);
+  if(sumA) animateNumber("sumAvg",  avgDay);
+
+  // Build Y-axis grid (0, 25%, 50%, 75%, 100%)
+  const container = document.getElementById("weekChart");
+  if(!container) return;
+  const tooltip   = document.getElementById("chartTooltip");
+
+  // Clear existing bars (keep tooltip)
+  container.querySelectorAll(".bar-col,.grid-line").forEach(el=>el.remove());
+
+  // Add grid lines
+  [0,.25,.5,.75,1].forEach(pct => {
+    const gl = document.createElement("div");
+    gl.className = "grid-line";
+    gl.style.bottom = (pct*100)+"%";
+    const val = Math.round(maxVal * pct);
+    if(val > 0) {
+      const lbl = document.createElement("span");
+      lbl.className = "grid-label";
+      lbl.textContent = val;
+      gl.appendChild(lbl);
+    }
+    container.appendChild(gl);
+  });
+
+  // Add bars
+  weekly.forEach((val, i) => {
+    const pct    = maxVal > 0 ? Math.max((val/maxVal)*100, val>0?5:0) : 0;
+    const isToday = i === today;
+    const col    = document.createElement("div");
+    col.className = "bar-col" + (isToday ? " today-col" : "");
+
+    // Color: today = solid blue, has data = blue-light gradient, empty = faint
+    const barColor = isToday
+      ? "linear-gradient(180deg,#2196F3,#1565C0)"
+      : val > 0
+        ? "linear-gradient(180deg,#64B5F6,#BBDEFB)"
+        : "var(--border)";
+
+    col.innerHTML = `
+      <div class="bar-value">${val}</div>
+      <div class="bar-inner${isToday?" today-bar":""}"
+        style="height:${pct}%;background:${barColor};animation-delay:${i*0.06}s"></div>
+      <div class="bar-day">${daysShort[i]}</div>`;
+
+    // Tooltip on hover
+    col.addEventListener("mouseenter", e => {
+      if(!tooltip) return;
+      const rect = col.getBoundingClientRect();
+      const wrapRect = container.getBoundingClientRect();
+      tooltip.textContent = `${days[i]}: ${val} corrección${val!==1?"es":""}`;
+      tooltip.style.left  = (rect.left - wrapRect.left + rect.width/2) + "px";
+      tooltip.style.bottom = (pct + 8) + "%";
+      tooltip.classList.add("show");
+    });
+    col.addEventListener("mouseleave", () => {
+      if(tooltip) tooltip.classList.remove("show");
+    });
+
+    container.appendChild(col);
+  });
+}
+
+function applyPlanRestrictions(isPro, plan) {
+  // Upgrade banner — show for free users
+  const banner = document.getElementById("upgradeBanner");
+  if (banner) banner.style.display = isPro ? "none" : "flex";
+
+  // Topbar upgrade button — hide for Pro/Teams
+  const topbarBtn = document.getElementById("topbarUpgradeBtn");
+  if (topbarBtn) {
+    if (isPro) {
+      // Replace with plan management link
+      topbarBtn.href = "#plan-section";
+      topbarBtn.innerHTML = '<i class="bi bi-gear-fill"></i>Gestionar plan';
+      topbarBtn.onclick = (e) => {
+        e.preventDefault();
+        document.getElementById("plan-section")?.scrollIntoView({behavior:"smooth"});
+      };
+      topbarBtn.style.background = "var(--bg-alt)";
+      topbarBtn.style.color = "var(--text)";
+      topbarBtn.style.border = "1.5px solid var(--border)";
+      topbarBtn.style.boxShadow = "none";
+    } else {
+      topbarBtn.style.cssText = "";
+    }
+  }
+
+  // Streak lock icon — streak is Pro only
+  const streakLock = document.getElementById("streakLock");
+  if (streakLock) streakLock.style.display = isPro ? "none" : "flex";
+
+  // Streak card — blur for free users (after a while)
+  const streakCard = document.getElementById("streakCard");
+  if (streakCard && !isPro) {
+    // Show streak but add subtle indicator
+    streakCard.title = "La racha es una función Pro";
+  }
+
+  // Chart card — Pro feature (detailed stats)
+  const chartCard = document.querySelector(".grid2 .card:first-child");
+  if (chartCard && !isPro) {
+    // Show basic chart but lock detailed stats
+    const cardSub = chartCard.querySelector(".card-sub");
+    if (cardSub && !cardSub.dataset.modified) {
+      cardSub.innerHTML += ' <span style="font-size:11px;background:var(--blue-light);color:var(--blue);padding:1px 7px;border-radius:8px;font-weight:700;margin-left:4px;">Básico</span>';
+      cardSub.dataset.modified = "1";
+    }
+  }
+
+  // Dict limit bar
+  const dictBar = document.getElementById("dictLimitBar");
+  const dictUsed = document.getElementById("dictUsedCount");
+  const dictLen = (userData.personalDict || []).length;
+  if (dictBar) {
+    if (!isPro) {
+      dictBar.style.display = "flex";
+      if (dictUsed) dictUsed.textContent = dictLen;
+      // Warn color at limit
+      if (dictLen >= 5) {
+        dictBar.style.background = "rgba(239,83,80,.1)";
+        dictBar.style.borderColor = "rgba(239,83,80,.3)";
+      }
+    } else {
+      dictBar.style.display = "none";
+    }
+  }
+
+  // Dict add button — disable at limit for free
+  const dictAddBtn = document.getElementById("dictAddBtn");
+  const dictInput  = document.getElementById("dictInput");
+  if (!isPro && dictLen >= 5) {
+    if (dictAddBtn) {
+      dictAddBtn.disabled = true;
+      dictAddBtn.innerHTML = '<i class="bi bi-lock-fill"></i>Límite';
+      dictAddBtn.title = "Actualiza a Pro para diccionario ilimitado";
+    }
+    if (dictInput) {
+      dictInput.disabled = true;
+      dictInput.placeholder = "Límite alcanzado — actualiza a Pro";
+    }
+  } else {
+    if (dictAddBtn) {
+      dictAddBtn.disabled = false;
+      dictAddBtn.innerHTML = '<i class="bi bi-plus-lg"></i>Agregar';
+    }
+    if (dictInput) {
+      dictInput.disabled = false;
+      dictInput.placeholder = "Agregar palabra…";
+    }
+  }
+
+  // Tawk.to chat — show for Pro/Teams, hide for Free
+  const showTawk = () => {
+    const tryShow = () => { if(window.Tawk_API && window.Tawk_API.showWidget) { window.Tawk_API.showWidget(); return true; } return false; };
+    if (!tryShow()) { const t = setInterval(() => { if(tryShow()) clearInterval(t); }, 300); setTimeout(() => clearInterval(t), 15000); }
+  };
+  const hideTawk = () => {
+    const tryHide = () => { if(window.Tawk_API && window.Tawk_API.hideWidget) { window.Tawk_API.hideWidget(); return true; } return false; };
+    if (!tryHide()) { const t = setInterval(() => { if(tryHide()) clearInterval(t); }, 300); setTimeout(() => clearInterval(t), 15000); }
+  };
+  if (isPro) showTawk(); else hideTawk();
+
+  // Bottom "Desbloquea Pro" banner — hide for Pro/Teams
+  const planBanner = document.getElementById("planBanner");
+  if (planBanner) planBanner.style.display = isPro ? "none" : "";
+
+  // Recent history — Pro only (lock it for free)
+  const recentCard = document.querySelector(".card:has(#recentList)");
+  if (recentCard && !isPro && !recentCard.querySelector(".card-lock-msg")) {
+    recentCard.classList.add("card-lock");
+    const lockMsg = document.createElement("div");
+    lockMsg.className = "card-lock-msg";
+    lockMsg.innerHTML = `
+      <i class="bi bi-clock-history"></i>
+      <p>Historial completo<br>disponible en Pro</p>
+      <a href="pricing.html"><i class="bi bi-lightning-charge-fill"></i>Activar Pro</a>`;
+    recentCard.appendChild(lockMsg);
+  }
+}
+
+function renderAll() {
+  const name = userData.displayName || currentUser.displayName || currentUser.email.split("@")[0];
+  const initials = name.charAt(0).toUpperCase();
+  const plan = userData.plan || "free";
+  const isPro = plan === "pro" || plan === "teams";
+
+  document.getElementById("sbName").textContent = name;
+
+  // Plan badge in sidebar
+  const sbPlan = document.getElementById("sbPlan");
+  if (plan === "pro") {
+    sbPlan.className = "sb-plan plan-pro";
+    sbPlan.innerHTML = '<i class="bi bi-lightning-charge-fill"></i> Pro';
+  } else if (plan === "teams") {
+    sbPlan.className = "sb-plan plan-teams";
+    sbPlan.innerHTML = '<i class="bi bi-people-fill"></i> Equipos';
+  } else {
+    sbPlan.className = "sb-plan";
+    sbPlan.innerHTML = '<i class="bi bi-star-fill"></i> Gratis';
+  }
+
+  // Apply plan restrictions
+  applyPlanRestrictions(isPro, plan);
+  const avEl = document.getElementById("sbAvatar");
+  if (currentUser.photoURL) {
+    avEl.innerHTML = `<img loading="lazy" src="${currentUser.photoURL}" alt="">`;
+  } else {
+    avEl.textContent = initials;
+  }
+
+  const hour = new Date().getHours();
+  const greet = hour < 12 ? "Buenos días" : hour < 19 ? "Buenas tardes" : "Buenas noches";
+  document.getElementById("greeting").textContent = `${greet}, ${name.split(" ")[0]} 👋`;
+
+  const s = userData.stats || {};
+
+  // Reset today's count if it's a new day
+  const todayStr = new Date().toDateString();
+  const lastDate = userData.lastCorrectionDate || '';
+  if (lastDate && lastDate !== todayStr && (s.today || 0) > 0) {
+    // New day — reset today counter silently
+    updateDoc(doc(db, "users", currentUser.uid), { "stats.today": 0 })
+      .catch(() => {});
+    s.today = 0;
+  }
+
+  document.getElementById("stTotal").textContent  = s.total  || 0;
+  document.getElementById("stToday").textContent  = s.today  || 0;
+  const streakVal = s.streak || 0;
+  animateNumber('stStreak', streakVal);
+  if (streakVal >= 3) { document.getElementById('streakFlame').style.display='inline'; }
+  document.getElementById("stDict").textContent   = (userData.personalDict || []).length;
+
+  const weekly = s.weekly || [0,0,0,0,0,0,0];
+  renderBarChart(weekly);
+  updatePlanInfo();
+
+  renderDict();
+  renderRecent();
+  document.getElementById("pfName").value  = userData.displayName || name;
+  document.getElementById("pfEmail").value = currentUser.email;
+}
+
+function renderDict() {
+  const dict = userData.personalDict || [];
+  const el = document.getElementById("dictTags");
+  if (!dict.length) { el.innerHTML = '<span style="font-size:12px;color:var(--faint);font-style:italic">Sin palabras aún</span>'; return; }
+  el.innerHTML = dict.map(w => `<div class="dtag">${w}<button class="dtag-rm" data-w="${w}"><i class="bi bi-x"></i></button></div>`).join("");
+  el.querySelectorAll(".dtag-rm").forEach(btn => btn.addEventListener("click", () => removeFromDict(btn.dataset.w)));
+}
+
+function renderRecent() {
+  const raw = userData.recentCorrections || [];
+  // Sort by date desc, take last 8
+  const list = [...raw].sort((a,b) => {
+    const da = a.date ? new Date(a.date) : 0;
+    const db2 = b.date ? new Date(b.date) : 0;
+    return db2 - da;
+  }).slice(0, 8);
+  const el = document.getElementById("recentList");
+  if (!list.length) {
+    el.innerHTML = '<div class="eempty">Aún no hay correcciones registradas.<br><span style="font-size:12px">Usa el corrector online para ver tu historial aquí.</span></div>';
+    return;
+  }
+  el.innerHTML = list.map(entry => {
+    const date = entry.date ? new Date(entry.date) : null;
+    const dateStr = date ? date.toLocaleDateString('es-CO', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' }) : '';
+    const lang = entry.lang === 'en' ? '🇺🇸' : '🇪🇸';
+    const count = entry.count || 1;
+    // Old format compatibility (wrong/right fields)
+    if (entry.wrong) {
+      return `<div class="err-item">
+        <div class="edot ${entry.type==="spell"?"ds":"dg"}"></div>
+        <span class="ewrong">${entry.wrong}</span>
+        <i class="bi bi-arrow-right earrow"></i>
+        <span class="eright">${entry.right}</span>
+        <span class="esite">${entry.site||""}</span>
+      </div>`;
+    }
+    return `<div class="err-item" style="align-items:center;">
+      <div class="edot ds"></div>
+      <span class="ewrong" style="flex:1">${lang} ${count} corrección${count!==1?'es':''} en corrector online</span>
+      <span class="esite" style="font-size:11px;color:var(--faint)">${dateStr}</span>
+    </div>`;
+  }).join("");
+}
+
+document.getElementById("dictAddBtn").addEventListener("click", addToDict);
+document.getElementById("dictInput").addEventListener("keydown", e => { if(e.key==="Enter") addToDict(); });
+
+async function addToDict() {
+  const word = document.getElementById("dictInput").value.trim().toLowerCase();
+  if (!word || (userData.personalDict||[]).includes(word)) { document.getElementById("dictInput").value=""; return; }
+
+  // Enforce 5-word limit for free users
+  const plan = userData.plan || "free";
+  const isPro = plan === "pro" || plan === "teams";
+  if (!isPro && (userData.personalDict||[]).length >= 5) {
+    // Show paywall hint
+    const dictInput = document.getElementById("dictInput");
+    if (dictInput) { dictInput.value = ""; dictInput.placeholder = "Límite de 5 palabras — actualiza a Pro"; }
+    return;
+  }
+
+  await updateDoc(doc(db,"users",currentUser.uid), { personalDict: arrayUnion(word) });
+  userData.personalDict = [...(userData.personalDict||[]), word];
+  document.getElementById("dictInput").value = "";
+  renderDict();
+  document.getElementById("stDict").textContent = userData.personalDict.length;
+}
+
+async function removeFromDict(word) {
+  await updateDoc(doc(db,"users",currentUser.uid), { personalDict: arrayRemove(word) });
+  userData.personalDict = (userData.personalDict||[]).filter(w => w !== word);
+  renderDict();
+  document.getElementById("stDict").textContent = userData.personalDict.length;
+}
+
+document.getElementById("btnSave").addEventListener("click", async () => {
+  const name = document.getElementById("pfName").value.trim();
+  if (!name) return;
+  await updateProfile(currentUser, { displayName: name });
+  await updateDoc(doc(db,"users",currentUser.uid), { displayName: name });
+  userData.displayName = name;
+  document.getElementById("sbName").textContent = name;
+  const ok = document.getElementById("saveOk");
+  ok.style.display = "flex";
+  setTimeout(() => { ok.style.display="none"; }, 2500);
+});
+
+document.getElementById("btnLogout").addEventListener("click", async () => {
+  await signOut(auth);
+  window.location.href = "login.html";
+});
+
+function openInvoice() {
+  // Generate invoice client-side (no API needed)
+  const plan = userData.plan || 'free';
+  const planLabel = plan === 'teams' ? 'Plan Equipos' : 'Plan Pro';
+  const amount = plan === 'teams' ? '8.00' : '3.00';
+  const name = userData.displayName || currentUser.displayName || currentUser.email.split('@')[0];
+  const email = currentUser.email || '';
+  const invoiceNum = 'TLD-' + Date.now().toString().slice(-8);
+  const date = new Date().toLocaleDateString('es-CO', {year:'numeric',month:'long',day:'numeric'});
+  const paymentId = userData.lastPaymentId || 'N/A';
+
+  const html = `<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<link rel="dns-prefetch" href="https://www.gstatic.com">
+<link rel="dns-prefetch" href="https://firestore.googleapis.com">
+<link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com"><title>Comprobante ${invoiceNum}</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;color:#0D1B2A;padding:40px;max-width:680px;margin:0 auto}.logo{font-size:26px;font-weight:900;color:#2196F3;margin-bottom:4px}.header{display:flex;justify-content:space-between;border-bottom:2px solid #E1EEF8;padding-bottom:20px;margin-bottom:28px}.badge{display:inline-block;background:#E8FFF5;color:#059669;border-radius:8px;padding:3px 10px;font-size:12px;font-weight:700}.section{margin-bottom:24px}.label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:#B0BEC5;font-weight:700;margin-bottom:8px}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.info-box{background:#F0F8FF;border-radius:8px;padding:14px}.info-box h4{font-size:12px;color:#546E7A;margin-bottom:3px}.info-box p{font-size:14px;font-weight:600}table{width:100%;border-collapse:collapse}th{background:#F0F8FF;padding:10px 14px;text-align:left;font-size:11px;text-transform:uppercase;color:#546E7A}td{padding:12px 14px;border-bottom:1px solid #E1EEF8;font-size:14px}.total td{font-weight:700;font-size:15px;background:#F0F8FF}.right{text-align:right}.footer{margin-top:32px;padding-top:16px;border-top:1px solid #E1EEF8;font-size:12px;color:#B0BEC5;text-align:center;line-height:1.8}.print-btn{display:block;margin:24px auto;padding:12px 28px;background:#2196F3;color:white;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer}@media print{.print-btn{display:none}}</style></head>
+<body>
+<div class="header">
+  <div>
+    <div class="logo">tildea.</div>
+    <div style="font-size:12px;color:#546E7A;">tildea.vercel.app · andrefelipe303@hotmail.com</div>
+  </div>
+  <div style="text-align:right;">
+    <div style="font-size:18px;font-weight:800;margin-bottom:6px;">RECIBO DE PAGO</div>
+    <div style="font-size:13px;color:#546E7A;">N°: <strong>${invoiceNum}</strong></div>
+    <div style="font-size:13px;color:#546E7A;">Fecha: ${date}</div>
+    <div style="margin-top:6px;"><span class="badge">✓ Pagado</span></div>
+  </div>
+</div>
+<div class="section">
+  <div class="label">Cliente</div>
+  <div class="info-grid">
+    <div class="info-box"><h4>Nombre</h4><p>${name}</p></div>
+    <div class="info-box"><h4>Correo</h4><p>${email}</p></div>
+  </div>
+</div>
+<div class="section">
+  <div class="label">Detalle</div>
+  <table>
+    <thead><tr><th>Descripción</th><th>Período</th><th class="right">Valor</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Tildea ${planLabel}</strong><br><span style="font-size:12px;color:#546E7A;">Corrector ortográfico y gramatical inteligente</span></td><td>Mensual</td><td class="right">USD \$${amount}</td></tr>
+    </tbody>
+    <tfoot><tr class="total"><td colspan="2"><strong>Total pagado</strong></td><td class="right">USD \$${amount}</td></tr></tfoot>
+  </table>
+</div>
+<div class="section">
+  <div class="label">Pago</div>
+  <div class="info-box" style="display:inline-block;"><h4>Procesado por</h4><p>MercadoPago · ID: ${paymentId}</p></div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+<div class="footer">Tildea · Bogotá, Colombia · Operado por Andrés Aragón<br>Este documento es un comprobante de pago. No es una factura electrónica oficial DIAN.</div>
+</body></html>`;
+
+  const win = window.open('', '_blank');
+  win.document.write(html);
+  win.document.close();
+}
+window.openInvoice = openInvoice;
+
+// Update plan info in the new card
+function updatePlanInfo() {
+  const plan = userData.plan || 'free';
+  const isPro = plan === 'pro' || plan === 'teams';
+  const planEl = document.getElementById('planInfoText');
+  const upgradeBtn = document.getElementById('upgradePlanBtn');
+  const invoiceBtn = document.getElementById('btnInvoice');
+  const cancelBtn  = document.getElementById('btnCancelPlan');
+  const expiryWrap = document.getElementById('planExpiryInfo');
+  const expiryText = document.getElementById('planExpiryText');
+
+  if (planEl) {
+    const labels = { free: '⭐ Plan Gratis', pro: '⚡ Plan Pro — $3/mes', teams: '👥 Plan Equipos — $8/usuario/mes' };
+    planEl.textContent = labels[plan] || 'Plan Gratis';
+  }
+  if (upgradeBtn) upgradeBtn.style.display = isPro ? 'none' : 'flex';
+  if (invoiceBtn) invoiceBtn.style.display = isPro ? 'flex' : 'none';
+  if (cancelBtn)  cancelBtn.style.display  = isPro ? 'flex' : 'none';
+
+  // Show expiry / days remaining
+  if (isPro && expiryWrap && expiryText) {
+    expiryWrap.style.display = 'flex';
+    if (userData.planExpiry) {
+      const expiry = new Date(userData.planExpiry.seconds * 1000);
+      const daysLeft = Math.ceil((expiry - new Date()) / (1000 * 60 * 60 * 24));
+      if (daysLeft > 0) {
+        expiryText.innerHTML = `<strong>${daysLeft} días</strong> restantes · Renueva el ${expiry.toLocaleDateString('es-CO', {day:'numeric',month:'long'})}`;
+      } else {
+        expiryText.innerHTML = '<span style="color:#EF5350">Tu plan venció. <a href="pricing.html" style="color:var(--blue)">Renovar →</a></span>';
+      }
+    } else {
+      expiryText.textContent = 'Plan activo · Sin fecha de vencimiento registrada';
+    }
+  }
+}
+
+window.cancelPlan = function() {
+  const confirmed = confirm('¿Estás seguro de que quieres cancelar tu suscripción?\n\nSi cancelas, tu plan seguirá activo hasta el final del período actual.');
+  if (!confirmed) return;
+  const msg = encodeURIComponent('Hola, quiero cancelar mi suscripción de Tildea. Mi correo es: ' + (currentUser.email || ''));
+  window.open('https://wa.me/573142595669?text=' + msg, '_blank');
+};
+</script>
+
+<!-- Tawk.to — Pro/Teams support chat -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/69d1342f9f13071c34d665a5/1jlcj7mo0';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+})();
+// Hide by default — shown only for Pro/Teams in applyPlanRestrictions
+// Will be shown/hidden by applyPlanRestrictions
+window.Tawk_API = window.Tawk_API || {};
+window._tawkReady = false;
+window.Tawk_API.onLoad = function() {
+  window._tawkReady = true;
+  // Hide "We Are Here" bubble
+  if (window.Tawk_API.hideWidget) window.Tawk_API.hideWidget();
+};
+window.Tawk_API.onChatMinimized = function() {
+  // Don't show "We Are Here" when minimized
+};
+</script>
+
+</body>
+</html>

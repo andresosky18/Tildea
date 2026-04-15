@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-80ZG9TKT50"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-80ZG9TKT50', {
+  page_title: document.title,
+  page_location: window.location.href,
+});
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — Tildea | Soporte y consultas</title>
+<meta name="description" content="Contacta al equipo de Tildea. Soporte por WhatsApp, correo electrónico y chat en vivo. Respondemos en menos de 24 horas.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Tildea">
+<link rel="canonical" href="https://tildea.vercel.app/contacto.html">
+<meta name="keywords" content="contacto tildea, soporte tildea, atención al cliente corrector ortográfico">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tildea.vercel.app/contacto.html">
+<meta property="og:title" content="Contactar con Tildea">
+<meta property="og:description" content="Estamos aquí para ayudarte. WhatsApp, correo o formulario.">
+<meta property="og:image" content="https://tildea.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Tildea">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contactar con Tildea">
+<meta name="twitter:description" content="Estamos aquí para ayudarte. WhatsApp, correo o formulario.">
+<meta name="twitter:image" content="https://tildea.vercel.app/og-image.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#2196F3;--blue-dark:#1565C0;--blue-light:#E3F2FD;--blue-mid:#BBDEFB;
+  --text:#0D1B2A;--muted:#546E7A;--faint:#B0BEC5;--border:#E1EEF8;
+  --bg:#FFFFFF;--bg-alt:#F0F8FF;--surface:#FFFFFF;
+  --green:#00C896;--orange:#FF7043;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);
+  --shadow-md:0 4px 20px rgba(33,150,243,.1);
+  --shadow-lg:0 12px 40px rgba(33,150,243,.15);
+}
+[data-theme="dark"]{
+  --bg:#0F1724;--bg-alt:#161F2E;--surface:#1E2A3A;
+  --text:#E8F0FE;--muted:#8EA0B8;--faint:#4A607A;--border:#2A3A50;
+  --blue-light:#1A2E45;--blue-mid:#1E3A5A;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.25;}
+a{text-decoration:none;color:inherit;transition:opacity .15s;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 max(5vw,24px);height:64px;display:flex;align-items:center;justify-content:space-between;transition:box-shadow .2s;}
+[data-theme="dark"] nav{background:rgba(15,23,36,.96);border-color:var(--border);}
+nav.scrolled{box-shadow:0 2px 24px rgba(33,150,243,.1);}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-links{display:flex;list-style:none;gap:4px;}
+.nav-links a{font-size:14px;font-weight:500;color:var(--muted);padding:7px 13px;border-radius:8px;transition:all .15s;}
+.nav-links a:hover{color:var(--text);background:var(--blue-light);}
+.nav-links a.active-link{color:var(--blue);font-weight:600;}
+[data-theme="dark"] .nav-links a{color:var(--muted);}
+[data-theme="dark"] .nav-links a:hover{color:var(--text);}
+.nav-cta{display:flex;align-items:center;gap:8px;}
+.btn-ghost{font-size:14px;font-weight:600;color:var(--blue);padding:8px 16px;border-radius:9px;border:1.5px solid var(--blue-mid);transition:all .15s;}
+.btn-ghost:hover{background:var(--blue-light);}
+[data-theme="dark"] .btn-ghost{border-color:var(--border);color:var(--blue);}
+.btn-nav-primary{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;font-family:'Sora',sans-serif;color:white;background:var(--blue);padding:9px 18px;border-radius:10px;transition:all .15s;white-space:nowrap;}
+.btn-nav-primary:hover{background:var(--blue-dark);transform:translateY(-1px);}
+.dark-toggle{width:36px;height:36px;border-radius:9px;background:var(--bg-alt);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--muted);transition:all .2s;}
+.dark-toggle:hover{color:var(--text);border-color:var(--blue);}
+.hamburger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;cursor:pointer;border:none;background:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .25s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px 20px;z-index:150;box-shadow:0 8px 32px rgba(0,0,0,.12);flex-direction:column;gap:4px;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{font-size:15px;font-weight:500;color:var(--muted);padding:11px 14px;border-radius:10px;transition:all .15s;display:block;}
+.mobile-nav a:hover{background:var(--blue-light);color:var(--blue);}
+.mn-divider{height:1px;background:var(--border);margin:8px 0;}
+.mn-cta{margin-top:4px;padding:12px;border-radius:11px;background:var(--blue);color:white!important;text-align:center;font-weight:700;font-size:14px;}
+[data-theme="dark"] .mobile-nav{background:var(--surface);border-color:var(--border);}
+[data-theme="dark"] .mobile-nav a{color:var(--muted);}
+@media(max-width:640px){.hamburger{display:flex!important;}.nav-links{display:none!important;}.nav-cta .btn-ghost,.nav-cta .btn-nav-primary{display:none;}}
+
+/* ── HERO ── */
+.contact-hero{padding:110px max(5vw,24px) 60px;text-align:center;background:linear-gradient(160deg,var(--bg-alt) 0%,var(--bg) 60%);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+[data-theme="dark"] .contact-hero{background:linear-gradient(160deg,#0D1922 0%,var(--bg) 60%);}
+.contact-hero::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(33,150,243,.08),transparent 70%);top:-200px;left:-100px;pointer-events:none;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px;box-shadow:var(--shadow-sm);}
+.contact-hero h1{font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.04em;color:var(--text);margin-bottom:14px;}
+.contact-hero p{font-size:17px;color:var(--muted);max-width:480px;margin:0 auto 40px;line-height:1.7;}
+
+/* Response time pills */
+.response-pills{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
+.response-pill{display:flex;align-items:center;gap:8px;background:var(--surface);border:1.5px solid var(--border);border-radius:20px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--text);box-shadow:var(--shadow-sm);}
+.pill-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.pill-green{background:#25D366;}
+.pill-blue{background:var(--blue);}
+[data-theme="dark"] .response-pill{background:var(--surface);border-color:var(--border);}
+
+/* ── MAIN LAYOUT ── */
+.contact-layout{max-width:1020px;margin:0 auto;padding:60px max(5vw,24px) 80px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+@media(max-width:768px){.contact-layout{grid-template-columns:1fr;gap:28px;}}
+
+/* ── CONTACT CHANNELS ── */
+.channels{display:flex;flex-direction:column;gap:16px;}
+
+.channel-card{background:var(--surface);border:1.5px solid var(--border);border-radius:18px;padding:26px 24px;transition:all .2s;position:relative;overflow:hidden;}
+.channel-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--blue);}
+.channel-card.wa-card:hover{border-color:#25D366;box-shadow:0 12px 40px rgba(37,211,102,.2);}
+[data-theme="dark"] .channel-card{background:var(--surface);border-color:var(--border);}
+[data-theme="dark"] .channel-card:hover{border-color:var(--blue);}
+[data-theme="dark"] .channel-card.wa-card:hover{border-color:#25D366;}
+
+.channel-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:18px 18px 0 0;background:var(--blue);opacity:0;transition:opacity .2s;}
+.channel-card:hover::before{opacity:1;}
+.channel-card.wa-card::before{background:#25D366;}
+
+.channel-header{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.channel-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.ic-blue{background:var(--blue-light);color:var(--blue);}
+.ic-green{background:#E8FFF5;color:#25D366;}
+.ic-purple{background:#EDE7F6;color:#7C3AED;}
+[data-theme="dark"] .ic-blue{background:var(--blue-light);}
+[data-theme="dark"] .ic-green{background:rgba(37,211,102,.1);}
+[data-theme="dark"] .ic-purple{background:rgba(124,58,237,.15);}
+
+.channel-title{font-family:'Sora',sans-serif;font-size:17px;font-weight:800;color:var(--text);margin-bottom:3px;}
+.channel-time{font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:5px;border-radius:10px;padding:2px 9px;}
+.time-fast{background:#E8FFF5;color:#16A34A;}
+.time-normal{background:var(--blue-light);color:var(--blue);}
+[data-theme="dark"] .time-fast{background:rgba(22,163,74,.12);color:#6EE7B7;}
+[data-theme="dark"] .time-normal{background:var(--blue-light);color:var(--blue);}
+
+.channel-desc{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:18px;}
+.channel-detail{background:var(--bg-alt);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:14.5px;font-weight:600;color:var(--text);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.channel-detail i{color:var(--faint);}
+[data-theme="dark"] .channel-detail{background:var(--bg-alt);border-color:var(--border);}
+
+.btn-channel{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:11px;font-size:14px;font-weight:700;font-family:'Sora',sans-serif;transition:all .2s;border:none;cursor:pointer;}
+.btn-email-ch{background:var(--blue);color:white;box-shadow:0 4px 14px rgba(33,150,243,.3);}
+.btn-email-ch:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(33,150,243,.4);}
+.btn-wa-ch{background:#25D366;color:white;box-shadow:0 4px 14px rgba(37,211,102,.35);}
+.btn-wa-ch:hover{background:#1DA851;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,211,102,.45);}
+
+/* ── FORM PANEL ── */
+.form-panel{background:var(--surface);border:1.5px solid var(--border);border-radius:22px;padding:32px;box-shadow:var(--shadow-md);position:sticky;top:88px;}
+[data-theme="dark"] .form-panel{background:var(--surface);border-color:var(--border);}
+
+.form-panel-header{margin-bottom:28px;}
+.form-panel-title{font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px;}
+.form-panel-sub{font-size:14px;color:var(--muted);line-height:1.6;}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:480px){.form-row{grid-template-columns:1fr;}}
+
+.form-group{margin-bottom:16px;}
+.form-label{font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px;display:block;}
+.form-input,.form-textarea,.form-select{width:100%;border:1.5px solid var(--border);border-radius:11px;padding:11px 14px;font-size:14px;font-family:inherit;color:var(--text);background:var(--bg-alt);transition:border-color .2s,box-shadow .2s;outline:none;}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(33,150,243,.12);background:var(--surface);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--faint);}
+.form-textarea{resize:vertical;min-height:120px;line-height:1.6;}
+.form-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23B0BEC5' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+[data-theme="dark"] .form-input,[data-theme="dark"] .form-textarea,[data-theme="dark"] .form-select{background:var(--bg-alt);border-color:var(--border);color:var(--text);}
+[data-theme="dark"] .form-input:focus,[data-theme="dark"] .form-textarea:focus{background:var(--surface);}
+[data-theme="dark"] .form-input::placeholder,[data-theme="dark"] .form-textarea::placeholder{color:var(--faint);}
+
+.btn-send{width:100%;padding:13px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:white;font-size:15px;font-weight:700;font-family:'Sora',sans-serif;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 16px rgba(33,150,243,.3);}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(33,150,243,.4);}
+.btn-send:disabled{opacity:.7;cursor:not-allowed;transform:none;}
+.btn-send .spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.35);border-top-color:white;border-radius:50%;animation:spin .65s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.form-success{display:none;text-align:center;padding:32px 16px;}
+.form-success i{font-size:52px;color:var(--green);margin-bottom:16px;}
+.form-success h3{font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px;}
+.form-success p{font-size:14.5px;color:var(--muted);line-height:1.7;}
+.form-success a{color:var(--blue);font-weight:600;}
+
+/* ── INFO CARDS ROW ── */
+.info-row{max-width:1020px;margin:0 auto;padding:0 max(5vw,24px) 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:768px){.info-row{grid-template-columns:1fr;}}
+
+.info-card{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:22px 20px;transition:all .2s;}
+.info-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--blue-mid);}
+[data-theme="dark"] .info-card{background:var(--surface);border-color:var(--border);}
+.info-card-icon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:14px;}
+.info-card h4{font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.info-card p{font-size:13.5px;color:var(--muted);line-height:1.6;}
+.info-card a{color:var(--blue);font-weight:500;}
+
+/* footer */
+footer{background:#0A1628;color:rgba(255,255,255,.45);padding:28px max(5vw,24px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;}
+.footer-links{display:flex;gap:20px;}
+footer a{color:rgba(255,255,255,.35);transition:color .15s;}
+footer a:hover{color:rgba(255,255,255,.7);}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── Mobile fixes ── */
+body{overflow-x:hidden}
+@media(max-width:480px){
+.channels-grid{grid-template-columns:1fr}
+.contact-form-grid{grid-template-columns:1fr}
+.channel-card{padding:20px}
+.form-panel{padding:24px 18px}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">
+    <img loading="lazy" src="tildea_app_icon_minimalist.png" alt="Tildea" style="width:36px;height:36px;border-radius:10px;flex-shrink:0;">
+    <svg width="88" height="26" viewBox="0 0 88 26" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+      <text x="0" y="22" font-family="Sora,sans-serif" font-size="24" font-weight="800" fill="#2196F3" letter-spacing="-0.5">tildea</text>
+      <circle cx="15" cy="3.5" r="3.2" fill="#FF7043"/>
+    </svg>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="pricing.html">Precios</a></li>
+    <li><a href="ayuda.html">Ayuda</a></li>
+    <li><a href="contacto.html" class="active-link">Contacto</a></li>
+  </ul>
+  <div class="nav-cta">
+    <button class="dark-toggle" onclick="toggleDark()" title="Modo oscuro"><i class="bi bi-moon-fill"></i></button>
+    <a href="login.html" class="btn-ghost">Iniciar sesión</a>
+    <a href="register.html" class="btn-nav-primary"><i class="bi bi-lightning-charge-fill"></i>Empezar gratis</a>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Inicio</a>
+  <a href="pricing.html">Precios</a>
+  <a href="ayuda.html">Ayuda</a>
+  <a href="contacto.html" style="color:var(--blue);font-weight:600;">Contacto</a>
+  <div class="mn-divider"></div>
+  <a href="login.html">Iniciar sesión</a>
+  <a href="register.html" class="mn-cta">⚡ Empezar gratis</a>
+</div>
+
+<!-- ── HERO ── -->
+<div class="contact-hero">
+  <div class="hero-eyebrow"><i class="bi bi-chat-dots-fill"></i>Soporte</div>
+  <h1>¿En qué podemos<br>ayudarte?</h1>
+  <p>Elige el canal que prefieras. Siempre hay alguien del equipo listo para responderte.</p>
+  <div id="proSupportBadge" style="display:none;align-items:center;gap:8px;background:linear-gradient(135deg,#E8FFF5,#D1FAE5);border:1.5px solid #A7F3D0;border-radius:20px;padding:8px 16px;margin-top:16px;font-size:13.5px;font-weight:600;color:#065F46;width:fit-content;margin-left:auto;margin-right:auto;">
+    <i class="bi bi-lightning-charge-fill" style="color:#059669"></i>
+    Eres usuario Pro — Chat en vivo disponible abajo a la derecha ↘
+  </div>
+  <div class="response-pills">
+    <div class="response-pill"><div class="pill-dot pill-green"></div>WhatsApp — ~10 min</div>
+    <div class="response-pill"><div class="pill-dot pill-blue"></div>Correo — &lt;24h</div>
+    <div class="response-pill"><i class="bi bi-clock" style="color:var(--faint);font-size:13px;"></i>Lun–Vie · 9am–7pm COT</div>
+  </div>
+</div>
+
+<!-- ── MAIN LAYOUT ── -->
+<div class="contact-layout">
+
+  <!-- LEFT: Channels -->
+  <div class="channels">
+
+    <!-- WhatsApp -->
+    <div class="channel-card wa-card reveal">
+      <div class="channel-header">
+        <div class="channel-icon ic-green"><i class="bi bi-whatsapp"></i></div>
+        <div>
+          <div class="channel-title">WhatsApp</div>
+          <span class="channel-time time-fast"><i class="bi bi-lightning-charge-fill"></i>Respuesta ~10 min</span>
+        </div>
+      </div>
+      <p class="channel-desc">La forma más rápida de contactarnos. Ideal para activar el plan Pro, reportar problemas urgentes o cualquier consulta rápida.</p>
+      <div class="channel-detail"><i class="bi bi-telephone-fill"></i>+57 314 259 5669</div>
+      <a href="https://wa.me/573142595669?text=Hola%2C%20necesito%20ayuda%20con%20Tildea" target="_blank" class="btn-channel btn-wa-ch">
+        <i class="bi bi-whatsapp"></i>Abrir WhatsApp
+      </a>
+    </div>
+
+    <!-- Email -->
+    <div class="channel-card reveal">
+      <div class="channel-header">
+        <div class="channel-icon ic-blue"><i class="bi bi-envelope-fill"></i></div>
+        <div>
+          <div class="channel-title">Correo electrónico</div>
+          <span class="channel-time time-normal"><i class="bi bi-clock"></i>Respuesta &lt;24h</span>
+        </div>
+      </div>
+      <p class="channel-desc">Para consultas detalladas, reportes de errores con capturas, sugerencias de mejora o asuntos que requieran más contexto.</p>
+      <div class="channel-detail"><i class="bi bi-at"></i><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d2b3bcb6a0b7b4b7bebba2b7e1e2e192babda6bfb3bbbefcb1bdbf">[email&#160;protected]</a></div>
+      <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cbaaa5afb9aeadaea7a2bbaef8fbf88ba3a4bfa6aaa2a7e5a8a4a6">[email&#160;protected]</a>
+    </div>
+
+    <!-- Reportar error -->
+    <div class="channel-card reveal">
+      <div class="channel-header">
+        <div class="channel-icon ic-purple"><i class="bi bi-bug-fill"></i></div>
+        <div>
+          <div class="channel-title">Reportar un error</div>
+          <span class="channel-time time-normal"><i class="bi bi-clock"></i>Revisamos en 48h</span>
+        </div>
+      </div>
+      <p class="channel-desc">¿Encontraste un bug o algo que no funciona como debería? Usa nuestro formulario de reporte con detalles técnicos para que podamos corregirlo rápido.</p>
+      <a href="reportar.html" class="btn-channel" style="background:var(--bg-alt);color:var(--text);border:1.5px solid var(--border);font-family:'Sora',sans-serif;font-size:14px;font-weight:700;display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:11px;transition:all .2s;">
+        <i class="bi bi-bug"></i>Formulario de reporte
+      </a>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: Quick form -->
+  <div class="form-panel reveal">
+    <div class="form-panel-header">
+      <div class="form-panel-title">Envíanos un mensaje</div>
+      <div class="form-panel-sub">Te respondemos en menos de 24 horas en días hábiles.</div>
+    </div>
+
+    <div id="contactFormWrap">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="cf-name">Nombre</label>
+          <input class="form-input" type="text" id="cf-name" placeholder="Tu nombre" autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cf-email">Correo</label>
+          <input class="form-input" type="email" id="cf-email" placeholder="tu@correo.com" autocomplete="email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="cf-type">Tipo de consulta</label>
+        <select class="form-select" id="cf-type">
+          <option value="">— Selecciona una opción —</option>
+          <option value="soporte">🛠️ Soporte técnico</option>
+          <option value="pro">⚡ Activar plan Pro</option>
+          <option value="cuenta">👤 Problema con mi cuenta</option>
+          <option value="sugerencia">💡 Sugerencia o mejora</option>
+          <option value="factura">🧾 Facturación</option>
+          <option value="otro">📌 Otro</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="cf-msg">Mensaje</label>
+        <textarea class="form-textarea" id="cf-msg" placeholder="Cuéntanos en qué podemos ayudarte…"></textarea>
+      </div>
+
+      <button class="btn-send" id="btnSend" onclick="sendForm()">
+        <i class="bi bi-send-fill"></i>Enviar mensaje
+      </button>
+    </div>
+
+    <div class="form-success" id="formSuccess">
+      <i class="bi bi-check-circle-fill"></i>
+      <h3>¡Mensaje enviado!</h3>
+      <p>Hemos recibido tu mensaje y te responderemos en menos de 24 horas.<br>
+        También puedes escribirnos por <a href="https://wa.me/573142595669" target="_blank">WhatsApp</a> si necesitas respuesta más rápida.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── INFO CARDS ── -->
+<div class="info-row">
+  <div class="info-card reveal">
+    <div class="info-card-icon" style="background:#E3F2FD;color:#2196F3;"><i class="bi bi-clock-history"></i></div>
+    <h4>Horario de atención</h4>
+    <p>Lunes a viernes<br><strong style="color:var(--text);">9:00 am – 7:00 pm</strong><br>Hora Colombia (COT, UTC−5)</p>
+  </div>
+  <div class="info-card reveal">
+    <div class="info-card-icon" style="background:#E8FFF5;color:#25D366;"><i class="bi bi-geo-alt-fill"></i></div>
+    <h4>Ubicación</h4>
+    <p>Bogotá, Colombia<br>Proyecto operado por<br><strong style="color:var(--text);">Andrés Aragón</strong></p>
+  </div>
+  <div class="info-card reveal">
+    <div class="info-card-icon" style="background:#EDE7F6;color:#7C3AED;"><i class="bi bi-question-circle-fill"></i></div>
+    <h4>¿Prefieres buscar tú mismo?</h4>
+    <p>Visita nuestro <a href="ayuda.html">Centro de ayuda</a> con preguntas frecuentes organizadas por categoría.</p>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Tildea · Bogotá, Colombia</span>
+  <div class="footer-links">
+    <a href="index.html">Inicio</a>
+    <a href="privacidad.html">Privacidad</a>
+    <a href="terminos.html">Términos</a>
+    <a href="ayuda.html">Ayuda</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="tildea-shared.js"></script>
+<script>
+function sendForm() {
+  const name  = document.getElementById('cf-name').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const type  = document.getElementById('cf-type').value;
+  const msg   = document.getElementById('cf-msg').value.trim();
+
+  if (!name || !email || !msg) {
+    ['cf-name','cf-email','cf-msg'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.style.borderColor = '#EF5350';
+        el.focus();
+        setTimeout(() => el.style.borderColor = '', 2000);
+      }
+    });
+    return;
+  }
+
+  const btn = document.getElementById('btnSend');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Enviando…';
+
+  const subject = encodeURIComponent(`[Tildea] ${type ? type.charAt(0).toUpperCase() + type.slice(1) : 'Consulta'} — ${name}`);
+  const body    = encodeURIComponent(`Nombre: ${name}\nCorreo: ${email}\nTipo: ${type || 'No especificado'}\n\n${msg}`);
+
+  window.location.href = `mailto:andrefelipe303@hotmail.com?subject=${subject}&body=${body}`;
+
+  setTimeout(() => {
+    document.getElementById('contactFormWrap').style.display = 'none';
+    document.getElementById('formSuccess').style.display    = 'block';
+  }, 800);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && e.target.closest('.form-panel')) {
+    sendForm();
+  }
+});
+</script>
+
+<!-- Tawk.to: loads only for Pro/Teams users -->
+<script type="module">
+import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const cfg = {apiKey:"AIzaSyAuYd7g-d9j-xDdy7--bj4j5g550b36a14",authDomain:"tildea-47a04.firebaseapp.com",projectId:"tildea-47a04",storageBucket:"tildea-47a04.firebasestorage.app",messagingSenderId:"653195240806",appId:"1:653195240806:web:94f09a861cbdbd782394a7"};
+try {
+  const app  = getApps().length ? getApps()[0] : initializeApp(cfg);
+  const auth = getAuth(app);
+  const db   = getFirestore(app);
+  onAuthStateChanged(auth, async user => {
+    if (!user) return;
+    try {
+      const snap = await getDoc(doc(db, 'users', user.uid));
+      const plan = snap.exists() ? (snap.data().plan || 'free') : 'free';
+      if (plan === 'pro' || plan === 'teams') {
+        var s1 = document.createElement('script');
+        s1.async = true;
+        s1.

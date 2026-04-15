@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-80ZG9TKT50"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-80ZG9TKT50', {
+  page_title: document.title,
+  page_location: window.location.href,
+});
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Reporta bugs o problemas con Tildea. Tu reporte nos ayuda a mejorar el corrector.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="author" content="Tildea">
+<link rel="canonical" href="https://tildea.vercel.app/reportar.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tildea.vercel.app/reportar.html">
+<meta property="og:title" content="Reportar error en Tildea">
+<meta property="og:description" content="Ayúdanos a mejorar reportando bugs.">
+<meta property="og:image" content="https://tildea.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Tildea">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reportar error en Tildea">
+<meta name="twitter:description" content="Ayúdanos a mejorar reportando bugs.">
+<meta name="twitter:image" content="https://tildea.vercel.app/og-image.png">
+<title>Reportar un error — Tildea</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#2196F3;--blue-dark:#1565C0;--blue-light:#E3F2FD;
+  --sky:#F0F8FF;--white:#fff;--text:#0D1B2A;--muted:#546E7A;
+  --faint:#B0BEC5;--border:#E1EEF8;--green:#00C896;--red:#EF5350;
+}
+body{font-family:'DM Sans',system-ui,sans-serif;color:var(--text);background:var(--sky);min-height:100vh;}
+a{text-decoration:none;color:inherit;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 max(5vw,20px);height:64px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:10px;}.nav-links{display:flex;align-items:center;gap:2px;list-style:none;}.nav-links a{font-size:14px;font-weight:500;color:var(--muted);padding:7px 14px;border-radius:8px;transition:color .15s,background .15s;}.nav-links a:hover{color:var(--text);background:var(--sky);}
+.nav-logo-icon{width:36px;height:36px;border-radius:10px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-family:Georgia,serif;font-size:22px;font-weight:bold;letter-spacing:-1px;}
+.nav-logo-text{font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:var(--blue);letter-spacing:-0.03em;}
+.nav-logo-text span{color:#FF7043;}
+.nav-back{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;border:1.5px solid var(--border);font-weight:500;transition:all .15s;}
+.nav-back:hover{color:var(--blue);border-color:var(--blue);background:var(--blue-light);}
+
+.page{padding:100px max(5vw,20px) 60px;max-width:640px;margin:0 auto;}
+.page-header{text-align:center;margin-bottom:40px;}
+.page-tag{display:inline-flex;align-items:center;gap:6px;background:#FFF3EE;color:#E64A19;font-size:12px;font-weight:700;border-radius:20px;padding:5px 14px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.04em;}
+.page-title{font-family:'Sora',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:800;letter-spacing:-0.03em;margin-bottom:12px;}
+.page-sub{font-size:15px;color:var(--muted);max-width:480px;margin:0 auto;line-height:1.7;}
+
+.form-card{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:36px 32px;}
+.form-group{margin-bottom:20px;}
+.form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:var(--text);}
+.form-group label span{color:var(--red);margin-left:2px;}
+.form-input,.form-select,.form-textarea{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:11px 14px;font-size:14px;font-family:inherit;color:var(--text);background:var(--white);outline:none;transition:border-color .15s;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(33,150,243,.08);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--faint);}
+.form-textarea{min-height:120px;resize:vertical;}
+.form-select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23546E7A' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;appearance:none;-webkit-appearance:none;}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;border:1.5px solid var(--border);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;background:var(--white);color:var(--muted);}
+.chip:hover{border-color:var(--blue);color:var(--blue);}
+.chip.selected{background:var(--blue-light);border-color:var(--blue);color:var(--blue);font-weight:600;}
+.chip i{font-size:15px;}
+
+.btn-submit{width:100%;padding:14px;background:var(--blue);color:white;border:none;border-radius:11px;font-size:15px;font-weight:700;font-family:'Sora',sans-serif;cursor:pointer;box-shadow:0 4px 16px rgba(33,150,243,.35);transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;}
+.btn-submit:hover{background:var(--blue-dark);transform:translateY(-1px);}
+.btn-submit:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+
+.alert{display:none;align-items:center;gap:10px;padding:14px 16px;border-radius:11px;font-size:14px;margin-bottom:20px;}
+.alert-success{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534;}
+.alert i{font-size:18px;flex-shrink:0;}
+
+.tip-box{background:var(--sky);border:1px solid var(--border);border-radius:11px;padding:14px 16px;font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px;display:flex;align-items:flex-start;gap:10px;}
+.tip-box i{color:var(--blue);font-size:16px;margin-top:1px;flex-shrink:0;}
+
+/* ── Dark mode vars ── */
+[data-theme="dark"]{
+  --bg:#0F1724;--bg-alt:#161F2E;--surface:#1E2A3A;
+  --text:#E8F0FE;--muted:#8EA0B8;--faint:#4A607A;--border:#2A3A50;
+  --blue-light:#1A2E45;--sky:#161F2E;--white:#1E2A3A;
+}
+[data-theme="dark"] body{background:var(--bg)!important;color:var(--text)!important;}
+[data-theme="dark"] nav{background:rgba(15,23,36,.96)!important;border-color:var(--border)!important;}
+[data-theme="dark"] footer{background:#080F1A!important;}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--text)!important;}
+[data-theme="dark"] p{color:var(--muted)!important;}
+[data-theme="dark"] .card,[data-theme="dark"] .changelog-item,[data-theme="dark"] .report-card{background:var(--surface)!important;border-color:var(--border)!important;}
+[data-theme="dark"] .badge,[data-theme="dark"] .tag{background:var(--bg-alt)!important;color:var(--muted)!important;}
+[data-theme="dark"] input,[data-theme="dark"] textarea,[data-theme="dark"] select{background:var(--surface)!important;border-color:var(--border)!important;color:var(--text)!important;}
+[data-theme="dark"] label{color:var(--muted)!important;}
+[data-theme="dark"] .nav-links a{color:var(--muted)!important;}
+[data-theme="dark"] .nav-links a:hover{color:var(--text)!important;}
+[data-theme="dark"] .btn-ghost{border-color:var(--border)!important;color:var(--blue)!important;}
+[data-theme="dark"] .mobile-nav{background:var(--surface)!important;border-color:var(--border)!important;}
+[data-theme="dark"] .mobile-nav a{color:var(--muted)!important;}
+/* Dark toggle */
+.dark-toggle{width:36px;height:36px;border-radius:9px;background:var(--bg-alt);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--muted);transition:all .2s;}
+.dark-toggle:hover{color:var(--text);border-color:var(--blue);}
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;cursor:pointer;border:none;background:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .25s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px 20px;z-index:150;box-shadow:0 8px 32px rgba(0,0,0,.12);flex-direction:column;gap:4px;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{font-size:15px;font-weight:500;color:var(--muted);padding:11px 14px;border-radius:10px;transition:all .15s;text-decoration:none;display:block;}
+.mobile-nav a:hover{background:var(--blue-light);color:var(--blue);}
+@media(max-width:640px){.hamburger{display:flex!important;}.nav-links{display:none!important;}.nav-cta .btn-ghost{display:none;}}
+
+[data-theme="dark"] .report-section{background:var(--bg)!important;}
+[data-theme="dark"] select option{background:var(--surface)!important;}
+[data-theme="dark"] .file-drop{background:var(--surface)!important;border-color:var(--border)!important;color:var(--muted)!important;}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <div class="nav-logo">
+    <img loading="lazy" src="tildea_app_icon_minimalist.png" alt="Tildea" style="width:36px;height:36px;border-radius:10px;flex-shrink:0;">
+    <svg width="88" height="26" viewBox="0 0 88 26" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+      <text x="0" y="22" font-family="Sora,sans-serif" font-size="24" font-weight="800" fill="#2196F3" letter-spacing="-0.5">tildea</text>
+      <circle cx="15" cy="3.5" r="3.2" fill="#FF7043"/>
+    </svg>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="pricing.html">Precios</a></li>
+    <li><a href="ayuda.html">Ayuda</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="nav-cta" style="display:flex;align-items:center;gap:8px;">
+    <button class="dark-toggle" onclick="toggleDark()" title="Modo oscuro"><i class="bi bi-moon-fill"></i></button>
+    <a href="login.html" class="btn-ghost">Iniciar sesión</a>
+    <a href="register.html" class="btn-nav-primary"><i class="bi bi-lightning-charge-fill"></i>Empezar gratis</a>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Inicio</a>
+  <a href="pricing.html">Precios</a>
+  <a href="ayuda.html">Ayuda</a>
+  <a href="contacto.html">Contacto</a>
+  <div style="height:1px;background:var(--border);margin:8px 0;"></div>
+  <a href="login.html">Iniciar sesión</a>
+  <a href="register.html" style="margin-top:4px;padding:12px;border-radius:11px;background:var(--blue);color:white;text-align:center;font-weight:700;font-size:14px;display:block;">⚡ Empezar gratis</a>
+</div>
+
+<div class="page">
+  <div class="page-header">
+    <div class="page-tag"><i class="bi bi-bug"></i> Reportar error</div>
+    <h1 class="page-title">Reportar un error 🐛</h1>
+    <p class="page-sub">Ayúdanos a mejorar Tildea. Tu reporte llegará directamente a nuestro equipo.</p>
+  </div>
+
+  <div class="form-card">
+    <div class="alert alert-success" id="alertOk">
+      <i class="bi bi-check-circle-fill"></i>
+      <div><strong>¡Reporte enviado!</strong> Gracias por ayudarnos a mejorar. Revisaremos tu reporte pronto.</div>
+    </div>
+
+    <div class="tip-box">
+      <i class="bi bi-info-circle-fill"></i>
+      <span>Cuanto más detalles incluyas (sitio web, pasos, etc.), más rápido podemos solucionar el error.</span>
+    </div>
+
+    <div class="form-group">
+      <label>Tipo de error <span>*</span></label>
+      <div class="chips" id="typeChips">
+        <div class="chip" onclick="selectChip(this,'correction')"><i class="bi bi-spellcheck"></i> Corrección incorrecta</div>
+        <div class="chip" onclick="selectChip(this,'missing')"><i class="bi bi-eye-slash"></i> No detecta error</div>
+        <div class="chip" onclick="selectChip(this,'crash')"><i class="bi bi-x-octagon"></i> La extensión no funciona</div>
+        <div class="chip" onclick="selectChip(this,'slow')"><i class="bi bi-hourglass"></i> Muy lenta</div>
+        <div class="chip" onclick="selectChip(this,'ui')"><i class="bi bi-layout-text-window"></i> Problema visual</div>
+        <div class="chip" onclick="selectChip(this,'other')"><i class="bi bi-three-dots"></i> Otro</div>
+      </div>
+      <input type="hidden" id="errorType">
+    </div>
+
+    <div class="form-group">
+      <label>¿En qué sitio web ocurrió? <span>*</span></label>
+      <input class="form-input" id="siteUrl" placeholder="ej: web.whatsapp.com, gmail.com…">
+    </div>
+
+    <div class="form-group">
+      <label>Describe el error <span>*</span></label>
+      <textarea class="form-textarea" id="description" placeholder="¿Qué estabas haciendo? ¿Qué esperabas que pasara? ¿Qué pasó en su lugar?"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Tu correo (opcional)</label>
+      <input class="form-input" id="userEmail" type="email" placeholder="Para que podamos responderte si necesitamos más info">
+    </div>
+
+    <button class="btn-submit" id="btnSend" onclick="sendReport()">
+      <i class="bi bi-send"></i> Enviar reporte
+    </button>
+  </div>
+</div>
+
+<script>
+let selectedType = '';
+
+function selectChip(el, type) {
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedType = type;
+  document.getElementById('errorType').value = type;
+}
+
+function sendReport() {
+  const site  = document.getElementById('siteUrl').value.trim();
+  const desc  = document.getElementById('description').value.trim();
+  const email = document.getElementById('userEmail').value.trim();
+  const type  = selectedType;
+
+  if (!type) { alert('Selecciona el tipo de error'); return; }
+  if (!site)  { alert('Indica en qué sitio ocurrió el error'); return; }
+  if (!desc)  { alert('Describe el error'); return; }
+
+  const btn = document.querySelector('.submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Enviando…';
+
+  // Use FormSubmit.co to send real email (no backend needed)
+  const formData = new FormData();
+  formData.append('_subject', `[Tildea Bug] ${type} — ${site}`);
+  formData.append('_captcha', 'false');
+  formData.append('_template', 'box');
+  formData.append('Tipo de error', type);
+  formData.append('Sitio web', site);
+  formData.append('Descripción', desc);
+  formData.append('Email usuario', email || 'No proporcionado');
+
+  fetch('https://formsubmit.co/andrefelipe303@hotmail.com', {
+    method: 'POST',
+    body: formData,
+  })
+  .then(res => {
+    if (res.ok || res.status === 200) {
+      showSuccess();
+    } else {
+      throw new Error('Error ' + res.status);
+    }
+  })
+  .catch(() => {
+    // Fallback: open email client
+    const subject = encodeURIComponent(`[Tildea Bug] ${type} — ${site}`);
+    const body = encodeURIComponent(`Tipo: ${type}\nSitio: ${site}\n\n${desc}\n\nEmail: ${email || 'N/A'}`);
+    window.location.href = `mailto:andrefelipe303@hotmail.com?subject=${subject}&body=${body}`;
+    showSuccess();
+  });
+}
+
+function showSuccess() {
+  document.getElementById('successMsg').style.display = 'flex';
+  const btn = document.querySelector('.submit-btn');
+  btn.innerHTML = '<i class="bi bi-check-lg"></i>¡Reporte enviado!';
+  btn.style.background = '#00C896';
+  // Reset form after 3s
+  setTimeout(() => {
+    document.getElementById('siteUrl').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('userEmail').value = '';
+    selectedType = '';
+    document.querySelectorAll('.error-type-btn').forEach(b => b.classList.remove('selected'));
+    btn.disabled = false;
+    btn.innerHTML = '<i class="bi bi-send-fill"></i>Enviar reporte';
+    btn.style.background = '';
+  }, 4000);
+}
+</script>
+<script src="tildea-shared.js"></script>
+</body>
+</html>

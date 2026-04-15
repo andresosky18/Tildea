@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-80ZG9TKT50"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-80ZG9TKT50', {
+  page_title: document.title,
+  page_location: window.location.href,
+});
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel de Equipos — Tildea</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--blue:#2196F3;--blue-dark:#1565C0;--blue-light:#E3F2FD;--blue-mid:#BBDEFB;--text:#0D1B2A;--muted:#546E7A;--faint:#B0BEC5;--border:#E1EEF8;--bg:#FFFFFF;--bg-alt:#F0F8FF;--surface:#FFFFFF;--green:#00C896;--orange:#FF7043;--purple:#7C3AED}[data-theme="dark"]{--bg:#0F1724;--bg-alt:#161F2E;--surface:#1E2A3A;--text:#E8F0FE;--muted:#8EA0B8;--faint:#4A607A;--border:#2A3A50;--blue-light:#1A2E45}html{scroll-behavior:smooth}body{font-family:'DM Sans',system-ui,sans-serif;color:var(--text);background:var(--bg-alt);min-height:100vh}h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.25}a{text-decoration:none;color:inherit}.layout{display:flex;min-height:100vh}.sidebar{width:240px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;height:100vh;z-index:50}[data-theme="dark"] .sidebar{background:#111C2D;border-color:var(--border)}.main{margin-left:240px;flex:1;padding:28px 32px;max-width:calc(100vw - 240px)}@media(max-width:768px){.sidebar{transform:translateX(-100%);transition:transform .3s}.main{margin-left:0;padding:20px;max-width:100vw}}.sb-logo{display:flex;align-items:center;gap:10px;padding:20px 20px 16px}.sb-nav{flex:1;padding:0 12px;overflow-y:auto}.sb-section{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);padding:14px 8px 6px}.sb-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;font-size:14px;font-weight:500;color:var(--muted);cursor:pointer;transition:all .15s;margin-bottom:2px}.sb-item:hover,.sb-item.active{background:var(--blue-light);color:var(--blue)}[data-theme="dark"] .sb-item:hover,[data-theme="dark"] .sb-item.active{background:var(--blue-light);color:var(--blue)}.sb-item i{font-size:16px;width:20px;text-align:center}.sb-plan-badge{margin:12px;background:linear-gradient(135deg,#7C3AED,#5B21B6);color:white;border-radius:12px;padding:12px;text-align:center}.sb-plan-badge span{font-size:12px;font-weight:700;display:block;margin-bottom:4px}.sb-plan-badge small{font-size:11px;opacity:.8}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:14px}.page-title{font-family:'Sora',sans-serif;font-size:24px;font-weight:800;letter-spacing:-0.03em}.topbar-right{display:flex;align-items:center;gap:10px}.dark-toggle{width:36px;height:36px;border-radius:9px;background:var(--surface);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--muted);transition:all .2s}.dark-toggle:hover{color:var(--text);border-color:var(--blue)}.btn-invite{display:flex;align-items:center;gap:7px;background:var(--blue);color:white;padding:9px 18px;border-radius:10px;font-size:14px;font-weight:700;font-family:'Sora',sans-serif;border:none;cursor:pointer;transition:all .15s}.btn-invite:hover{background:var(--blue-dark);transform:translateY(-1px)}.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}@media(max-width:900px){.stats-row{grid-template-columns:repeat(2,1fr)}}.scard{background:var(--surface);border:1px solid var(--border);border-radius:15px;padding:18px;transition:all .2s}.scard:hover{box-shadow:0 4px 20px rgba(33,150,243,.1);transform:translateY(-2px)}[data-theme="dark"] .scard{background:var(--surface);border-color:var(--border)}.scard-icon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:12px}.ic-b{background:var(--blue-light);color:var(--blue)}.ic-g{background:#E8F8F4;color:#00A67E}.ic-p{background:#EDE7F6;color:#7C3AED}.ic-o{background:#FFF3EE;color:#E64A19}.scard-num{font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:var(--text);line-height:1}.scard-lbl{font-size:13px;color:var(--muted);margin-top:4px}.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin-bottom:20px}[data-theme="dark"] .card{background:var(--surface);border-color:var(--border)}.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.card-title{font-family:'Sora',sans-serif;font-size:16px;font-weight:700}.card-sub{font-size:13px;color:var(--muted);margin-top:3px}.members-table{width:100%;border-collapse:collapse}.members-table th{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)}.members-table td{padding:13px 12px;border-bottom:1px solid var(--border);font-size:14px;vertical-align:middle}.members-table tr:last-child td{border-bottom:none}.members-table tr:hover td{background:var(--bg-alt)}[data-theme="dark"] .members-table tr:hover td{background:var(--bg-alt)}.member-info{display:flex;align-items:center;gap:10px}.member-avatar{width:34px;height:34px;border-radius:50%;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}.member-name{font-weight:600}.member-email{font-size:12px;color:var(--muted)}.role-badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:8px;font-size:12px;font-weight:600}.role-admin{background:rgba(124,58,237,.1);color:#7C3AED}.role-member{background:var(--bg-alt);color:var(--muted)}[data-theme="dark"] .role-admin{background:rgba(124,58,237,.15);color:#A78BFA}.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}.dot-active{background:#22C55E}.dot-pending{background:#F59E0B}.action-btn{background:none;border:1.5px solid var(--border);border-radius:8px;padding:5px 10px;font-size:12.5px;color:var(--muted);cursor:pointer;transition:all .15s;font-family:inherit}.action-btn:hover{border-color:var(--blue);color:var(--blue)}.action-btn.danger:hover{border-color:#EF5350;color:#EF5350}.dict-shared-grid{display:flex;flex-wrap:wrap;gap:8px}.shared-tag{display:flex;align-items:center;gap:6px;background:var(--bg-alt);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:13.5px}[data-theme="dark"] .shared-tag{background:var(--bg-alt)}.shared-tag button{background:none;border:none;color:var(--faint);cursor:pointer;font-size:14px;display:flex;align-items:center;transition:color .15s}.shared-tag button:hover{color:#EF5350}.dict-add-row{display:flex;gap:8px;margin-bottom:16px}.dict-in{flex:1;border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;font-size:14px;font-family:inherit;color:var(--text);background:var(--bg-alt);outline:none;transition:border-color .2s}.dict-in:focus{border-color:var(--blue)}.dict-btn{background:var(--blue);color:white;border:none;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:inherit;transition:all .15s}.dict-btn:hover{background:var(--blue-dark)}.report-bars{display:flex;align-items:flex-end;gap:8px;height:80px;margin:16px 0 8px}.report-bar{flex:1;background:var(--blue-light);border-radius:4px 4px 0 0;transition:background .15s;position:relative;cursor:pointer;min-width:28px}.report-bar:hover{background:var(--blue)}.report-bar-label{font-size:11px;color:var(--faint);text-align:center;margin-top:4px}[data-theme="dark"] .report-bar{background:var(--blue-light)}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:all .2s}.modal-overlay.open{opacity:1;visibility:visible}.modal-box{background:var(--surface);border-radius:18px;padding:32px;max-width:420px;width:100%;transform:translateY(16px);transition:transform .2s}.modal-overlay.open .modal-box{transform:translateY(0)}[data-theme="dark"] .modal-box{background:var(--surface);border:1px solid var(--border)}.modal-title{font-family:'Sora',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px}.modal-sub{font-size:14px;color:var(--muted);margin-bottom:20px}.form-label{font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px;display:block}.form-input{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:11px 14px;font-size:14px;font-family:inherit;color:var(--text);background:var(--bg-alt);outline:none;transition:border-color .2s;margin-bottom:14px}.form-input:focus{border-color:var(--blue)}.modal-actions{display:flex;gap:10px;margin-top:6px}.btn-primary{flex:1;padding:12px;border-radius:10px;background:var(--blue);color:white;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:'Sora',sans-serif;transition:all .15s}.btn-primary:hover{background:var(--blue-dark)}.btn-cancel{padding:12px 20px;border-radius:10px;background:none;border:1.5px solid var(--border);color:var(--muted);font-size:14px;cursor:pointer;font-family:inherit;transition:all .15s}.btn-cancel:hover{border-color:var(--text);color:var(--text)}#loading{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:999}.spinner-big{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin .65s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.member-stats-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-top:6px}.member-stats-fill{height:100%;background:var(--blue);border-radius:3px;transition:width .4s ease}.report-member-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}.report-member-row:last-child{border-bottom:none}.report-member-info{flex:1}.report-member-name{font-size:14px;font-weight:600;color:var(--text)}.report-member-sub{font-size:12px;color:var(--muted)}.report-member-count{font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:var(--text);min-width:40px;text-align:right}.report-member-pct{font-size:12px;color:var(--muted);min-width:32px;text-align:right}.onboarding-steps{display:flex;flex-direction:column;gap:14px}.ob-step{display:flex;align-items:flex-start;gap:14px;padding:16px;background:var(--bg-alt);border-radius:13px;border:1.5px solid var(--border);transition:all .2s}.ob-step:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(33,150,243,.08)}[data-theme="dark"] .ob-step{background:var(--bg-alt);border-color:var(--border)}.ob-step.done{border-color:var(--green);background:rgba(0,200,150,.05)}[data-theme="dark"] .ob-step.done{background:rgba(0,200,150,.07)}.ob-num{width:32px;height:32px;border-radius:50%;background:var(--blue-light);color:var(--blue);font-family:'Sora',sans-serif;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}.ob-step.done .ob-num{background:rgba(0,200,150,.15);color:var(--green)}.ob-title{font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:3px}.ob-desc{font-size:13px;color:var(--muted);line-height:1.55}.ob-action{margin-top:8px;display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;color:var(--blue);cursor:pointer;border:none;background:none;font-family:inherit;padding:0}.ob-action:hover{opacity:.75}.sla-row{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--bg-alt);border-radius:12px;margin-bottom:10px;flex-wrap:wrap;gap:8px}[data-theme="dark"] .sla-row{background:var(--bg-alt)}.sla-type{font-size:14px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px}.sla-time{font-family:'Sora',sans-serif;font-size:14px;font-weight:700}.sla-time.fast{color:var(--green)}.sla-time.normal{color:var(--blue)}
+/* ── Mobile fixes ── */
+body{overflow-x:hidden}
+@media(max-width:768px){
+.sidebar{transform:translateX(-100%);transition:transform .3s}
+.sidebar.open{transform:translateX(0)}
+.main{margin-left:0;padding:20px 16px;max-width:100vw}
+.stats-row{grid-template-columns:1fr 1fr}
+.members-table{font-size:13px}
+.members-table th,.members-table td{padding:10px 8px}
+.topbar{flex-direction:column;align-items:flex-start}
+.mobile-sidebar-btn{display:flex!important}
+}
+@media(max-width:480px){
+.stats-row{grid-template-columns:1fr}
+.info-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="loading"><div class="spinner-big"></div></div>
+
+<!-- Invite Modal -->
+<div class="modal-overlay" id="inviteModal" onclick="closeInviteOnBg(event)">
+  <div class="modal-box">
+    <div class="modal-title">Invitar miembro</div>
+    <div class="modal-sub">El miembro recibirá un correo con instrucciones para unirse al equipo.</div>
+    <label class="form-label">Nombre</label>
+    <input class="form-input" type="text" id="inviteName" placeholder="Nombre del miembro">
+    <label class="form-label">Correo electrónico</label>
+    <input class="form-input" type="email" id="inviteEmail" placeholder="correo@empresa.com">
+    <label class="form-label">Rol</label>
+    <select class="form-input" id="inviteRole" style="cursor:pointer;">
+      <option value="member">Miembro</option>
+      <option value="admin">Administrador</option>
+    </select>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeInvite()">Cancelar</button>
+      <button class="btn-primary" onclick="sendInvite()"><i class="bi bi-envelope-fill"></i> Enviar invitación</button>
+    </div>
+  </div>
+</div>
+
+<div class="layout" id="mainLayout" style="display:none;">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="teamSidebar">
+    <div class="sb-logo">
+      <svg width="33" height="33" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" style="border-radius:9px;flex-shrink:0;">
+        <rect width="36" height="36" rx="9" fill="#2196F3"/>
+        <path d="M7 20 Q10.5 14 14 20 Q17.5 26 21 18 L27 11" stroke="white" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg width="76" height="24" viewBox="0 0 90 28" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="24" font-family="Sora,sans-serif" font-size="26" font-weight="800" fill="#2196F3" letter-spacing="-0.5">tildea</text>
+        <circle cx="16" cy="4" r="3.5" fill="#FF7043"/>
+      </svg>
+    </div>
+
+    <nav class="sb-nav">
+      <div class="sb-section">Equipo</div>
+      <div class="sb-item active" id="nav-top" onclick="setActive('nav-top');goTo('top')"><i class="bi bi-people-fill"></i>Panel general</div>
+      <div class="sb-item" id="nav-members" onclick="setActive('nav-members');goTo('members-section')"><i class="bi bi-person-check"></i>Miembros</div>
+      <div class="sb-item" id="nav-dict" onclick="setActive('nav-dict');goTo('dict-section')"><i class="bi bi-book"></i>Diccionario compartido</div>
+      <div class="sb-item" id="nav-reports" onclick="setActive('nav-reports');goTo('reports-section')"><i class="bi bi-bar-chart-line"></i>Reportes</div>
+      <div class="sb-section">Cuenta</div>
+      <a class="sb-item" href="dashboard.html"><i class="bi bi-grid-1x2"></i>Mi dashboard</a>
+      <a class="sb-item" href="novedades.html"><i class="bi bi-stars"></i>Novedades Pro</a>
+      <a class="sb-item" href="contacto.html"><i class="bi bi-chat-dots"></i>Soporte prioritario</a>
+    </nav>
+
+    <div class="sb-plan-badge">
+      <span>👥 Plan Equipos</span>
+      <small id="teamMemberCount">0 miembros activos</small>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button class="mobile-sidebar-btn" onclick="toggleSidebar()" style="display:none;width:36px;height:36px;border-radius:9px;background:var(--surface);border:1.5px solid var(--border);align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--text);flex-shrink:0;">
+          <i class="bi bi-list"></i>
+        </button>
+        <div>
+          <div class="page-title">Panel de Equipos</div>
+          <div style="font-size:13.5px;color:var(--muted);margin-top:3px;">Gestiona tu equipo y sus correcciones</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button class="dark-toggle" onclick="toggleDark()"><i class="bi bi-moon-fill"></i></button>
+        <button class="btn-invite" onclick="openInvite()"><i class="bi bi-person-plus-fill"></i>Invitar miembro</button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="scard">
+        <div class="scard-icon ic-p"><i class="bi bi-people-fill"></i></div>
+        <div class="scard-num" id="statMembers">0</div>
+        <div class="scard-lbl">Miembros activos</div>
+      </div>
+      <div class="scard">
+        <div class="scard-icon ic-b"><i class="bi bi-check2-all"></i></div>
+        <div class="scard-num" id="statTotal">0</div>
+        <div class="scard-lbl">Correcciones totales</div>
+      </div>
+      <div class="scard">
+        <div class="scard-icon ic-g"><i class="bi bi-calendar-check"></i></div>
+        <div class="scard-num" id="statToday">0</div>
+        <div class="scard-lbl">Correcciones hoy</div>
+      </div>
+      <div class="scard">
+        <div class="scard-icon ic-o"><i class="bi bi-book"></i></div>
+        <div class="scard-num" id="statDict">0</div>
+        <div class="scard-lbl">Palabras en diccionario</div>
+      </div>
+    </div>
+
+    <!-- Members -->
+    <div class="card" id="members-section">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Miembros del equipo</div>
+          <div class="card-sub">Gestiona accesos y roles</div>
+        </div>
+        <button class="btn-invite" onclick="openInvite()" style="font-size:13px;padding:8px 14px;">
+          <i class="bi bi-person-plus"></i>Invitar
+        </button>
+      </div>
+      <table class="members-table">
+        <thead>
+          <tr>
+            <th>Miembro</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Correcciones</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="membersTableBody">
+          <tr><td colspan="5" style="text-align:center;color:var(--faint);padding:24px;">Cargando miembros…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Shared Dictionary -->
+    <div class="card" id="dict-section">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Diccionario compartido</div>
+          <div class="card-sub">Palabras que no se marcarán para nadie en el equipo</div>
+        </div>
+        <span style="font-size:13px;color:var(--muted);" id="sharedDictCount">0 palabras</span>
+      </div>
+      <div class="dict-add-row">
+        <input class="dict-in" id="sharedDictInput" placeholder="Agregar término del equipo…" maxlength="40">
+        <button class="dict-btn" onclick="addSharedWord()"><i class="bi bi-plus-lg"></i>Agregar</button>
+      </div>
+      <div class="dict-shared-grid" id="sharedDictTags">
+        <span style="font-size:13px;color:var(--faint);font-style:italic;">Sin palabras aún — agrega términos técnicos de tu empresa</span>
+      </div>
+    </div>
+
+    <!-- Reports -->
+    <div class="card" id="reports-section">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Reportes del equipo</div>
+          <div class="card-sub">Actividad semanal y ranking por miembro</div>
+        </div>
+        <button onclick="exportReport()" style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:9px;background:var(--bg-alt);border:1.5px solid var(--border);font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;font-family:inherit;" onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)'" onmouseout="this.style.borderColor='';this.style.color=''">
+          <i class="bi bi-download"></i>Exportar CSV
+        </button>
+      </div>
+
+      <!-- Weekly bars -->
+      <div style="margin-bottom:20px;">
+        <div style="font-size:12px;font-weight:700;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">Correcciones esta semana</div>
+        <div class="report-bars" id="reportBars"></div>
+        <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--faint);padding:0 4px;margin-top:6px;" id="reportLabels"></div>
+      </div>
+
+      <!-- Per-member ranking -->
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">Ranking por miembro</div>
+        <div id="memberRanking">
+          <div style="font-size:13px;color:var(--faint);text-align:center;padding:16px;">Cargando datos…</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Onboarding -->
+    <div class="card" id="onboarding-section">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Onboarding del equipo</div>
+          <div class="card-sub">Guía de configuración inicial — <span id="obProgress" style="color:var(--blue);font-weight:700;">0/5 completados</span></div>
+        </div>
+      </div>
+      <div class="onboarding-steps" id="onboardingSteps">
+        <div class="ob-step" id="ob1">
+          <div class="ob-num">1</div>
+          <div>
+            <div class="ob-title">Crear la cuenta de administrador</div>
+            <div class="ob-desc">Regístrate con el correo corporativo del administrador del equipo.</div>
+          </div>
+          <i class="bi bi-check-circle-fill" style="color:var(--green);font-size:20px;flex-shrink:0;"></i>
+        </div>
+        <div class="ob-step" id="ob2">
+          <div class="ob-num">2</div>
+          <div>
+            <div class="ob-title">Activar el plan Equipos</div>
+            <div class="ob-desc">Contrata el plan Teams por WhatsApp o correo para activar este panel.</div>
+          </div>
+          <i class="bi bi-check-circle-fill" style="color:var(--green);font-size:20px;flex-shrink:0;"></i>
+        </div>
+        <div class="ob-step" id="ob3">
+          <div class="ob-num">3</div>
+          <div>
+            <div class="ob-title">Invitar a los miembros del equipo</div>
+            <div class="ob-desc">Usa el botón "Invitar miembro" para agregar a tu equipo. Cada miembro recibe un mensaje de WhatsApp con instrucciones.</div>
+            <button class="ob-action" onclick="openInvite()"><i class="bi bi-person-plus"></i>Invitar ahora →</button>
+          </div>
+          <span id="ob3check" style="display:none;"><i class="bi bi-check-circle-fill" style="color:var(--green);font-size:20px;flex-shrink:0;"></i></span>
+        </div>
+        <div class="ob-step" id="ob4">
+          <div class="ob-num">4</div>
+          <div>
+            <div class="ob-title">Configurar el diccionario compartido</div>
+            <div class="ob-desc">Agrega los términos técnicos, nombres de marca y palabras específicas de tu empresa para que no se marquen como errores.</div>
+            <button class="ob-action" onclick="goTo('dict-section')"><i class="bi bi-book"></i>Ir al diccionario →</button>
+          </div>
+          <span id="ob4check" style="display:none;"><i class="bi bi-check-circle-fill" style="color:var(--green);font-size:20px;flex-shrink:0;"></i></span>
+        </div>
+        <div class="ob-step" id="ob5">
+          <div class="ob-num">5</div>
+          <div>
+            <div class="ob-title">Compartir Tildea con el equipo</div>
+            <div class="ob-desc">Envía este link a tu equipo para que instalen la extensión de Chrome y empiecen a corregir.</div>
+            <button class="ob-action" onclick="shareTeamLink()"><i class="bi bi-share"></i>Compartir link →</button>
+          </div>
+          <span id="ob5check" style="display:none;"><i class="bi bi-check-circle-fill" style="color:var(--green);font-size:20px;flex-shrink:0;"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLA & Soporte -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">SLA de soporte prioritario</div>
+          <div class="card-sub">Tiempos de respuesta garantizados para el plan Equipos</div>
+        </div>
+      </div>
+      <div class="sla-row">
+        <div class="sla-type"><i class="bi bi-whatsapp" style="color:#25D366"></i>WhatsApp — Consultas urgentes</div>
+        <div class="sla-time fast">≤ 2 horas</div>
+      </div>
+      <div class="sla-row">
+        <div class="sla-type"><i class="bi bi-envelope-fill" style="color:var(--blue)"></i>Correo — Soporte técnico</div>
+        <div class="sla-time normal">≤ 8 horas</div>
+      </div>
+      <div class="sla-row">
+        <div class="sla-type"><i class="bi bi-bug-fill" style="color:var(--orange)"></i>Bugs críticos</div>
+        <div class="sla-time fast">≤ 4 horas</div>
+      </div>
+      <div class="sla-row" style="margin-bottom:0;">
+        <div class="sla-type"><i class="bi bi-gear-fill" style="color:var(--muted)"></i>Onboarding dedicado</div>
+        <div class="sla-time normal">Sesión 1-a-1</div>
+      </div>
+      <div style="margin-top:14px;padding:12px 16px;background:linear-gradient(135deg,#E8FFF5,#D1FAE5);border-radius:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <span style="font-size:13.5px;color:#065F46;font-weight:500;">¿Necesitas ayuda ahora mismo?</span>
+        <a href="https://wa.me/573142595669?text=Hola%2C%20soy%20administrador%20del%20plan%20Equipos%20de%20Tildea%20y%20necesito%20soporte%20prioritario" target="_blank" style="display:flex;align-items:center;gap:6px;background:#25D366;color:white;padding:8px 16px;border-radius:9px;font-size:13.5px;font-weight:700;text-decoration:none;transition:all .15s;">
+          <i class="bi bi-whatsapp"></i>Chat prioritario
+        </a>
+      </div>
+    </div>
+
+    <!-- Billing info -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Facturación</div>
+          <div class="card-sub">Información del plan y pagos</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" id="billingInfo">
+        <div style="padding:16px;background:var(--bg-alt);border-radius:12px;">
+          <div style="font-size:12px;color:var(--faint);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;">Plan actual</div>
+          <div style="font-size:16px;font-weight:700;color:var(--text);">👥 Equipos — $8/usuario/mes</div>
+        </div>
+        <div style="padding:16px;background:var(--bg-alt);border-radius:12px;">
+          <div style="font-size:12px;color:var(--faint);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;">Soporte</div>
+          <div style="font-size:14px;font-weight:600;color:var(--text);">
+            <a href="https://wa.me/573142595669?text=Hola%2C%20soy%20administrador%20del%20plan%20Equipos%20de%20Tildea" target="_blank" style="color:var(--blue);display:flex;align-items:center;gap:6px;">
+              <i class="bi bi-whatsapp" style="color:#25D366"></i>Gestor de cuenta en WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="tildea-shared.js"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const cfg = {apiKey:"AIzaSyAuYd7g-d9j-xDdy7--bj4j5g550b36a14",authDomain:"tildea-47a04.firebaseapp.com",projectId:"tildea-47a04",storageBucket:"tildea-47a04.firebasestorage.app",messagingSenderId:"653195240806",appId:"1:653195240806:web:94f09a861cbdbd782394a7"};
+const app  = initializeApp(cfg);
+const auth = getAuth(app);
+const db   = getFirestore(app);
+
+let currentUser = null;
+let teamData    = null;
+let teamId      = null;
+
+onAuthStateChanged(auth, async user => {
+  if (!user) { window.location.href = 'login.html'; return; }
+  currentUser = user;
+  try {
+    const snap = await getDoc(doc(db, 'users', user.uid));
+    const data = snap.exists() ? snap.data() : {};
+    const plan = data.plan || 'free';
+    if (plan !== 'teams') {
+      // Not teams — redirect to pricing
+      window.location.href = 'pricing.html?upgrade=teams';
+      return;
+    }
+    teamId = data.teamId || user.uid; // use uid as team ID if no team yet
+    await loadTeamData();
+    renderDashboard(data);
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('mainLayout').style.display = 'flex';
+  } catch(e) {
+    console.error(e);
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('mainLayout').style.display = 'flex';
+  }
+});
+
+async function loadTeamData() {
+  try {
+    const teamSnap = await getDoc(doc(db, 'teams', teamId));
+    teamData = teamSnap.exists() ? teamSnap.data() : {
+      members: [{uid: currentUser.uid, email: currentUser.email, name: currentUser.displayName || 'Admin', role: 'admin', status: 'active', corrections: 0}],
+      sharedDict: [],
+      weeklyStats: [0,0,0,0,0,0,0],
+    };
+    if (!teamSnap.exists()) {
+      // Create team doc
+      await setDoc(doc(db, 'teams', teamId), teamData);
+    }
+  } catch { teamData = {members:[],sharedDict:[],weeklyStats:[0,0,0,0,0,0,0]}; }
+}
+
+function renderDashboard(userData) {
+  const members = teamData.members || [];
+  const sharedDict = teamData.sharedDict || [];
+  const weekly = teamData.weeklyStats || [0,0,0,0,0,0,0];
+
+  // Stats
+  const totalCorrections = members.reduce((a,m) => a + (m.corrections || 0), 0);
+  const todayCorrections = members.reduce((a,m) => a + (m.todayCorrections || 0), 0);
+  document.getElementById('statMembers').textContent = members.filter(m => m.status === 'active').length;
+  document.getElementById('statTotal').textContent   = totalCorrections;
+  document.getElementById('statToday').textContent   = todayCorrections;
+  document.getElementById('statDict').textContent    = sharedDict.length;
+  document.getElementById('teamMemberCount').textContent = `${members.length} miembro${members.length !== 1 ? 's' : ''}`;
+
+  // Members table
+  const tbody = document.getElementById('membersTableBody');
+  if (!members.length) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--faint);padding:24px;">Aún no hay miembros. Invita a tu equipo.</td></tr>';
+  } else {
+    tbody.innerHTML = members.map((m, i) => `
+      <tr>
+        <td><div class="member-info">
+          <div class="member-avatar">${(m.name || m.email || 'U')[0].toUpperCase()}</div>
+          <div><div class="member-name">${m.name || 'Sin nombre'}</div>
+          <div class="member-email">${m.email || ''}</div></div>
+        </div></td>
+        <td><span class="role-badge ${m.role === 'admin' ? 'role-admin' : 'role-member'}">${m.role === 'admin' ? '⚙️ Admin' : '👤 Miembro'}</span></td>
+        <td><span class="status-dot ${m.status === 'active' ? 'dot-active' : 'dot-pending'}"></span>${m.status === 'active' ? 'Activo' : 'Pendiente'}</td>
+        <td>${m.corrections || 0}</td>
+        <td style="display:flex;gap:6px;">
+          ${m.uid !== currentUser.uid ? `<button class="action-btn danger" onclick="removeMember(${i})">Eliminar</button>` : '<span style="font-size:12px;color:var(--faint);">Tú</span>'}
+        </td>
+      </tr>`).join('');
+  }
+
+  // Shared dictionary
+  renderSharedDict(sharedDict);
+
+  // Report bars
+  renderReportBars(weekly);
+  // Per-member ranking
+  renderMemberRanking(members);
+  // Onboarding progress
+  updateOnboarding(members, sharedDict);
+  // Check ob5 from localStorage
+  if (localStorage.getItem('tildea-ob5-done')) {
+    const ob5 = document.getElementById('ob5');
+    const ob5c = document.getElementById('ob5check');
+    if (ob5) ob5.classList.add('done');
+    if (ob5c) ob5c.style.display = 'block';
+  }
+}
+
+function renderSharedDict(dict) {
+  const el = document.getElementById('sharedDictTags');
+  document.getElementById('sharedDictCount').textContent = `${dict.length} palabra${dict.length !== 1 ? 's' : ''}`;
+  if (!dict.length) {
+    el.innerHTML = '<span style="font-size:13px;color:var(--faint);font-style:italic;">Sin palabras aún — agrega términos técnicos de tu empresa</span>';
+    return;
+  }
+  el.innerHTML = dict.map(w => `
+    <div class="shared-tag">
+      ${w}
+      <button onclick="removeSharedWord('${w}')"><i class="bi bi-x"></i></button>
+    </div>`).join('');
+}
+
+function renderReportBars(weekly) {
+  const days = ['L','M','X','J','V','S','D'];
+  const today = (new Date().getDay() + 6) % 7;
+  const max = Math.max(...weekly, 1);
+  const barsEl = document.getElementById('reportBars');
+  const labelsEl = document.getElementById('reportLabels');
+  barsEl.innerHTML = weekly.map((v, i) => {
+    const h = Math.max((v/max)*70, v > 0 ? 8 : 0);
+    const isToday = i === today;
+    return `<div class="report-bar" style="height:${h}px;background:${isToday ? 'var(--blue)' : ''}" title="${days[i]}: ${v} correcciones"></div>`;
+  }).join('');
+  labelsEl.innerHTML = days.map(d => `<span>${d}</span>`).join('');
+}
+
+window.addSharedWord = async function() {
+  const input = document.getElementById('sharedDictInput');
+  const word = input.value.trim().toLowerCase();
+  if (!word || (teamData.sharedDict || []).includes(word)) { input.value = ''; return; }
+  teamData.sharedDict = [...(teamData.sharedDict || []), word];
+  await updateDoc(doc(db, 'teams', teamId), { sharedDict: arrayUnion(word) });
+  input.value = '';
+  renderSharedDict(teamData.sharedDict);
+  document.getElementById('statDict').textContent = teamData.sharedDict.length;
+};
+
+window.removeSharedWord = async function(word) {
+  teamData.sharedDict = (teamData.sharedDict || []).filter(w => w !== word);
+  await updateDoc(doc(db, 'teams', teamId), { sharedDict: arrayRemove(word) });
+  renderSharedDict(teamData.sharedDict);
+  document.getElementById('statDict').textContent = teamData.sharedDict.length;
+};
+
+window.removeMember = async function(idx) {
+  if (!confirm('¿Eliminar este miembro del equipo?')) return;
+  teamData.members.splice(idx, 1);
+  await updateDoc(doc(db, 'teams', teamId), { members: teamData.members });
+  renderDashboard({});
+};
+
+window.openInvite = function() {
+  document.getElementById('inviteModal').classList.add('open');
+};
+window.closeInvite = function() {
+  document.getElementById('inviteModal').classList.remove('open');
+};
+window.closeInviteOnBg = function(e) {
+  if (e.target === document.getElementById('inviteModal')) window.closeInvite();
+};
+
+window.sendInvite = async function() {
+  const name  = document.getElementById('inviteName').value.trim();
+  const email = document.getElementById('inviteEmail').value.trim();
+  const role  = document.getElementById('inviteRole').value;
+  if (!email) return;
+
+  const newMember = { name, email, role, status: 'pending', corrections: 0, invitedAt: new Date().toISOString() };
+  teamData.members = [...(teamData.members || []), newMember];
+  await updateDoc(doc(db, 'teams', teamId), { members: teamData.members });
+
+  window.closeInvite();
+  document.getElementById('inviteName').value = '';
+  document.getElementById('inviteEmail').value = '';
+  renderDashboard({});
+
+  // Open WhatsApp with invite message
+  const msg = encodeURIComponent(`Hola ${name || email},\n\nTe invito a unirte a Tildea como ${role === 'admin' ? 'administrador' : 'miembro'} de nuestro equipo.\n\nCrea tu cuenta aquí: https://tildea.vercel.app/register.html\n\nUna vez registrado, avísame para activar tu acceso Pro.\n\n— Enviado desde Tildea Equipos`);
+  window.open(`https://wa.me/?text=${msg}`, '_blank');
+};
+
+window.toggleSidebar = function() {
+  document.getElementById('teamSidebar').classList.toggle('open');
+};
+window.setActive = function(id) {
+  document.querySelectorAll('.sb-item').forEach(el => el.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) el.classList.add('active');
+};
+window.goTo = function(id) {
+  if (id === 'top') { window.scrollTo({top: 0, behavior: 'smooth'}); return; }
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+// Keep backward compat
+window.scrollTo = window.goTo;
+
+// ── Enhanced renderDashboard with per-member ranking ──
+function renderMemberRanking(members) {
+  const el = document.getElementById('memberRanking');
+  if (!el) return;
+  if (!members.length) {
+    el.innerHTML = '<div style="font-size:13px;color:var(--faint);text-align:center;padding:16px;">Sin datos aún — invita miembros para ver el ranking</div>';
+    return;
+  }
+  const sorted = [...members].sort((a,b) => (b.corrections||0) - (a.corrections||0));
+  const maxC = Math.max(...sorted.map(m => m.corrections||0), 1);
+  el.innerHTML = sorted.map((m, i) => {
+    const pct = Math.round(((m.corrections||0) / maxC) * 100);
+    const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i+1}.`;
+    return `<div class="report-member-row">
+      <div style="font-size:18px;min-width:28px;">${medal}</div>
+      <div class="member-avatar" style="width:32px;height:32px;font-size:12px;flex-shrink:0;">${(m.name||m.email||'U')[0].toUpperCase()}</div>
+      <div class="report-member-info">
+        <div class="report-member-name">${m.name || m.email || 'Miembro'}</div>
+        <div class="member-stats-bar"><div class="member-stats-fill" style="width:${pct}%"></div></div>
+      </div>
+      <div class="report-member-count">${m.corrections||0}</div>
+      <div class="report-member-pct">${pct}%</div>
+    </div>`;
+  }).join('');
+}
+
+// ── Check onboarding progress ──
+function updateOnboarding(members, sharedDict) {
+  const steps = [
+    true,                           // 1. Admin account — always done
+    true,                           // 2. Teams plan — always done if here
+    members.length > 1,             // 3. Invited members
+    sharedDict.length > 0,          // 4. Shared dict
+    false,                          // 5. Shared link (manually tracked)
+  ];
+  const done = steps.filter(Boolean).length;
+  const prog = document.getElementById('obProgress');
+  if (prog) prog.textContent = `${done}/5 completados`;
+  steps.forEach((isDone, i) => {
+    const step = document.getElementById(`ob${i+1}`);
+    const check = document.getElementById(`ob${i+1}check`);
+    if (step) step.classList.toggle('done', isDone);
+    if (check) check.style.display = isDone ? 'block' : 'none';
+  });
+}
+
+// ── Export CSV report ──
+window.exportReport = function() {
+  const members = teamData ? (teamData.members || []) : [];
+  const rows = [['Nombre', 'Email', 'Rol', 'Estado', 'Correcciones', 'Fecha ingreso']];
+  members.forEach(m => {
+    rows.push([
+      m.name || '',
+      m.email || '',
+      m.role || 'member',
+      m.status || 'pending',
+      m.corrections || 0,
+      m.invitedAt ? new Date(m.invitedAt).toLocaleDateString('es-CO') : '',
+    ]);
+  });
+  const csv = rows.map(r => r.map(v => `"${v}"`).join(',')).join('\n');
+  const blob = new Blob([csv], {type: 'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `tildea-reporte-equipo-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+};
+
+// ── Share team link ──
+window.shareTeamLink = function() {
+  const msg = encodeURIComponent('Hola! Te invito a usar Tildea, el corrector ortográfico que mejora tu escritura en WhatsApp, Gmail y más.\n\nDescárgalo gratis aquí: https://tildea.vercel.app/install.html');
+  window.open(`https://wa.me/?text=${msg}`, '_blank');
+  // Mark step 5 as done
+  const ob5 = document.getElementById('ob5');
+  const ob5c = document.getElementById('ob5check');
+  if (ob5) ob5.classList.add('done');
+  if (ob5c) ob5c.style.display = 'block';
+  localStorage.setItem('tildea-ob5-done', '1');
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Robots.txt — Tildea
+# https://tildea.vercel.app
+
+User-agent: *
+Allow: /
+
+# Páginas privadas — no indexar
+Disallow: /login.html
+Disallow: /register.html
+Disallow: /dashboard.html
+Disallow: /reportar.html
+Disallow: /novedades.html
+Disallow: /equipo.html
+Disallow: /payment-success.html
+Disallow: /payment-failure.html
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://tildea.vercel.app/sitemap.xml

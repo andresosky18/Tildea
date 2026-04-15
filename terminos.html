@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-80ZG9TKT50"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-80ZG9TKT50', {
+  page_title: document.title,
+  page_location: window.location.href,
+});
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Términos de Uso — Tildea</title>
+<meta name="description" content="Términos y condiciones del servicio Tildea. Reglas de uso, planes, cancelación y limitaciones de responsabilidad.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Tildea">
+<link rel="canonical" href="https://tildea.vercel.app/terminos.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tildea.vercel.app/terminos.html">
+<meta property="og:title" content="Términos de Uso de Tildea">
+<meta property="og:description" content="Las condiciones que rigen el uso de Tildea.">
+<meta property="og:image" content="https://tildea.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Tildea">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Términos de Uso de Tildea">
+<meta name="twitter:description" content="Las condiciones que rigen el uso de Tildea.">
+<meta name="twitter:image" content="https://tildea.vercel.app/og-image.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#2196F3;--blue-dark:#1565C0;--blue-light:#E3F2FD;--blue-mid:#BBDEFB;
+  --sky:#F0F8FF;--white:#fff;--text:#0D1B2A;--muted:#546E7A;--faint:#B0BEC5;
+  --border:#E1EEF8;--green:#00C896;--orange:#FF7043;
+  --bg:#FFFFFF;--bg-alt:#F0F8FF;--surface:#FFFFFF;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 16px rgba(33,150,243,.1);
+}
+[data-theme="dark"]{
+  --bg:#0F1724;--bg-alt:#161F2E;--surface:#1E2A3A;
+  --text:#E8F0FE;--muted:#8EA0B8;--faint:#4A607A;--border:#2A3A50;
+  --blue-light:#1A2E45;--sky:#161F2E;--white:#1E2A3A;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.25;}
+a{text-decoration:none;color:var(--blue);transition:opacity .15s;}
+a:hover{opacity:.75;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 max(5vw,24px);height:64px;display:flex;align-items:center;justify-content:space-between;transition:box-shadow .2s;}
+[data-theme="dark"] nav{background:rgba(15,23,36,.96);border-color:var(--border);}
+nav.scrolled{box-shadow:0 2px 24px rgba(33,150,243,.1);}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-links{display:flex;list-style:none;gap:4px;}
+.nav-links a{font-size:14px;font-weight:500;color:var(--muted);padding:7px 13px;border-radius:8px;transition:all .15s;}
+.nav-links a:hover{color:var(--text);background:var(--blue-light);}
+[data-theme="dark"] .nav-links a{color:var(--muted);}
+[data-theme="dark"] .nav-links a:hover{color:var(--text);}
+.nav-cta{display:flex;align-items:center;gap:8px;}
+.btn-ghost{font-size:14px;font-weight:600;color:var(--blue);padding:8px 16px;border-radius:9px;border:1.5px solid var(--blue-mid);transition:all .15s;}
+.btn-ghost:hover{background:var(--blue-light);}
+[data-theme="dark"] .btn-ghost{border-color:var(--border);color:var(--blue);}
+.btn-nav-primary{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;font-family:'Sora',sans-serif;color:white;background:var(--blue);padding:9px 18px;border-radius:10px;transition:all .15s;white-space:nowrap;}
+.btn-nav-primary:hover{background:var(--blue-dark);transform:translateY(-1px);}
+.btn-nav-primary i{font-size:13px;}
+.dark-toggle{width:36px;height:36px;border-radius:9px;background:var(--bg-alt);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--muted);transition:all .2s;}
+.dark-toggle:hover{color:var(--text);border-color:var(--blue);}
+.hamburger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;cursor:pointer;border:none;background:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .25s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px 20px;z-index:150;box-shadow:0 8px 32px rgba(0,0,0,.12);flex-direction:column;gap:4px;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{font-size:15px;font-weight:500;color:var(--muted);padding:11px 14px;border-radius:10px;transition:all .15s;display:block;}
+.mobile-nav a:hover{background:var(--blue-light);color:var(--blue);}
+.mn-divider{height:1px;background:var(--border);margin:8px 0;}
+.mn-cta{margin-top:4px;padding:12px;border-radius:11px;background:var(--blue);color:white!important;text-align:center;font-weight:700;font-size:14px;}
+[data-theme="dark"] .mobile-nav{background:var(--surface);border-color:var(--border);}
+@media(max-width:640px){.hamburger{display:flex!important;}.nav-links{display:none!important;}.nav-cta .btn-ghost,.nav-cta .btn-nav-primary{display:none;}}
+
+.legal-hero{padding:110px max(5vw,24px) 56px;background:linear-gradient(160deg,var(--bg-alt) 0%,var(--bg) 60%);text-align:center;border-bottom:1px solid var(--border);}
+[data-theme="dark"] .legal-hero{background:linear-gradient(160deg,#0D1922 0%,var(--bg) 60%);}
+.legal-eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px;box-shadow:var(--shadow-sm);}
+.legal-hero h1{font-size:clamp(28px,5vw,48px);font-weight:800;letter-spacing:-0.04em;color:var(--text);margin-bottom:14px;}
+.legal-hero p{font-size:16px;color:var(--muted);max-width:520px;margin:0 auto 20px;line-height:1.7;}
+.legal-meta{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--faint);}
+.legal-meta span{display:flex;align-items:center;gap:5px;}
+.legal-meta i{color:var(--blue);}
+
+.legal-layout{max-width:1100px;margin:0 auto;padding:60px max(5vw,24px) 80px;display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start;}
+@media(max-width:900px){.legal-layout{grid-template-columns:1fr;gap:32px;}}
+
+.toc{position:sticky;top:88px;}
+.toc-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:14px;}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:2px;}
+.toc-list a{font-size:13.5px;color:var(--muted);display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;transition:all .15s;border-left:2px solid transparent;}
+.toc-list a:hover{color:var(--blue);background:var(--blue-light);border-left-color:var(--blue);}
+.toc-list a.active{color:var(--blue);background:var(--blue-light);border-left-color:var(--blue);font-weight:600;}
+.toc-list a i{font-size:13px;flex-shrink:0;opacity:.6;}
+.toc-divider{height:1px;background:var(--border);margin:10px 0;}
+.toc-cta{margin-top:16px;padding:14px;background:var(--bg-alt);border-radius:12px;border:1px solid var(--border);text-align:center;}
+.toc-cta p{font-size:12.5px;color:var(--muted);line-height:1.5;margin-bottom:10px;}
+.toc-cta a{font-size:13px;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:5px;}
+@media(max-width:900px){.toc{position:static;display:none;}}
+
+.legal-content section{margin-bottom:52px;}
+.section-anchor{display:block;height:88px;margin-top:-88px;visibility:hidden;}
+.legal-content h2{font-size:22px;font-weight:800;letter-spacing:-0.02em;color:var(--text);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
+.legal-content h2 .s-icon{width:36px;height:36px;border-radius:10px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:16px;flex-shrink:0;}
+.legal-content h3{font-size:16px;font-weight:700;color:var(--text);margin:22px 0 10px;}
+.legal-content p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:14px;}
+.legal-content p:last-child{margin-bottom:0;}
+.legal-content ul,.legal-content ol{padding-left:0;list-style:none;margin-bottom:14px;}
+.legal-content li{font-size:15px;color:var(--muted);line-height:1.8;padding:6px 0 6px 24px;position:relative;}
+.legal-content li::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;background:var(--blue);opacity:.5;}
+.info-box{background:var(--blue-light);border:1px solid var(--blue-mid);border-radius:14px;padding:18px 20px;margin:18px 0;display:flex;gap:12px;}
+[data-theme="dark"] .info-box{background:var(--blue-light);border-color:var(--border);}
+.info-box i{font-size:20px;color:var(--blue);flex-shrink:0;margin-top:2px;}
+.info-box-text{font-size:14.5px;color:var(--muted);line-height:1.7;}
+.info-box-text strong{color:var(--text);font-weight:600;}
+.warn-box{background:#FFFBEB;border:1px solid #FDE68A;border-radius:14px;padding:18px 20px;margin:18px 0;display:flex;gap:12px;}
+[data-theme="dark"] .warn-box{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);}
+.warn-box i{font-size:20px;color:#D97706;flex-shrink:0;margin-top:2px;}
+.warn-box-text{font-size:14.5px;color:var(--muted);line-height:1.7;}
+.contact-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;}
+.contact-chip{display:flex;align-items:center;gap:9px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;font-size:14px;font-weight:500;color:var(--text);transition:all .15s;}
+.contact-chip:hover{border-color:var(--blue);box-shadow:var(--shadow-md);}
+.contact-chip i{font-size:18px;color:var(--blue);}
+footer{background:#0A1628;color:rgba(255,255,255,.45);padding:28px max(5vw,24px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;}
+.footer-links{display:flex;gap:20px;}
+footer a{color:rgba(255,255,255,.35);transition:color .15s;}
+footer a:hover{color:rgba(255,255,255,.7);}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">
+    <img loading="lazy" src="tildea_app_icon_minimalist.png" alt="Tildea" style="width:36px;height:36px;border-radius:10px;flex-shrink:0;">
+    <svg width="88" height="26" viewBox="0 0 88 26" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+      <text x="0" y="22" font-family="Sora,sans-serif" font-size="24" font-weight="800" fill="#2196F3" letter-spacing="-0.5">tildea</text>
+      <circle cx="15" cy="3.5" r="3.2" fill="#FF7043"/>
+    </svg>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="pricing.html">Precios</a></li>
+    <li><a href="ayuda.html">Ayuda</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="nav-cta">
+    <button class="dark-toggle" onclick="toggleDark()" title="Modo oscuro"><i class="bi bi-moon-fill"></i></button>
+    <a href="login.html" class="btn-ghost">Iniciar sesión</a>
+    <a href="register.html" class="btn-nav-primary"><i class="bi bi-lightning-charge-fill"></i>Empezar gratis</a>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Inicio</a>
+  <a href="pricing.html">Precios</a>
+  <a href="ayuda.html">Ayuda</a>
+  <a href="contacto.html">Contacto</a>
+  <div class="mn-divider"></div>
+  <a href="login.html">Iniciar sesión</a>
+  <a href="register.html" class="mn-cta">⚡ Empezar gratis</a>
+</div>
+
+<div class="legal-hero">
+  <div class="legal-eyebrow"><i class="bi bi-file-text-fill"></i>Legal</div>
+  <h1>Términos de Uso</h1>
+  <p>Las condiciones que rigen el uso de Tildea y los derechos y obligaciones de las partes.</p>
+  <div class="legal-meta">
+    <span><i class="bi bi-calendar3"></i>Última actualización: 1 de enero de 2025</span>
+    <span><i class="bi bi-geo-alt-fill"></i>Colombia</span>
+    <span><i class="bi bi-translate"></i>Español</span>
+  </div>
+</div>
+
+<div class="legal-layout">
+  <aside class="toc">
+    <div class="toc-title">Contenido</div>
+    <ul class="toc-list">
+      <li><a href="#aceptacion" class="active"><i class="bi bi-check-circle"></i>Aceptación</a></li>
+      <li><a href="#servicio"><i class="bi bi-app"></i>El servicio</a></li>
+      <li><a href="#cuentas"><i class="bi bi-person-circle"></i>Cuentas de usuario</a></li>
+      <li><a href="#planes"><i class="bi bi-credit-card"></i>Planes y pagos</a></li>
+      <li><a href="#conducta"><i class="bi bi-shield-check"></i>Uso permitido</a></li>
+      <li><a href="#propiedad"><i class="bi bi-c-circle"></i>Propiedad intelectual</a></li>
+      <li><a href="#disponibilidad"><i class="bi bi-wifi"></i>Disponibilidad</a></li>
+      <li><a href="#responsabilidad"><i class="bi bi-exclamation-triangle"></i>Limitación de responsabilidad</a></li>
+      <li><a href="#terminacion"><i class="bi bi-x-circle"></i>Terminación</a></li>
+      <li><a href="#ley"><i class="bi bi-bank"></i>Ley aplicable</a></li>
+      <li><a href="#contacto-t"><i class="bi bi-envelope"></i>Contacto</a></li>
+    </ul>
+    <div class="toc-divider"></div>
+    <div class="toc-cta">
+      <p>¿También quieres ver la Política de Privacidad?</p>
+      <a href="privacidad.html"><i class="bi bi-shield-check"></i>Ver Privacidad</a>
+    </div>
+  </aside>
+
+  <main class="legal-content">
+
+    <section>
+      <span class="section-anchor" id="aceptacion"></span>
+      <h2><div class="s-icon"><i class="bi bi-check-circle-fill"></i></div>1. Aceptación de los Términos</h2>
+      <p>Al acceder o usar el servicio de <strong>Tildea</strong> (el "Servicio"), incluyendo el sitio web <strong>tildea.vercel.app</strong> y la extensión de Chrome, aceptas quedar vinculado por estos Términos de Uso ("Términos").</p>
+      <p>Si no estás de acuerdo con alguna parte de estos Términos, no debes usar el Servicio. El uso continuado del Servicio después de cualquier modificación a estos Términos constituye tu aceptación de los Términos modificados.</p>
+      <div class="info-box">
+        <i class="bi bi-lightbulb-fill"></i>
+        <div class="info-box-text"><strong>En resumen:</strong> Al usar Tildea aceptas estas reglas. Son simples y justas — básicamente: úsalo para corregir texto, no hagas cosas malas con él.</div>
+      </div>
+    </section>
+
+    <section>
+      <span class="section-anchor" id="servicio"></span>
+      <h2><div class="s-icon"><i class="bi bi-app-indicator"></i></div>2. El Servicio</h2>
+      <p>Tildea es un corrector ortográfico y gramatical para español e inglés que funciona como:</p>
+      <ul>
+        <li>Extensión de Chrome que detecta errores mientras escribes en cualquier sitio web</li>
+        <li>Corrector online accesible desde tildea.vercel.app</li>
+        <li>Dashboard personal para ver estadísticas y gestionar tu diccionario</li>
+      </ul>
+      <p>Tildea utiliza la API pública de LanguageTool y su propio diccionario offline para la corrección de textos. El Servicio se proporciona "tal cual" y podemos modificarlo en cualquier momento.</p>
+
+      <h3>Planes disponibles</h3>
+      <ul>
+        <li><strong>Plan Gratis:</strong> Corrección básica, diccionario personal hasta 50 palabras, estadísticas básicas, modo offline</li>
+        <li><strong>Plan Pro:</strong> Todas las funciones del plan Gratis más corrección gramatical avanzada, diccionario ilimitado, soporte prioritario</li>
+      </ul>
+    </section>
+
+    <section>
+      <span class="section-anchor" id="cuentas"></span>
+      <h2><div class="s-icon"><i class="bi bi-person-circle"></i></div>3. Cuentas de usuario</h2>
+      <h3>3.1 Registro</h3>
+      <p>Para acceder a algunas funciones debes crear una cuenta. Al hacerlo te comprometes a:</p>
+      <ul>
+        <li>Proporcionar información verdadera, precisa y completa</li>
+        <li>Mantener actualizada tu información de cuenta</li>
+        <li>Mantener la confidencialidad de tu contraseña</li>
+        <li>Notificarnos inmediatamente ante cualquier uso no autorizado de tu cuenta</li>
+      </ul>
+      <h3>3.2 Una cuenta por persona</h3>
+      <p>Cada persona puede tener una sola cuenta en Tildea. No está permitido crear cuentas en nombre de otras personas sin su consentimiento.</p>
+      <h3>3.3 Responsabilidad de la cuenta</h3>
+      <p>Eres responsable de toda la actividad que ocurra bajo tu cuenta. Tildea no será responsable de ninguna pérdida o daño derivado del acceso no autorizado a tu cuenta.</p>
+    </section>
+
+    <section>
+      <span class="section-anchor" id="planes"></span>
+      <h2><div class="s-icon"><i class="bi bi-credit-card-fill"></i></div>4. Planes y pagos</h2>
+      <h3>4.1 Plan Gratis</h3>
+      <p>El Plan Gratis es permanentemente gratuito y no requiere tarjeta de crédito. Incluye las funciones básicas del corrector.</p>
+      <h3>4.2 Plan Pro</h3>
+      <p>El Plan Pro tiene un costo de <strong>$3 USD/mes</strong>. El pago se realiza de forma manual a través de WhatsApp o correo electrónico. Contacta con nosotros para activar el plan.</p>
+      <h3>4.3 Cancelación</h3>
+      <p>Puedes cancelar el Plan Pro en cualquier momento. Al cancelar, tu cuenta pasará al Plan Gratis al final del período de facturación actual. No hacemos reembolsos prorrateados por el período restante.</p>
+      <h3>4.4 Cambios de precio</h3>
+      <p>Nos reservamos el derecho de modificar los precios con al menos 30 días de aviso previo por correo electrónico.</p>
+      <div class="warn-box">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <div class="warn-box-text">Actualmente los pagos se procesan de forma manual. No almacenamos datos de tarjetas de crédito. Todos los pagos se coordinan directamente con el equipo de Tildea.</div>
+      </div>
+    </section>
+
+    <section>
+      <span class="section-anchor" id="conducta"></span>
+      <h2><div class="s-icon"><i class="bi bi-shield-check-fill"></i></div>5. Uso permitido y prohibiciones</h2>
+      <h3>5.1 Uso permitido</h3>
+      <p>Puedes usar Tildea para corregir textos propios en contextos personales, educativos y profesionales. Eso es exactamente para lo que fue diseñado.</p>
+      <h3>5.2 Usos prohibidos</h3>
+      <p>Está estrictamente prohibido:</p>
+      <ul>
+        <li>Intentar hackear, hacer ingeniería inversa o comprometer la seguridad del Servicio</li>
+        <li>Usar el Servicio para enviar spam, phishing o contenido malicioso</li>
+        <li>Crear scripts o bots que realicen solicitudes automatizadas masivas</li>
+        <li>Intentar eludir los límites del plan gratuito mediante múltiples cuentas</li>
+        <li>Revender o sublicenciar el acceso al Servicio sin autorización escrita</li>
+        <li>Usar el Servicio de formas que violen leyes aplicables en Colombia o cualquier otra jurisdicción</li>
+      </ul>
+      <p>El incumplimiento de estas prohibiciones puede resultar en la suspensión o eliminación inmediata de tu cuenta.</p>
+    </section>
+
+    <section>
+      <span class="section-anchor" id="propiedad"></span>
+      <h2><div class="s-icon"><i class="bi bi-c-circle-fill"></i></div>6. Propiedad intelectual</h2>
+      <h3>6.1 Propiedad de Tildea</h3>
+      <p>El Servicio, incluyendo su código fuente, diseño, logotipos, textos y funcionalidades, es propiedad exclusiva de Tildea y está protegido por las leyes de propiedad intelectual de Colombia e internacionales.</p>
+      <h3>6.2 Tu contenido</h3>
+      <p>El texto que introduces en el corrector es tuyo. No reclamamos ningún derecho sobre el contenido que corriges. Como se explica en nuestra Política de Privacidad, el contenido de tus textos no se almacena en nuestros servidores.</p>
+      <h3>6.3 Licencia de uso</h3>
+      <p>Te otorgamos una licencia limitada, no exclusiva, no transferible y revocable para usar el Servicio de acuerdo con estos Términos. Esta licencia no incluye el derecho a copiar, modificar, distribuir o crear trabajos derivados del Servicio.</p>
+    </section>
+
+    <section>
+      <span class="section-anchor" id="disponibilidad"></span>
+      <h2><div class="s-icon"><i class="bi bi-wifi"></i></div>7. Disponibilidad del servicio</h2>
+      <p>Nos esforzamos por mantener Tildea disponible 24/7, pero no garantizamos una disponibilidad ininterrumpida. El Servicio puede estar no disponible temporalmente debido a:</p>
+      <ul>
+        <li>Mantenimiento programado (notificado con antelación cuando sea posible)</li>
+        <li>Fallos técnicos imprevistos</li>
+        <li>Interrupciones en servicios de terceros (Firebase, Vercel, LanguageTool)</li>
+        <li>Circunstancias fuera de nuestro control (fuerza mayor)</li>
+      </ul>
+      <p>El modo offline de la extensión funciona sin conexión a internet para la corrección básica.</p>
+    </section>
+
+    <section>
+      <span class="section-anchor" id="responsabilidad"></span>
+      <h2><div class="s-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>8. Limitación de responsabilidad</h2>
+      <p>En la máxima medida permitida por la ley aplicable, Tildea no será responsable por:</p>
+      <ul>
+        <li>Errores u omisiones en las correcciones realizadas por el Servicio</li>
+        <li>Daños indirectos, incidentales, especiales o consecuentes</li>
+        <li>Pérdida de datos, ingresos o beneficios derivados del uso del Servicio</li>
+        <li>El contenido de sitios web de terceros accesibles a través del Servicio</li>
+      </ul>
+      <div class="warn-box">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <div class="warn-box-text"><strong>Importante:</strong> Tildea es una herramienta de ayuda, no un sustituto de la revisión humana. Siempre revisa textos importantes antes de enviarlos. No somos responsables por errores que el corrector no haya detectado.</div>
+      </div>
+      <p>La responsabilidad máxima total de Tildea hacia ti por cualquier reclamación no excederá el monto que hayas pagado por el Servicio en los últimos 12 meses, o $10 USD si no has realizado ningún pago.</p>
+    </section>
+
+    <section>
+      <span class="section-anchor" id="terminacion"></span>
+      <h2><div class="s-icon"><i class="bi bi-x-circle-fill"></i></div>9. Terminación</h2>
+      <h3>9.1 Por tu parte</h3>
+      <p>Puedes eliminar tu cuenta en cualquier momento desde el dashboard o contactándonos. La eliminación es inmediata e irreversible.</p>
+      <h3>9.2 Por nuestra parte</h3>
+      <p>Podemos suspender o terminar tu acceso al Servicio si:</p>
+      <ul>
+        <li>Violas estos Términos de Uso</li>
+        <li>Tu uso del Servicio causa daño a otros usuarios o al propio Servicio</li>
+        <li>Así lo requiere una obligación legal</li>
+      </ul>
+      <p>En caso de terminación sin causa justificada de cuentas Pro, realizaremos el reembolso proporcional del período restante.</p>
+      <h3>9.3 Efectos de la terminación</h3>
+      <p>Al terminar la cuenta, tu derecho de uso del Servicio cesa inmediatamente. Los datos de tu cuenta serán eliminados de forma permanente en un plazo de 30 días, salvo obligación legal de retención.</p>
+    </section>
+
+    <section>
+      <span class="section-anchor" id="ley"></span>
+      <h2><div class="s-icon"><i class="bi bi-bank2"></i></div>10. Ley aplicable y resolución de disputas</h2>
+      <p>Estos Términos se rigen por las leyes de la <strong>República de Colombia</strong>. Cualquier disputa derivada de o relacionada con estos Términos se resolverá en los tribunales competentes de <strong>Bogotá, Colombia</strong>.</p>
+      <p>Antes de iniciar cualquier proceso legal, te pedimos que nos contactes para intentar resolver la disputa de manera amistosa. La mayoría de los problemas se pueden resolver con una simple conversación.</p>
+    </section>
+
+    <section>
+      <span class="section-anchor" id="contacto-t"></span>
+      <h2><div class="s-icon"><i class="bi bi-envelope-fill"></i></div>11. Contacto</h2>
+      <p>Para cualquier pregunta sobre estos Términos de Uso, puedes contactarnos por:</p>
+      <div class="contact-row">
+        andrefelipe303@hotmail.com
+        <a href="https://wa.me/573142595669" target="_blank" class="contact-chip">
+          <i class="bi bi-whatsapp" style="color:#25D366"></i>
+          +57 314 259 5669
+        </a>
+      </div>
+      <p style="margin-top:20px;">Empresa responsable: <strong>Tildea</strong> · Bogotá, Colombia · Operado por Andrés Aragón</p>
+    </section>
+
+    <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <div style="font-family:'Sora',sans-serif;font-weight:700;font-size:16px;color:var(--text);margin-bottom:4px;">¿También quieres ver la Política de Privacidad?</div>
+        <div style="font-size:14px;color:var(--muted);">Cómo protegemos y usamos tu información personal.</div>
+      </div>
+      <a href="privacidad.html" style="display:inline-flex;align-items:center;gap:7px;background:var(--blue);color:white;padding:10px 20px;border-radius:10px;font-weight:700;font-size:14px;font-family:'Sora',sans-serif;white-space:nowrap;transition:all .15s;">
+        <i class="bi bi-shield-check-fill"></i>Ver Política de Privacidad
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <span>© 2025 Tildea · Bogotá, Colombia</span>
+  <div class="footer-links">
+    <a href="index.html">Inicio</a>
+    <a href="privacidad.html">Privacidad</a>
+    <a href="terminos.html" style="color:rgba(255,255,255,.7);font-weight:600;">Términos</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+</footer>
+
+<script src="tildea-shared.js"></script>
+<script>
+const sections = document.querySelectorAll('.section-anchor');
+const tocLinks = document.querySelectorAll('.toc-list a');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isInte
+</body>
+</html>

@@ -1,0 +1,155 @@
+/* ═══════════════════════════════════════════════════
+   TILDEA — Design System Compartido
+   Incluye: dark mode, responsive, animaciones globales
+   Importar en todos los HTML: <link rel="stylesheet" href="tildea.css">
+════════════════════════════════════════════════════ */
+
+/* ── Variables: Light Mode ── */
+:root {
+  --blue:#2196F3; --blue-dark:#1565C0; --blue-light:#E3F2FD; --blue-mid:#BBDEFB;
+  --sky:#F0F8FF; --white:#FFFFFF; --text:#0D1B2A; --muted:#546E7A;
+  --faint:#B0BEC5; --border:#E1EEF8; --green:#00C896; --orange:#FF7043;
+  --purple:#7C3AED; --pink:#EC4899;
+  --bg:#FFFFFF; --bg-alt:#F0F8FF; --surface:#FFFFFF;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);
+  --shadow-md:0 4px 16px rgba(33,150,243,.1);
+  --shadow-lg:0 12px 40px rgba(33,150,243,.15);
+  --r:14px; --r-lg:22px;
+}
+
+/* ── Variables: Dark Mode ── */
+[data-theme="dark"] {
+  --bg:#0F1724; --bg-alt:#161F2E; --surface:#1E2A3A;
+  --white:#1E2A3A; --sky:#161F2E;
+  --text:#E8F0FE; --muted:#8EA0B8; --faint:#4A607A; --border:#2A3A50;
+  --blue-light:#1A2E45; --blue-mid:#1E3A5A;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.3);
+  --shadow-md:0 4px 16px rgba(0,0,0,.3);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.4);
+}
+
+/* ── Dark mode toggle button ── */
+.dark-toggle {
+  width:38px; height:38px; border-radius:10px;
+  background:var(--bg-alt); border:1.5px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; font-size:17px; color:var(--muted);
+  transition:all .2s; flex-shrink:0;
+}
+.dark-toggle:hover { color:var(--text); border-color:var(--blue); background:var(--blue-light); }
+
+/* ── Mobile hamburger ── */
+.hamburger {
+  display:none; flex-direction:column; gap:5px;
+  width:36px; height:36px; align-items:center; justify-content:center;
+  cursor:pointer; border:none; background:none; padding:4px;
+}
+.hamburger span {
+  display:block; width:22px; height:2px;
+  background:var(--text); border-radius:2px;
+  transition:all .25s ease;
+}
+.hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+.hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav drawer */
+.mobile-nav {
+  display:none; position:fixed; top:64px; left:0; right:0;
+  background:var(--surface); border-bottom:1px solid var(--border);
+  padding:16px 24px 20px; z-index:150;
+  box-shadow:0 8px 32px rgba(0,0,0,.12);
+  flex-direction:column; gap:4px;
+}
+.mobile-nav.open { display:flex; }
+.mobile-nav a {
+  font-size:15px; font-weight:500; color:var(--muted);
+  padding:11px 14px; border-radius:10px;
+  transition:all .15s; text-decoration:none; display:block;
+}
+.mobile-nav a:hover { background:var(--blue-light); color:var(--blue); }
+.mobile-nav .mn-divider { height:1px; background:var(--border); margin:8px 0; }
+.mobile-nav .mn-cta {
+  margin-top:4px; padding:12px; border-radius:11px;
+  background:var(--blue); color:white; text-align:center;
+  font-weight:700; font-family:'Sora',sans-serif; font-size:14px;
+}
+
+/* ── Reveal animations ── */
+.reveal { opacity:0; transform:translateY(32px); transition:opacity .65s ease,transform .65s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-d1 { transition-delay:.1s; }
+.reveal-d2 { transition-delay:.2s; }
+.reveal-d3 { transition-delay:.3s; }
+
+/* ── Onboarding tooltip ── */
+.onboard-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,.55);
+  z-index:10000; display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .3s;
+}
+.onboard-overlay.show { opacity:1; pointer-events:auto; }
+.onboard-modal {
+  background:var(--surface); border-radius:24px; padding:36px 32px;
+  max-width:480px; width:92%; position:relative;
+  box-shadow:0 24px 80px rgba(0,0,0,.3);
+  transform:translateY(16px) scale(.97);
+  transition:transform .3s ease;
+}
+.onboard-overlay.show .onboard-modal { transform:translateY(0) scale(1); }
+.onboard-step-indicator { display:flex; gap:6px; margin-bottom:24px; }
+.step-dot { width:8px; height:8px; border-radius:50%; background:var(--border); transition:all .3s; }
+.step-dot.active { background:var(--blue); width:24px; border-radius:4px; }
+.step-dot.done { background:var(--green); }
+.onboard-icon { width:64px; height:64px; border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:20px; }
+.onboard-modal h2 { font-family:'Sora',sans-serif; font-size:22px; font-weight:800; color:var(--text); margin-bottom:10px; }
+.onboard-modal p { font-size:15px; color:var(--muted); line-height:1.7; margin-bottom:24px; }
+.onboard-actions { display:flex; gap:12px; align-items:center; }
+.btn-onboard-next { flex:1; padding:12px; border-radius:12px; background:var(--blue); color:white; border:none; font-size:15px; font-weight:700; font-family:'Sora',sans-serif; cursor:pointer; transition:all .15s; }
+.btn-onboard-next:hover { background:var(--blue-dark); transform:translateY(-1px); }
+.btn-onboard-skip { font-size:13px; color:var(--faint); cursor:pointer; background:none; border:none; font-family:inherit; transition:color .15s; }
+.btn-onboard-skip:hover { color:var(--muted); }
+
+/* ── Toast notifications ── */
+#toastContainer {
+  position:fixed; bottom:24px; right:24px;
+  display:flex; flex-direction:column; gap:10px;
+  z-index:9000; pointer-events:none;
+}
+.toast {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:14px; padding:13px 16px;
+  display:flex; align-items:center; gap:10px;
+  box-shadow:0 8px 32px rgba(0,0,0,.15);
+  font-size:14px; font-weight:500; color:var(--text);
+  pointer-events:auto; min-width:260px; max-width:340px;
+  transform:translateX(120%); transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.toast.show { transform:translateX(0); }
+.toast.hiding { transform:translateX(120%); }
+.toast-icon { font-size:18px; flex-shrink:0; }
+.toast-success { border-left:3px solid var(--green); }
+.toast-error   { border-left:3px solid #EF5350; }
+.toast-info    { border-left:3px solid var(--blue); }
+.toast-close { margin-left:auto; background:none; border:none; color:var(--faint); cursor:pointer; font-size:16px; padding:0; display:flex; align-items:center; }
+
+/* ── Streak animation (dashboard) ── */
+@keyframes flame-flicker {
+  0%,100% { transform:scaleY(1) rotate(-2deg); }
+  25%      { transform:scaleY(1.08) rotate(2deg); }
+  50%      { transform:scaleY(.95) rotate(-1deg); }
+  75%      { transform:scaleY(1.05) rotate(1.5deg); }
+}
+.streak-flame { display:inline-block; animation:flame-flicker 1.4s ease-in-out infinite; transform-origin:bottom center; }
+
+@keyframes count-up { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+.count-anim { animation:count-up .5s ease both; }
+
+/* ── Progress ring ── */
+.progress-ring { transform:rotate(-90deg); }
+.progress-ring-circle { transition:stroke-dashoffset .6s ease; }
+
+/* ── Responsive global ── */
+@media(max-width:640px) {
+  .hamburger { display:flex; }
+}
