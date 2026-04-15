@@ -4,6 +4,9 @@
 # Claude Code (configuración local)
 .claude/
 
+# Firebase config con credenciales reales (NO subir)
+firebase-config.js
+
 # Variables de entorno (NUNCA subir al repo)
 .env
 .env.local

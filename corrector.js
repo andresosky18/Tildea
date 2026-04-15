@@ -35,14 +35,7 @@ async function loadUserPlan() {
     const { initializeApp, getApps } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
     const { getAuth, onAuthStateChanged } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js");
     const { getFirestore, doc, getDoc } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
-    const cfg = {
-      apiKey:"AIzaSyAuYd7g-d9j-xDdy7--bj4j5g550b36a14",
-      authDomain:"tildea-47a04.firebaseapp.com",
-      projectId:"tildea-47a04",
-      storageBucket:"tildea-47a04.firebasestorage.app",
-      messagingSenderId:"653195240806",
-      appId:"1:653195240806:web:94f09a861cbdbd782394a7"
-    };
+    const cfg = window.FIREBASE_CONFIG;
     const app  = getApps().length ? getApps()[0] : initializeApp(cfg);
     const auth = getAuth(app);
     const db   = getFirestore(app);

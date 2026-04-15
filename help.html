@@ -151,10 +151,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 
 <div class="footer-bar">© 2025 Tildea · <a href="index.html" style="color:var(--blue);">Inicio</a> · <a href="contact.html" style="color:var(--blue);">Contacto</a></div>
 
+<script src="firebase-config.js"></script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-const firebaseConfig = { apiKey:"AIzaSyAuYd7g-d9j-xDdy7--bj4j5g550b36a14",authDomain:"tildea-47a04.firebaseapp.com",projectId:"tildea-47a04",storageBucket:"tildea-47a04.firebasestorage.app",messagingSenderId:"653195240806",appId:"1:653195240806:web:94f09a861cbdbd782394a7" };
+const firebaseConfig = window.FIREBASE_CONFIG;
 const auth = getAuth(initializeApp(firebaseConfig));
 onAuthStateChanged(auth, user => {
   const el = document.getElementById('user-area'); if(!el) return;
